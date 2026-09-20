@@ -12,3 +12,5 @@ playwright-report/
 .worktrees/
 .superpowers/
 .migration/
+.vercel/
+.deployment/
