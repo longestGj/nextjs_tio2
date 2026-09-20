@@ -37,7 +37,21 @@ test("Vercel production deployment is gated by tests on main", async () => {
   assert.doesNotMatch(workflow, /vercel\s+git\s+connect/i);
 
   const deployStep = deployJob.indexOf("vercel@54.18.7 deploy");
+  const buildStep = deployJob.indexOf("vercel@54.18.7 build");
+  const prepareStep = deployJob.indexOf("node scripts/prepare-vercel-output.mjs");
   const smokeStep = deployJob.indexOf("node scripts/verify-deployment.mjs");
   assert.ok(deployStep >= 0, "production deploy command must exist");
+  assert.ok(
+    prepareStep > buildStep && prepareStep < deployStep,
+    "static directory routes must be prepared after build and before deploy",
+  );
   assert.ok(smokeStep > deployStep, "smoke verification must run after deploy");
+  assert.match(
+    deployJob,
+    /PUBLIC_URL:\s*https:\/\/tio2-malaysia\.vercel\.app/,
+  );
+  assert.match(
+    deployJob,
+    /node scripts\/verify-deployment\.mjs "\$PUBLIC_URL"/,
+  );
 });
