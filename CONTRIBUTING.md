@@ -8,11 +8,13 @@
 
 新功能/修复/文档从最新本地 develop 创建 codex/ 分支；完成后合回本地 develop。功能分支和 develop 不常规推送。main 是发布指针，不能直接开发，也不从功能分支直接合入。
 
-集成验证执行 npm run typecheck、npm run build、npm test；任何代码组合变化都需验证实际候选。失败时保持 main 不变，从 develop 建修复分支。每个独立且通过验证的工作项一个 commit，检查 git diff、git diff --cached 和 git diff --cached --check。
+普通集成验证执行 `npm ci`、`npm run typecheck`、`npm run build`、`npm test`；任何代码组合变化都需验证实际候选。涉及 Vercel 工作流、构建配置或发布脚本时，在具备对应项目配置且已获授权的环境中另使用工作流锁定的 Vercel CLI 版本执行 `pull --yes --environment=production`、`build --prod` 和 `node scripts/prepare-vercel-output.mjs`，核对生成路由与制品，并确认 `.vercel` 未被纳入版本控制；无法执行的项目明确标为未测试。失败时保持 main 不变，从 develop 建修复分支。每个独立且通过验证的工作项一个 commit，检查 git diff、git diff --cached 和 git diff --cached --check。
 
 初始化例外：首次 develop 仅提交治理文件，main 从此建立起点；应用仍通过功能分支导入与集成。`origin` 是 `https://github.com/longestGj/nextjs_tio2.git`，仅 `main` 是常规推送目标。
 
-远端 `main` 的 push 触发 GitHub Actions：先对该 SHA 执行锁定依赖安装、类型检查、静态构建和完整测试；只有 test job 成功，deploy job 才能用固定版本 Vercel CLI 发布同一 SHA。静态导出的目录索引路由在上传前从实际 Vercel output 自动生成；发布后对公开项目默认域名 `https://tio2-malaysia.vercel.app` 执行生产烟雾检查。单次 deployment URL 在 Vercel Standard Protection 下可能要求团队登录，只作为不可变发布回执。GitHub Actions 是唯一自动发布入口，不连接 Vercel Git integration。所需配置为 variables `VERCEL_ORG_ID`、`VERCEL_PROJECT_ID` 和专用 secret `VERCEL_TOKEN`，秘密不得出现在提交、日志或聊天中。
+远端 `main` 的 push 触发 GitHub Actions：先对该 SHA 执行锁定依赖安装、类型检查、静态构建和完整测试；只有 test job 成功，deploy job 才能用固定版本 Vercel CLI 发布同一 SHA。静态导出的目录索引路由在上传前从实际 Vercel output 自动生成；发布后对公开项目默认域名 `https://tio2-malaysia.vercel.app` 执行生产烟雾检查。远端工作流成功且公开域名烟雾检查通过，才可把该 SHA 记为发布完成；push 本身不是发布完成。单次 deployment URL 在 Vercel Standard Protection 下可能要求团队登录，只作为不可变发布回执。GitHub Actions 是唯一自动发布入口，不连接 Vercel Git integration。所需配置为 variables `VERCEL_ORG_ID`、`VERCEL_PROJECT_ID` 和专用 secret `VERCEL_TOKEN`，秘密不得出现在提交、日志或聊天中。
+
+若远端 `main` 已更新但流水线失败，保留失败提交和运行记录，不强推、不回退或重写共享历史。以本地 `develop` 为起点建立 `codex/` 修复分支，修复后合回 `develop` 并重新完成集成验证；再将本地 `main` 快进到新的通过候选并正常推送，由新 SHA 触发完整流水线。远端 `main` 当前未配置平台分支保护，操作纪律仍需人工遵守；如启用 GitHub Ruleset，应阻止强推和删除，同时不得强制与本地集成流程冲突的远端 PR。
 
 当前发布授权只覆盖既有 `tio2-malaysia` 项目的 `*.vercel.app` 默认域名。自定义域名、DNS、OCI 与旧 WordPress 环境均不在该流程范围内；增加这些目标必须另行设计、授权和验证。
 
