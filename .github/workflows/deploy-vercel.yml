@@ -74,6 +74,8 @@ jobs:
         run: npx --yes vercel@54.18.7 pull --yes --environment=production --token="$VERCEL_TOKEN"
       - name: Build production deployment
         run: npx --yes vercel@54.18.7 build --prod --token="$VERCEL_TOKEN"
+      - name: Add static directory routes
+        run: node scripts/prepare-vercel-output.mjs
       - name: Deploy prebuilt output
         id: production
         shell: bash
@@ -86,5 +88,5 @@ jobs:
           printf 'url=%s\n' "$deployment_url" >> "$GITHUB_OUTPUT"
       - name: Smoke-test production URL
         env:
-          DEPLOYMENT_URL: ${{ steps.production.outputs.url }}
-        run: node scripts/verify-deployment.mjs "$DEPLOYMENT_URL"
+          PUBLIC_URL: https://tio2-malaysia.vercel.app
+        run: node scripts/verify-deployment.mjs "$PUBLIC_URL"

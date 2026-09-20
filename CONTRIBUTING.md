@@ -12,7 +12,7 @@
 
 初始化例外：首次 develop 仅提交治理文件，main 从此建立起点；应用仍通过功能分支导入与集成。`origin` 是 `https://github.com/longestGj/nextjs_tio2.git`，仅 `main` 是常规推送目标。
 
-远端 `main` 的 push 触发 GitHub Actions：先对该 SHA 执行锁定依赖安装、类型检查、静态构建和完整测试；只有 test job 成功，deploy job 才能用固定版本 Vercel CLI 发布同一 SHA，并对返回的默认域名执行生产烟雾检查。GitHub Actions 是唯一自动发布入口，不连接 Vercel Git integration。所需配置为 variables `VERCEL_ORG_ID`、`VERCEL_PROJECT_ID` 和专用 secret `VERCEL_TOKEN`，秘密不得出现在提交、日志或聊天中。
+远端 `main` 的 push 触发 GitHub Actions：先对该 SHA 执行锁定依赖安装、类型检查、静态构建和完整测试；只有 test job 成功，deploy job 才能用固定版本 Vercel CLI 发布同一 SHA。静态导出的目录索引路由在上传前从实际 Vercel output 自动生成；发布后对公开项目默认域名 `https://tio2-malaysia.vercel.app` 执行生产烟雾检查。单次 deployment URL 在 Vercel Standard Protection 下可能要求团队登录，只作为不可变发布回执。GitHub Actions 是唯一自动发布入口，不连接 Vercel Git integration。所需配置为 variables `VERCEL_ORG_ID`、`VERCEL_PROJECT_ID` 和专用 secret `VERCEL_TOKEN`，秘密不得出现在提交、日志或聊天中。
 
 当前发布授权只覆盖既有 `tio2-malaysia` 项目的 `*.vercel.app` 默认域名。自定义域名、DNS、OCI 与旧 WordPress 环境均不在该流程范围内；增加这些目标必须另行设计、授权和验证。
 

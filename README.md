@@ -39,7 +39,7 @@ This is an independent repository at `D:/32NextJS`, imported from the accepted s
 
 ## Deployment
 
-A push to remote `main` starts `.github/workflows/deploy-vercel.yml`. The workflow tests that exact commit before its deploy job can build and publish it to the existing `tio2-malaysia` Vercel project. The returned `*.vercel.app` URL is then checked against the three-page route, metadata, heading and `_next` asset contract.
+A push to remote `main` starts `.github/workflows/deploy-vercel.yml`. The workflow tests that exact commit before its deploy job can build and publish it to the existing `tio2-malaysia` Vercel project. Because this is a Next.js static export, the deploy job adds directory-index routes from the generated Vercel output before upload. It then checks the public project URL `https://tio2-malaysia.vercel.app` against the three-page route, metadata, heading and `_next` asset contract. Vercel's unique deployment URL remains available as the immutable deployment receipt but may require team authentication under Standard Protection.
 
 The repository must define GitHub variables `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`, plus the dedicated Actions secret `VERCEL_TOKEN`. Vercel Git auto-deployment is deliberately not connected, so GitHub Actions remains the only automatic publishing path. This phase uses only Vercel's default domain; no custom domain, DNS, OCI or WordPress change is part of the deployment.
 
