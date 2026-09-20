@@ -10,7 +10,11 @@
 
 集成验证执行 npm run typecheck、npm run build、npm test；任何代码组合变化都需验证实际候选。失败时保持 main 不变，从 develop 建修复分支。每个独立且通过验证的工作项一个 commit，检查 git diff、git diff --cached 和 git diff --cached --check。
 
-初始化例外：首次 develop 仅提交治理文件，main 从此建立起点；应用仍通过功能分支导入与集成。`origin` 是 `https://github.com/longestGj/nextjs_tio2.git`，仅 `main` 是常规推送目标；当前没有自动部署。未来部署配置须单独授权、验证，不把流程说明当作已生效能力。
+初始化例外：首次 develop 仅提交治理文件，main 从此建立起点；应用仍通过功能分支导入与集成。`origin` 是 `https://github.com/longestGj/nextjs_tio2.git`，仅 `main` 是常规推送目标。
+
+远端 `main` 的 push 触发 GitHub Actions：先对该 SHA 执行锁定依赖安装、类型检查、静态构建和完整测试；只有 test job 成功，deploy job 才能用固定版本 Vercel CLI 发布同一 SHA，并对返回的默认域名执行生产烟雾检查。GitHub Actions 是唯一自动发布入口，不连接 Vercel Git integration。所需配置为 variables `VERCEL_ORG_ID`、`VERCEL_PROJECT_ID` 和专用 secret `VERCEL_TOKEN`，秘密不得出现在提交、日志或聊天中。
+
+当前发布授权只覆盖既有 `tio2-malaysia` 项目的 `*.vercel.app` 默认域名。自定义域名、DNS、OCI 与旧 WordPress 环境均不在该流程范围内；增加这些目标必须另行设计、授权和验证。
 
 ## 验证与证据
 

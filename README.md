@@ -35,7 +35,13 @@ Only three pages are implemented. Shared navigation and Home retain approved lin
 
 Forms will use Web3Forms directly from the browser. No form or form-receiver backend was added in this batch. Analytics is inactive: Cookie Settings explains that state and does not store a fictitious choice. All pages remain `noindex, nofollow`; no sitemap or indexing activation is included.
 
-This is an independent repository at `D:/32NextJS`, imported from the accepted static application. Its GitHub remote is [longestGj/nextjs_tio2](https://github.com/longestGj/nextjs_tio2). No deployment workflow is configured yet. The old WordPress repository and production site remain separate and unchanged. Independent verification is `npm run typecheck`, `npm run build`, `npm test` and screenshot inspection. See [development workflow](CONTRIBUTING.md) and [migration handoff](docs/handoffs/INDEPENDENT-NEXTJS.md).
+This is an independent repository at `D:/32NextJS`, imported from the accepted static application. Its GitHub remote is [longestGj/nextjs_tio2](https://github.com/longestGj/nextjs_tio2). The old WordPress repository and production site remain separate and unchanged. Independent verification is `npm run typecheck`, `npm run build`, `npm test` and screenshot inspection. See [development workflow](CONTRIBUTING.md) and [migration handoff](docs/handoffs/INDEPENDENT-NEXTJS.md).
+
+## Deployment
+
+A push to remote `main` starts `.github/workflows/deploy-vercel.yml`. The workflow tests that exact commit before its deploy job can build and publish it to the existing `tio2-malaysia` Vercel project. The returned `*.vercel.app` URL is then checked against the three-page route, metadata, heading and `_next` asset contract.
+
+The repository must define GitHub variables `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`, plus the dedicated Actions secret `VERCEL_TOKEN`. Vercel Git auto-deployment is deliberately not connected, so GitHub Actions remains the only automatic publishing path. This phase uses only Vercel's default domain; no custom domain, DNS, OCI or WordPress change is part of the deployment.
 
 Test output and screenshots default to ignored `test-results/`. Set `STATIC_EVIDENCE_DIR` to a new candidate-specific directory to collect screenshots for a new verification record. The frozen first candidate is in `docs/verification/static-three-pages/screenshots/`; normal test runs do not overwrite it. Do not reuse accepted evidence directories.
 
