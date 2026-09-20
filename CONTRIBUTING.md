@@ -10,7 +10,7 @@
 
 集成验证执行 npm run typecheck、npm run build、npm test；任何代码组合变化都需验证实际候选。失败时保持 main 不变，从 develop 建修复分支。每个独立且通过验证的工作项一个 commit，检查 git diff、git diff --cached 和 git diff --cached --check。
 
-初始化例外：首次 develop 仅提交治理文件，main 从此建立起点；应用仍通过功能分支导入与集成。当前没有 origin 或自动部署。未来远端与部署配置须单独授权、验证，不把流程说明当作已生效能力。
+初始化例外：首次 develop 仅提交治理文件，main 从此建立起点；应用仍通过功能分支导入与集成。`origin` 是 `https://github.com/longestGj/nextjs_tio2.git`，仅 `main` 是常规推送目标；当前没有自动部署。未来部署配置须单独授权、验证，不把流程说明当作已生效能力。
 
 ## 验证与证据
 
