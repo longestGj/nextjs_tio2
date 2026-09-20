@@ -65,17 +65,31 @@ function assertPageContract(html, contract) {
 }
 
 function collectNextAssets(html, pageUrl) {
-  const assets = new Set();
+  const assets = new Map();
 
   for (const tag of html.match(/<(?:link|script|img)\b[^>]*>/gi) ?? []) {
     const attributes = parseAttributes(tag);
+    const tagName = tag.match(/^<([a-z]+)/i)?.[1].toLowerCase();
+    const rel = (attributes.get("rel") ?? "").toLowerCase().split(/\s+/);
+    const as = attributes.get("as")?.toLowerCase();
     for (const name of ["href", "src"]) {
       const value = attributes.get(name);
       if (!value) continue;
 
       const url = new URL(value, pageUrl);
       if (url.origin === pageUrl.origin && url.pathname.startsWith("/_next/")) {
-        assets.add(url.href);
+        let kind = "asset";
+        if (tagName === "script" || (rel.includes("preload") && as === "script")) {
+          kind = "script";
+        } else if (
+          tagName === "link" &&
+          (rel.includes("stylesheet") || (rel.includes("preload") && as === "style"))
+        ) {
+          kind = "stylesheet";
+        }
+
+        if (!assets.has(url.href)) assets.set(url.href, new Set());
+        assets.get(url.href).add(kind);
       }
     }
   }
@@ -91,13 +105,31 @@ async function fetchSuccessful(url, label) {
   return response;
 }
 
+async function verifyAsset(url, kinds) {
+  const parsedUrl = new URL(url);
+  const response = await fetchSuccessful(parsedUrl, parsedUrl.pathname);
+  const contentType = (response.headers.get("content-type") ?? "").toLowerCase();
+
+  if (kinds.has("script") && !contentType.includes("javascript")) {
+    throw new Error(`${parsedUrl.pathname} content-type is ${contentType || "missing"}, expected JavaScript`);
+  }
+  if (kinds.has("stylesheet") && !contentType.startsWith("text/css")) {
+    throw new Error(`${parsedUrl.pathname} content-type is ${contentType || "missing"}, expected CSS`);
+  }
+
+  const body = await response.arrayBuffer();
+  if (body.byteLength === 0) {
+    throw new Error(`${parsedUrl.pathname} returned an empty asset`);
+  }
+}
+
 export async function verifyDeployment(baseUrl) {
   const base = new URL(baseUrl);
   if (!new Set(["http:", "https:"]).has(base.protocol)) {
     throw new Error("Deployment URL must use http or https");
   }
 
-  const assets = new Set();
+  const assets = new Map();
   for (const contract of routeContracts) {
     const pageUrl = new URL(contract.path, base);
     const response = await fetchSuccessful(pageUrl, contract.path);
@@ -108,12 +140,20 @@ export async function verifyDeployment(baseUrl) {
 
     const html = await response.text();
     assertPageContract(html, contract);
-    for (const asset of collectNextAssets(html, pageUrl)) assets.add(asset);
+    const pageAssets = collectNextAssets(html, pageUrl);
+    const pageKinds = new Set([...pageAssets.values()].flatMap((kinds) => [...kinds]));
+    if (!pageKinds.has("script") || !pageKinds.has("stylesheet")) {
+      throw new Error(`${contract.path} is missing required _next script or stylesheet assets`);
+    }
+
+    for (const [asset, kinds] of pageAssets) {
+      if (!assets.has(asset)) assets.set(asset, new Set());
+      for (const kind of kinds) assets.get(asset).add(kind);
+    }
   }
 
-  for (const asset of assets) {
-    const url = new URL(asset);
-    await fetchSuccessful(url, url.pathname);
+  for (const [asset, kinds] of assets) {
+    await verifyAsset(asset, kinds);
   }
 
   return { routes: routeContracts.length, assets: assets.size };

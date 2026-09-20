@@ -19,20 +19,35 @@ const routes = {
   },
 };
 
-function page({ canonical, h1 }) {
+function page({ canonical, h1 }, { includeAssets = true } = {}) {
   return `<!doctype html>
     <html><head>
       <meta name="robots" content="noindex, nofollow">
       <link rel="canonical" href="${canonical}">
-      <script src="/_next/static/test.js"></script>
+      ${includeAssets ? '<link rel="stylesheet" href="/_next/static/test.css">' : ""}
+      ${includeAssets ? '<script src="/_next/static/test.js"></script>' : ""}
     </head><body><h1>${h1}</h1></body></html>`;
 }
 
-function startFixture({ brokenProducts = false } = {}) {
+function startFixture({
+  brokenProducts = false,
+  includeAssets = true,
+  assetContentType = "text/javascript",
+  emptyScript = false,
+} = {}) {
   const server = createServer((request, response) => {
     if (request.url === "/_next/static/test.js") {
-      response.writeHead(200, { "content-type": "text/javascript" });
-      response.end("globalThis.__fixtureLoaded = true;");
+      response.writeHead(200, { "content-type": assetContentType });
+      response.end(emptyScript ? "" : "globalThis.__fixtureLoaded = true;");
+      return;
+    }
+
+    if (request.url === "/_next/static/test.css") {
+      response.writeHead(200, {
+        "content-type":
+          assetContentType === "text/javascript" ? "text/css" : assetContentType,
+      });
+      response.end("body { color: black; }");
       return;
     }
 
@@ -50,7 +65,7 @@ function startFixture({ brokenProducts = false } = {}) {
     }
 
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
-    response.end(page(contract));
+    response.end(page(contract, { includeAssets }));
   });
 
   return new Promise((resolve, reject) => {
@@ -81,7 +96,40 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 3, assets: 1 });
+  assert.deepEqual(result, { routes: 3, assets: 2 });
+});
+
+test("rejects pages without Next.js script and stylesheet assets", async () => {
+  const fixture = await startFixture({ includeAssets: false });
+  try {
+    await assert.rejects(() => verifyDeployment(fixture.origin), /_next.*assets/i);
+  } finally {
+    await fixture.close();
+  }
+});
+
+test("rejects asset URLs that return an HTML fallback", async () => {
+  const fixture = await startFixture({ assetContentType: "text/html" });
+  try {
+    await assert.rejects(
+      () => verifyDeployment(fixture.origin),
+      /_next\/static\/test\.(?:js|css).*content-type.*text\/html/i,
+    );
+  } finally {
+    await fixture.close();
+  }
+});
+
+test("rejects empty runtime assets", async () => {
+  const fixture = await startFixture({ emptyScript: true });
+  try {
+    await assert.rejects(
+      () => verifyDeployment(fixture.origin),
+      /_next\/static\/test\.js.*empty/i,
+    );
+  } finally {
+    await fixture.close();
+  }
 });
 
 test("reports a failed route with its path and status", async () => {
