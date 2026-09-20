@@ -1,0 +1,86 @@
+{
+  "history": [
+    {
+      "sha256": "9A35A8744D63E3A2EF0E2BDF2E2BCF9917BA319CFE5346523CD21BE745052E91",
+      "path": "docs/handoffs/STATIC-THREE-PAGES.md"
+    },
+    {
+      "sha256": "85A77708668AA5F25896D6F1811741E402D67D6D711CC2CB7185E5CE71517F64",
+      "path": "docs/superpowers/plans/2026-09-20-static-three-pages.md"
+    },
+    {
+      "sha256": "E6CA72FED2EE744FAA8404C95D55B02E9ACAAB50B92C744DD7B75538A627785C",
+      "path": "docs/superpowers/specs/2026-09-20-static-three-pages-design.md"
+    },
+    {
+      "sha256": "6E45B97C44B427C2FEC79B4D9B38F6999D96557485D2A1A7F542D959932AE982",
+      "path": "docs/verification/static-three-pages/RESULTS.md"
+    },
+    {
+      "sha256": "832259B0C4C701B9F4A719F9F521E09B13AD670362036D074E17BB6AA0A3B0E1",
+      "path": "docs/verification/static-three-pages/REVIEW.md"
+    },
+    {
+      "sha256": "DF97000F2998F60005EDCBCAFB89A655C602543E8552A89C9FAF506B4A9A5CBB",
+      "path": "docs/verification/static-three-pages/source-hashes.json"
+    },
+    {
+      "sha256": "6CB9C36D7B474C92731ADBCB3B39D536AF4BA331AE67988B78B11C400CE8A76F",
+      "path": "docs/verification/static-three-pages/screenshots/home-1440-viewport.png"
+    },
+    {
+      "sha256": "A446CF0B571FF6E328EC9945C373E3F5A7CA602888761E44B37F7D4D29C3D294",
+      "path": "docs/verification/static-three-pages/screenshots/home-1440.png"
+    },
+    {
+      "sha256": "628ABFFAA23DC84AD3DE2B6119799C172090FFC69324FA6BD8AC2D00D85D2DDE",
+      "path": "docs/verification/static-three-pages/screenshots/home-390-viewport.png"
+    },
+    {
+      "sha256": "B64B226A175E77276B1035F1CCCC67873FDAAB03704E343A663A765C378254C4",
+      "path": "docs/verification/static-three-pages/screenshots/home-390.png"
+    },
+    {
+      "sha256": "8F3C621481D1D5F34190E7C8D4D17499987F3B5D6C716AE0F6C614AC1A158270",
+      "path": "docs/verification/static-three-pages/screenshots/m350-1440-viewport.png"
+    },
+    {
+      "sha256": "D4AB471D910BE6067E2B304D9F04B45239B29F7501C87582AC12D28DC9369696",
+      "path": "docs/verification/static-three-pages/screenshots/m350-1440.png"
+    },
+    {
+      "sha256": "8D02E18996E6673019E381A4D3DA00733B97F2055714B98735E5B28782660478",
+      "path": "docs/verification/static-three-pages/screenshots/m350-390-viewport.png"
+    },
+    {
+      "sha256": "400298589E8508424828DE03A709A0DE07B6CEFFBFF42455BD4FF51966E64D84",
+      "path": "docs/verification/static-three-pages/screenshots/m350-390.png"
+    },
+    {
+      "sha256": "94F07101B15692384D5FFD490EDDAAD07B9C27089340E4E5303A632126F91EDB",
+      "path": "docs/verification/static-three-pages/screenshots/products-1440-viewport.png"
+    },
+    {
+      "sha256": "28C3A9D347324678B4B619CE213A1849F4D298160CE40EB2480A5C95CB222891",
+      "path": "docs/verification/static-three-pages/screenshots/products-1440.png"
+    },
+    {
+      "sha256": "24707B9BF37D8CC75E938F5CBD59FC2A3D9D401E7D77F064EE5563B68EF2A9DC",
+      "path": "docs/verification/static-three-pages/screenshots/products-390-viewport.png"
+    },
+    {
+      "sha256": "F4C2A0D68B414AD29572AADCD000D5E0C34785251576180AEDB696BBFB4ED198",
+      "path": "docs/verification/static-three-pages/screenshots/products-390.png"
+    }
+  ],
+  "modified": [
+    {
+      "sha256": "CE9FCD8B269172653F75805DF369E8387F4B14A26E8D960A158716E604C38C57",
+      "path": "README.md"
+    },
+    {
+      "sha256": "127DE1D5369771C99ABA3B5E14CCFD65B63A7B1A91407E59D11FB9AA8554894D",
+      "path": ".gitignore"
+    }
+  ]
+}

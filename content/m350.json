@@ -1,0 +1,205 @@
+{
+  "seo": {
+    "title": "M-350 Titanium Dioxide for Coatings and Inks | TiO2 Malaysia",
+    "description": "Evaluate M-350 titanium dioxide for coatings, printing inks and plastics. Review application directions, formulation priorities and 15-row technical data.",
+    "canonical": "https://tio2products.com/products/m-350/"
+  },
+  "hero": {
+    "category": "Coatings, Inks & Plastics",
+    "process": "Chloride process",
+    "heading": "M-350 Titanium Dioxide for Multi-Application Evaluation",
+    "paragraphs": [
+      "M-350 is a general-grade rutile titanium dioxide pigment produced by the chloride process for evaluation in decorative, industrial and automotive coatings, printing inks and plastics.",
+      "The M-350 Technical Data Sheet identifies hue and gloss, hiding power, dispersibility, and weather and temperature resistance as factors to review during product screening.",
+      "Use the technical data below and confirm final performance in your own formulation, processing, application and end-use conditions."
+    ],
+    "summaryTitle": "M-350 product data and evaluation",
+    "summary": [
+      "Rutile titanium dioxide pigment · Chloride process",
+      "M-350 technical data · General grade",
+      "Product identity · documentation · formulation evaluation"
+    ]
+  },
+  "positioning": {
+    "heading": "Where M-350 Fits in Product Evaluation",
+    "paragraphs": [
+      "M-350 is a general-grade rutile titanium dioxide pigment for buyers evaluating one Grade across several formulation types. The M-350 TDS describes particle-size control, inorganic treatment with aluminum and zirconium compounds, and compound organic treatment.",
+      "Use M-350's listed features and technical data to decide whether it should enter testing for your coating, ink or plastics system. Final Grade selection should account for the complete formulation, pigment loading, dispersion process, substrate or polymer, application method, processing conditions, service environment and destination-document requirements."
+    ],
+    "facts": [
+      "General-grade rutile titanium dioxide pigment",
+      "Chloride-process classification",
+      "Inorganic treatment with aluminum and zirconium compounds",
+      "Compound organic treatment",
+      "TDS-listed evaluation directions across coatings, printing inks and plastics",
+      "Buyer evaluation of optical, dispersion, durability and processing requirements"
+    ],
+    "processLabel": "Learn about chloride-process titanium dioxide"
+  },
+  "applications": {
+    "heading": "Application Directions to Evaluate",
+    "items": [
+      {
+        "title": "Decorative Coatings",
+        "body": "Evaluate M-350 in the intended decorative coating formulation. Confirm hue, gloss, hiding power, dispersion and finished appearance at the planned pigment loading, film build and application conditions."
+      },
+      {
+        "title": "Industrial Coatings",
+        "body": "Review M-350 in the complete industrial coating system. Test dispersion, hiding target, surface appearance and finished performance using the intended substrate, curing or drying process, and service conditions."
+      },
+      {
+        "title": "Automotive Coatings",
+        "body": "Include M-350 in formulation testing for the intended automotive coating system. Confirm color direction, gloss, hiding power, dispersion and finished-film performance under the actual application and curing conditions."
+      },
+      {
+        "title": "Printing Inks",
+        "body": "Evaluate M-350 in the buyer's ink formulation and printing process. Review dispersion, color and hiding targets, print appearance and compatibility with the selected vehicle, additives and production conditions."
+      },
+      {
+        "title": "Plastics",
+        "body": "Test M-350 in the intended polymer formulation and processing system. Confirm dispersion, opacity and appearance at the planned pigment loading, additive package, processing temperature and end-use conditions."
+      }
+    ],
+    "paper": {
+      "status": "active",
+      "title": "Additional Paper Evaluation Path",
+      "body": "Paper is an additional evaluation path for M-350. The M-350 TDS does not provide paper-specific performance detail, so confirm the intended paper furnish, coating or converting system, processing conditions and target properties during technical review."
+    },
+    "labels": [
+      "Titanium dioxide for coatings",
+      "Titanium dioxide for printing inks",
+      "Titanium dioxide for plastics",
+      "Titanium dioxide for paper"
+    ]
+  },
+  "evaluation": {
+    "heading": "What to Evaluate in Your Formulation",
+    "groups": [
+      {
+        "heading": "Optical and Dispersion Review",
+        "items": [
+          "Hue and gloss against the finished-appearance target",
+          "Hiding power at the intended pigment loading and film, print or polymer conditions",
+          "Dispersibility in the selected binder, ink vehicle or polymer system",
+          "Finished appearance and consistency under the intended production process"
+        ]
+      },
+      {
+        "heading": "Durability and Process Qualification",
+        "items": [
+          "Weather-resistance requirements under the intended service conditions",
+          "Temperature-resistance requirements under the actual processing and end-use conditions",
+          "Compatibility with the complete formulation, additives, substrate or polymer",
+          "Application method, process settings, destination requirements and sample-validation results"
+        ]
+      }
+    ],
+    "disclaimer": "These priorities identify what to test during buyer evaluation. They do not guarantee a fixed result in every formulation, process, application or service environment."
+  },
+  "technical": {
+    "heading": "Typical Technical Data",
+    "columns": [
+      "Property",
+      "Standard",
+      "Typical Value"
+    ],
+    "rows": [
+      {
+        "property": "TiO₂ content, %",
+        "standard": "≥ 92.5",
+        "typical": "93.5",
+        "status": "active"
+      },
+      {
+        "property": "Content of rutile, %",
+        "standard": "≥ 99.0",
+        "typical": "100",
+        "status": "active"
+      },
+      {
+        "property": "Brightness, %",
+        "standard": "≥ 95.1",
+        "typical": "95.4",
+        "status": "active"
+      },
+      {
+        "property": "L (dry powder)",
+        "standard": "—",
+        "typical": "98.3",
+        "status": "active"
+      },
+      {
+        "property": "b (dry powder)",
+        "standard": "—",
+        "typical": "1.85",
+        "status": "active"
+      },
+      {
+        "property": "Reducing power (Reynolds number)",
+        "standard": "1920",
+        "typical": "1950",
+        "status": "active"
+      },
+      {
+        "property": "Dispersibility (Hegman)",
+        "standard": "≥ 6.50",
+        "typical": "6.75",
+        "status": "active"
+      },
+      {
+        "property": "Oil absorption, g/100g",
+        "standard": "≤ 20",
+        "typical": "18",
+        "status": "active"
+      },
+      {
+        "property": "Slurry pH",
+        "standard": "6.5–8.5",
+        "typical": "7.2",
+        "status": "active"
+      },
+      {
+        "property": "Electric resistivity, Ω·m",
+        "standard": "80",
+        "typical": "165",
+        "status": "active"
+      },
+      {
+        "property": "Volatile at 105°C, %",
+        "standard": "≤ 0.5",
+        "typical": "0.4",
+        "status": "active"
+      },
+      {
+        "property": "Sieve residue (45 µm), %",
+        "standard": "≤ 0.02",
+        "typical": "0.01",
+        "status": "active"
+      },
+      {
+        "property": "Average particle size (nm) SEM",
+        "standard": "—",
+        "typical": "230",
+        "status": "active"
+      },
+      {
+        "property": "Inorganic treatment",
+        "standard": "ZrO₂, Al₂O₃",
+        "typical": "—",
+        "status": "active"
+      },
+      {
+        "property": "Organic treatment",
+        "standard": "Yes",
+        "typical": "—",
+        "status": "active"
+      }
+    ],
+    "note": "These values reproduce the Standard and Typical Value columns in the M-350 Technical Data Sheet. The data does not constitute a product specification. Confirm suitability in your own formulation, processing, application and end-use conditions."
+  },
+  "markets": {
+    "heading": "Plan Evaluation for Your Destination Market",
+    "intro": "Continue to the relevant destination page for market-specific procurement, document and inquiry guidance.",
+    "disclaimer": "These destination paths do not claim M-350 registration, compliance, stock or local availability."
+  }
+}

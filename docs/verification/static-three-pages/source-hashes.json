@@ -1,0 +1,42 @@
+[
+  {
+    "path": "D:/23MySec/pages/home/HOME-001_CURRENT_GATE_BASELINE_MANIFEST_V1.12.md",
+    "sha256": "bcd8a2be0642b19abdeefc5fbd61ba531eb3b4d8e6acaf4c59d818ab2f4003e5"
+  },
+  {
+    "path": "D:/23MySec/pages/products/PRODUCT-000_D32_CURRENT_GATE_BASELINE_MANIFEST_V0.2.md",
+    "sha256": "c1ae911694356429da3aec18d6e5dcdf2295658f4d9697724f3adad97b8ee004"
+  },
+  {
+    "path": "D:/23MySec/pages/products/detail-template/GRADE-M350_D32_CURRENT_GATE_BASELINE_MANIFEST_V0.7.md",
+    "sha256": "fc2d559c6a480ac45e2d9271bfc2b5d5a682ee53feb6b542160af18d9640098f"
+  },
+  {
+    "path": "D:/23MySec/pages/home/04_planning/visual-designs/home-root-page-hero-v1.4/homepage-root-page-hero-preview-v1.4.html",
+    "sha256": "1abe07bcd941a05295a26194ca7ce3ea81f5dec2074f717bcef58ef62d891de6"
+  },
+  {
+    "path": "D:/23MySec/pages/products/04_planning/d32-gate4-v0.1/product-visual.html",
+    "sha256": "bde34207290f7e6ed9064587af76bc6492df02f55b3b84c6b7991bfe68f4d235"
+  },
+  {
+    "path": "D:/23MySec/pages/products/detail-template/04_planning/GRADE-M350_GATE2_FULL_COPY_V0.1.md",
+    "sha256": "85a4c0183a382f2f8cbfc57d7f59d7df515111c22f811d97ae195d64c4a6957a"
+  },
+  {
+    "path": "D:/23MySec/pages/products/detail-template/04_planning/m350-d32-gate4-v0.2/m350-visual.html",
+    "sha256": "aab959a66fd8790c04d1754ee746d5c1e2f9177a52cfa59c0b9ee68e40e44f32"
+  },
+  {
+    "path": "D:/32Wordpress_new/.worktrees/grade-domain-design/content/initial-home.json",
+    "sha256": "3e9cf0fb7a169e5e5f519d4769b868e284550e67487ab8ef132792c050830a77"
+  },
+  {
+    "path": "D:/32Wordpress_new/.worktrees/grade-domain-design/docs/verification/products/products-content.json",
+    "sha256": "09c2b073087ac38eb3c4a61b40d086d9936bcc3ecbabb00df477bedb4a1f0ab2"
+  },
+  {
+    "path": "D:/32Wordpress_new/.worktrees/grade-m350-gate8/docs/verification/m350/m350-content.json",
+    "sha256": "9f1353a5bd18a43ddc71588f3d9761376667c6d40cfed0bc3e31b0f05e4cc626"
+  }
+]
