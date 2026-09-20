@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.worktrees/
+.superpowers/
+.migration/
