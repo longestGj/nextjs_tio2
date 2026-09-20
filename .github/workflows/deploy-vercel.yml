@@ -1,0 +1,90 @@
+name: Verify and deploy Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Test production candidate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.12"
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Google Chrome for Playwright
+        run: npx playwright install --with-deps chrome
+      - name: Type-check
+        run: npm run typecheck
+      - name: Build static export
+        run: npm run build
+      - name: Run contract and browser tests
+        run: npm test
+
+  deploy:
+    name: Deploy tested commit
+    needs: test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - name: Check out tested commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Validate Vercel configuration
+        shell: bash
+        run: |
+          missing=()
+          [[ -n "${VERCEL_ORG_ID:-}" ]] || missing+=(VERCEL_ORG_ID)
+          [[ -n "${VERCEL_PROJECT_ID:-}" ]] || missing+=(VERCEL_PROJECT_ID)
+          [[ -n "${VERCEL_TOKEN:-}" ]] || missing+=(VERCEL_TOKEN)
+          if (( ${#missing[@]} > 0 )); then
+            printf '::error::Missing required Vercel configuration: %s\n' "${missing[*]}"
+            exit 1
+          fi
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Pull production settings
+        run: npx --yes vercel@54.18.7 pull --yes --environment=production --token="$VERCEL_TOKEN"
+      - name: Build production deployment
+        run: npx --yes vercel@54.18.7 build --prod --token="$VERCEL_TOKEN"
+      - name: Deploy prebuilt output
+        id: production
+        shell: bash
+        run: |
+          deployment_url="$(npx --yes vercel@54.18.7 deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          case "$deployment_url" in
+            https://*.vercel.app) ;;
+            *) echo "::error::Vercel did not return one valid default deployment URL"; exit 1 ;;
+          esac
+          printf 'url=%s\n' "$deployment_url" >> "$GITHUB_OUTPUT"
+      - name: Smoke-test production URL
+        env:
+          DEPLOYMENT_URL: ${{ steps.production.outputs.url }}
+        run: node scripts/verify-deployment.mjs "$DEPLOYMENT_URL"
