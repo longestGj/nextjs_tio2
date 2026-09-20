@@ -175,7 +175,7 @@ export function MalaysiaProductHub({
           </div>
         </section>
         {support.length > 0 && (
-          <section className={styles.supportBand}>
+          <section className={styles.supportBand} data-module="support">
             <div className={styles.shell + " " + styles.section}>
               <h2>{p.support.heading}</h2>
               <div className={styles.supportCards}>

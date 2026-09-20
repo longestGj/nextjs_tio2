@@ -1,3 +1,4 @@
+import type { MalaysiaApplicationsHubDto } from "./content/applications-v01-types";
 import type { MalaysiaProductDetailDto } from "./content/product-detail-v01-types";
 import type { MalaysiaHomepageDto } from "./content/homepage-v04-types";
 import type { MalaysiaProductHubDto } from "./content/product-hub-v01-types";
@@ -164,4 +165,55 @@ export function productsSchema(p: MalaysiaProductHubDto, company: string) {
       },
     ],
   };
+}
+
+export function applicationsSchema(p: MalaysiaApplicationsHubDto) {
+  const visibleChildren = p.applications.collections.flatMap((collection) =>
+    collection.childAction && p.routeReadiness[collection.childAction.targetPageId]
+      ? [{ name: collection.title, url: origin + collection.childAction.href }]
+      : [],
+  );
+  const page: Record<string, unknown> = {
+    "@type": "CollectionPage",
+    "@id": p.seo.canonical + "#webpage",
+    url: p.seo.canonical,
+    name: p.hero.h1,
+    description: p.seo.description,
+    breadcrumb: { "@id": p.seo.canonical + "#breadcrumb" },
+    inLanguage: "en",
+  };
+  if (visibleChildren.length > 0) {
+    page.mainEntity = { "@id": p.seo.canonical + "#application-list" };
+  }
+  const graph: Record<string, unknown>[] = [
+    page,
+    {
+      "@type": "BreadcrumbList",
+      "@id": p.seo.canonical + "#breadcrumb",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: origin + "/" },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: p.breadcrumb.currentLabel,
+          item: p.seo.canonical,
+        },
+      ],
+    },
+  ];
+  if (visibleChildren.length > 0) {
+    graph.push({
+      "@type": "ItemList",
+      "@id": p.seo.canonical + "#application-list",
+      name: p.applications.heading,
+      numberOfItems: visibleChildren.length,
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      itemListElement: visibleChildren.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: { "@type": "WebPage", name: item.name, url: item.url },
+      })),
+    });
+  }
+  return { "@context": "https://schema.org", "@graph": graph };
 }
