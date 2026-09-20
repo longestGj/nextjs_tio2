@@ -1,0 +1,211 @@
+{
+  "sourceCommit": "d0d778525424325f77456bb0a662577b2d0739ae",
+  "sourceRepository": "D:/32Wordpress_new",
+  "sourcePrefix": "static-site/",
+  "exceptions": {
+    "README.md": "Independent repository documentation and corrected relative docs links",
+    ".gitignore": "Independent governance ignores credentials and generated/scratch output"
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "6F5A0A9F10E379336D1CB5A6CF29FBBAC18AC41A23A53246CB0AAF8E1F0E2ADE"
+    },
+    {
+      "path": "next-env.d.ts",
+      "sha256": "1862AC4BBBC5192D4BF562161DF66EA547ED3E67173100656AB606AE9797DB2B"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "32DA1D37A4D2697FC56E7693AA83659F7349DF7ABAC1DB2F631B61765E1582F4"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "F44CAC574AC7CAB25E36603368676C69E483FB5C82C4DF5895C03F5CFE60FAD3"
+    },
+    {
+      "path": "package.json",
+      "sha256": "3B49FA15A422DF9ECC19B976B37A60002AF633B97A23A056C090EE1CC3F6525D"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "7DF4DAE6BF158CBFC975B754763AEFEA0F2EB6D127BF4A19BBB5054D71C34256"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3D3C3894DC2133A0765B79D9C53B3D7ACFECCE730F7C7B1CD8161FC0AF885FD5"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "6E6F9854F00EE7AA207EC3348E4E12C485807CE3D741EB795778F9E72080512C"
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "74D80137A8F6D219892E350CA90847C9B602D793D92A481C4B37EFCC434BE57E"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "5604A433782E57874210EC905368D0BC4A41A5E07D1BBA0AFD7CC7FC6F4EB333"
+    },
+    {
+      "path": "app/page.tsx",
+      "sha256": "44FFAF90CB0C854279DB7B197B17A7C9243D0655E1E19AE9ADB6D16C6C83D8EE"
+    },
+    {
+      "path": "app/products/page.tsx",
+      "sha256": "391D9C4EA422C9B5CEB468CAD5F4FE563341196ACD673D5C0D7CD490B8297CED"
+    },
+    {
+      "path": "app/products/m-350/page.tsx",
+      "sha256": "50E85FF91012351AA88CDC808A94306B8B81131CDB2F550C443142FCE6E67E9C"
+    },
+    {
+      "path": "components/sites/tio2-my/malaysia-global-chrome-client.tsx",
+      "sha256": "10DF10353F422C54B208D93845B736BD2C6D304725EAD6F9995B5293F0DECFEE"
+    },
+    {
+      "path": "components/sites/tio2-my/malaysia-global-chrome.module.css",
+      "sha256": "9825AB831F9AF267F66A66820197E8A2F334EEA1F0429CD3AF1B6EE20B1E6829"
+    },
+    {
+      "path": "components/sites/tio2-my/malaysia-global-chrome.tsx",
+      "sha256": "EE84EC1DD4ACA6E1D68F8833B7BFEF52F37F4DE892D04FE83F12F8787381CB70"
+    },
+    {
+      "path": "components/sites/tio2-my/consent/malaysia-cookie-settings.module.css",
+      "sha256": "4E23166661ED0C3F509F8563538C0E1AD0517F16E1B437171E45A4C82BEAA8CC"
+    },
+    {
+      "path": "components/sites/tio2-my/consent/malaysia-cookie-settings.tsx",
+      "sha256": "7652F2C8D0C2C039998A5FE93887AF9CE775626AE314BF3231D88E8E8BA40312"
+    },
+    {
+      "path": "components/sites/tio2-my/homepage/malaysia-homepage.module.css",
+      "sha256": "1AF48AE09CA8B7612E012828448F19DC72F69670B5F6354870B3177900008676"
+    },
+    {
+      "path": "components/sites/tio2-my/homepage/malaysia-homepage.tsx",
+      "sha256": "480D70D6EBC046D1E1AFA0852D593310DA401F15B23245E7946E6C8F042795EE"
+    },
+    {
+      "path": "components/sites/tio2-my/homepage/responsive-product-groups.tsx",
+      "sha256": "984EA2F38CB0B622E7760EA72684EC7D15BC2AE746621253004C28D6F82FF621"
+    },
+    {
+      "path": "components/sites/tio2-my/products/malaysia-product-detail.module.css",
+      "sha256": "BFE0FFE138F788749AC5CE62B09ED109527BC3FBDAD716C55D2247DFBD253C5C"
+    },
+    {
+      "path": "components/sites/tio2-my/products/malaysia-product-detail.tsx",
+      "sha256": "0A01BF12B701A769B6D9E6953519297D581BF873ED178203AAC7F11516B89900"
+    },
+    {
+      "path": "components/sites/tio2-my/products/malaysia-product-hub.module.css",
+      "sha256": "87FC378BF45DCE680E98D3FEEBE489B63607937C153A931A61B1CFE03E759FC5"
+    },
+    {
+      "path": "components/sites/tio2-my/products/malaysia-product-hub.tsx",
+      "sha256": "965ECFD7595ED1F66ED853608145EBCCAB97CC922B0D45DF0EE5C6E75D678482"
+    },
+    {
+      "path": "components/sites/tio2-my/products/product-faq.tsx",
+      "sha256": "6E1C2A6FDC44E2B2E2320D4A26953762A1765BF231FD7ACBE2CB8BC9F6A37C00"
+    },
+    {
+      "path": "components/sites/tio2-my/products/product-selector.tsx",
+      "sha256": "F570B3D3E8F2E379FA1CA66265F8C63404D9D2BCB89FE264B1ADCB49294C18C6"
+    },
+    {
+      "path": "components/sites/tio2-my/request-a-quote/malaysia-private-rfq-link.tsx",
+      "sha256": "01E9E899D64DC8C73287FDF0F9B56AB7B82948CD86790DE12E4D74067D3A9AB0"
+    },
+    {
+      "path": "components/sites/tio2-my/root-page-hero/root-page-hero.module.css",
+      "sha256": "1E8A16D7EC7EAAE667ACD94487A1E6FADC8C57A2F81DD4EB9F229F8706877E98"
+    },
+    {
+      "path": "components/sites/tio2-my/root-page-hero/root-page-hero.tsx",
+      "sha256": "6FA72E4BE215B8ABB5AE0DA73C1F515DF9C6FC7E541E917AC5F20743E70D3F12"
+    },
+    {
+      "path": "content/chrome.json",
+      "sha256": "8D57C84D54DD90CEC59226313C9754CF9885E6FC4D55781C9CE2CA87785B0DF4"
+    },
+    {
+      "path": "content/home.json",
+      "sha256": "51237FA185F97B0B3DC8A5F03AD2FCE30E04AD73643E6261D2AC4AA571FC5611"
+    },
+    {
+      "path": "content/m350.json",
+      "sha256": "8D210D714CAEA0FDDD2703DB62DC759CD6726AE0BCF2AB46947225B8DFB23A09"
+    },
+    {
+      "path": "content/products.json",
+      "sha256": "2A498D86CBE7EE5740265B554D7B281A257868A1A61CA73F8B5442F4471D659E"
+    },
+    {
+      "path": "lib/seo.tsx",
+      "sha256": "C1E8B04DD2885F4981187DD59F82A413EF2EEE63808996E4F0D78AB980F7107D"
+    },
+    {
+      "path": "lib/content/homepage-v04-types.ts",
+      "sha256": "95414D8859F9225D6AB94B0C8436BC33B7205200BD1110610029CEDBCA825975"
+    },
+    {
+      "path": "lib/content/page-data.ts",
+      "sha256": "C2618A3E0C41136B740DB85382B48CA2EC0BF0A371D22E7FC7BD66550556B44E"
+    },
+    {
+      "path": "lib/content/product-detail-v01-types.ts",
+      "sha256": "FC966F44B2436A9248350A9411A6FB5F8A97D6CDDAF07EE6006206A90DC0C4A7"
+    },
+    {
+      "path": "lib/content/product-hub-v01-types.ts",
+      "sha256": "B488C78B1624E9BBF0625394F11A23120CB9E1BBDC438A060E00E4740D106BD3"
+    },
+    {
+      "path": "lib/content/tio2-my-global-chrome-public.ts",
+      "sha256": "E420978106D140053DE47C8823179D0F7233FB8006C9A66645A1E0AE394F5D4A"
+    },
+    {
+      "path": "lib/content/tio2-my-global-chrome-types.ts",
+      "sha256": "481A6363DDF9D8610143D8B277B223B2E2E531D9B43FFFA9C9BEF49F7B2C6245"
+    },
+    {
+      "path": "public/fonts/Inter-Variable.ttf",
+      "sha256": "29160A80FF49DDCAB2C97711247E08B1FAB27A484A329CE8B813D820DC559031"
+    },
+    {
+      "path": "public/fonts/LICENSE.txt",
+      "sha256": "262481E844521B326F5ECD053E59B98C8B2DA78C8EE1BDBB6E8174305E54935A"
+    },
+    {
+      "path": "public/tio2-my/homepage-hero-material-reference.png",
+      "sha256": "7308472E4E633584FE4D7761AFD7ED9EA4EA4C622576E2D7736C105F13CF50A5"
+    },
+    {
+      "path": "public/tio2-my/brand/tio2-malaysia-favicon-safe-v0.1.svg",
+      "sha256": "F1D1B97FF66211410A50279EED16414B5A6E888C27C11419E41265168D08692C"
+    },
+    {
+      "path": "public/tio2-my/brand/tio2-malaysia-primary-horizontal-v0.1.svg",
+      "sha256": "EEED3A758E7AE1B847238D1C88E86EEE7A8E67B863969AF4D286747E9A72487C"
+    },
+    {
+      "path": "public/tio2-my/brand/tio2-malaysia-reverse-monochrome-v0.1.svg",
+      "sha256": "7CFAEAFA02AC8469A006C9489DB2F92B15B2621E4151B04EFE1B30FC734C1B5E"
+    },
+    {
+      "path": "public/tio2-my/brand/tio2-malaysia-symbol-v0.1.svg",
+      "sha256": "9FD1FAFAFAD4BC6FEF0C05F499C27BAF1051EEF084D1B834B1061CAF3B8B85A0"
+    },
+    {
+      "path": "tests/pages.spec.ts",
+      "sha256": "6CA53AFF70CB2274C2F9E3F3D0B1DEC1F4AC6CA18DBD5B040687942FCB7A150B"
+    },
+    {
+      "path": "tests/static-verification.spec.ts",
+      "sha256": "E14D81C3A4090777B229ED55912BD9F81DEC228AD18C61201C736750CDAA2577"
+    }
+  ]
+}
