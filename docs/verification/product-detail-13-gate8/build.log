@@ -1,0 +1,34 @@
+
+> tio2-static-site@0.1.0 build
+> next build
+
+▲ Next.js 16.3.5 (Turbopack)
+✓ Running next.config.ts took 32ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 281ms
+  Running TypeScript ...
+  Finished TypeScript in 1498ms ...
+  Collecting page data using 8 workers ...
+  Generating static pages using 8 workers (0/19) ...
+  Generating static pages using 8 workers (4/19)
+  Generating static pages using 8 workers (9/19)
+  Generating static pages using 8 workers (14/19)
+✓ Generating static pages using 8 workers (19/19) in 872ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /applications
+├ ○ /products
+├   /products/[slug]
+│ ├ ● /products/m-510
+│ ├ ● /products/m-896
+│ ├ ● /products/m-895
+│ └ ● [+10 more paths]
+└ ○ /products/m-350
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
