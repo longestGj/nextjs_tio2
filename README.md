@@ -51,4 +51,4 @@ Test output and screenshots default to ignored `test-results/`. Set `STATIC_EVID
 
 See `docs/handoffs/STATIC-THREE-PAGES.md` for historical source provenance and limitations. That record is preserved as originally delivered; the migration handoff records the user's subsequent Gate9 confirmation and new repository status.
 
-Current Gate 8 ownership, evidence handoff and release/indexing boundaries: [Gate 8 handoff](docs/gate8-handoff.md).
+Task intake, delivery evidence and release/indexing boundaries are maintained in [CONTRIBUTING.md](CONTRIBUTING.md).
