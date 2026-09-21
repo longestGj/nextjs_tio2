@@ -1,0 +1,120 @@
+{
+  "pageId": "APP-000",
+  "siteScope": "tio2-my",
+  "seo": {
+    "title": "Applications | TiO2 Malaysia",
+    "description": "Explore titanium dioxide application paths for coatings, plastics, masterbatch, printing inks, paper and specialty materials.",
+    "shareTitle": "Applications | TiO2 Malaysia",
+    "shareDescription": "Explore titanium dioxide application paths for coatings, plastics, masterbatch, printing inks, paper and specialty materials.",
+    "canonical": "https://tio2products.com/applications/"
+  },
+  "breadcrumb": { "currentLabel": "Applications" },
+  "hero": {
+    "eyebrow": "Applications",
+    "h1": "Explore Titanium Dioxide by Application",
+    "body": "This hub organizes titanium dioxide grades by application across coatings, plastics, masterbatch, printing inks, paper and specialty materials. Use each collection as a starting point for technical evaluation.",
+    "primaryAction": { "label": "Explore Applications", "href": "#application-selector" },
+    "secondaryAction": { "label": "Request a Quote", "href": "/request-a-quote/", "targetPageId": "CONV-RFQ" },
+    "indexHeading": "Choose an Application"
+  },
+  "grades": [
+    { "pageId": "GRADE-M350", "label": "M-350", "href": "/products/m-350/" },
+    { "pageId": "GRADE-M510", "label": "M-510", "href": "/products/m-510/" },
+    { "pageId": "GRADE-M896", "label": "M-896", "href": "/products/m-896/" },
+    { "pageId": "GRADE-M996", "label": "M-996", "href": "/products/m-996/" },
+    { "pageId": "GRADE-M2196", "label": "M-2196", "href": "/products/m-2196/" },
+    { "pageId": "GRADE-M895", "label": "M-895", "href": "/products/m-895/" },
+    { "pageId": "GRADE-M200", "label": "M-200", "href": "/products/m-200/" },
+    { "pageId": "GRADE-M108", "label": "M-108", "href": "/products/m-108/" },
+    { "pageId": "GRADE-M210", "label": "M-210", "href": "/products/m-210/" },
+    { "pageId": "GRADE-M340", "label": "M-340", "href": "/products/m-340/" },
+    { "pageId": "GRADE-M886", "label": "M-886", "href": "/products/m-886/" },
+    { "pageId": "GRADE-M52", "label": "M-52", "href": "/products/m-52/" },
+    { "pageId": "GRADE-M2377", "label": "M-2377", "href": "/products/m-2377/" },
+    { "pageId": "GRADE-CR901", "label": "CR-901", "href": "/products/cr-901/" }
+  ],
+  "applications": {
+    "heading": "Choose by Application",
+    "intro": {
+      "neutral": "Grades to Review are starting points for technical evaluation, not rankings or guarantees of suitability.",
+      "both": "Open a grade page for product information, or explore an application for guidance on what to evaluate.",
+      "gradeOnly": "Open a grade page for product information.",
+      "applicationOnly": "Explore an application for guidance on what to evaluate."
+    },
+    "collections": [
+      {
+        "id": "coatings",
+        "title": "Coatings",
+        "scope": "For paint and coating formulations.",
+        "gradeLabel": "Grades to Review",
+        "gradePageIds": ["GRADE-M350", "GRADE-M510", "GRADE-M896", "GRADE-M996", "GRADE-M2196", "GRADE-M895", "GRADE-M52", "GRADE-M2377"],
+        "childAction": { "targetPageId": "APP-COAT", "label": "Explore Coatings", "href": "/applications/titanium-dioxide-for-coatings/" }
+      },
+      {
+        "id": "plastics",
+        "title": "Plastics",
+        "scope": "For plastic compounds and finished plastic applications.",
+        "gradeLabel": "Grades to Review",
+        "gradePageIds": ["GRADE-M350", "GRADE-M510", "GRADE-M200", "GRADE-M108", "GRADE-M210", "GRADE-M340", "GRADE-M886", "GRADE-M2377"],
+        "childAction": { "targetPageId": "APP-PLAS", "label": "Explore Plastics", "href": "/applications/titanium-dioxide-for-plastics/" }
+      },
+      {
+        "id": "masterbatch",
+        "title": "Masterbatch",
+        "scope": "For evaluating titanium dioxide as a pigment input in masterbatch formulations.",
+        "gradeLabel": "Grades to Review",
+        "gradePageIds": ["GRADE-M510", "GRADE-M200", "GRADE-M108", "GRADE-M210", "GRADE-M340", "GRADE-M886", "GRADE-M2377"],
+        "childAction": { "targetPageId": "APP-MB", "label": "Explore Masterbatch", "href": "/applications/titanium-dioxide-for-masterbatch/" }
+      },
+      {
+        "id": "printing-inks",
+        "title": "Printing Inks",
+        "scope": "For printing-ink formulations.",
+        "gradeLabel": "Grades to Review",
+        "gradePageIds": ["GRADE-M350", "GRADE-M510", "GRADE-M52", "GRADE-M2377"],
+        "childAction": { "targetPageId": "APP-INK", "label": "Explore Printing Inks", "href": "/applications/titanium-dioxide-for-printing-inks/" }
+      },
+      {
+        "id": "paper",
+        "title": "Paper",
+        "scope": "For paper-related applications.",
+        "gradeLabel": "Grades to Review",
+        "gradePageIds": ["GRADE-M350", "GRADE-M2377"],
+        "childAction": { "targetPageId": "APP-PAPER", "label": "Explore Paper", "href": "/applications/titanium-dioxide-for-paper/" }
+      },
+      {
+        "id": "specialty-materials",
+        "title": "Specialty Materials",
+        "scope": "For reviewing CR-901 in specialty-material applications.",
+        "gradeLabel": "Grade to Review",
+        "gradePageIds": ["GRADE-CR901"],
+        "childAction": null
+      }
+    ]
+  },
+  "evaluation": {
+    "heading": "How to Use This Application Hub",
+    "items": [
+      { "title": "Choose your application.", "body": "Start with the category that matches what you make. Review more than one path if your work spans several applications." },
+      { "title": "Compare technical information.", "body": "Use current technical data to compare the grades under review against your requirements." },
+      { "title": "Validate in your own system.", "body": "Check the grade in your formulation and process before making a specification decision." }
+    ]
+  },
+  "procurement": {
+    "heading": "Continue Your Procurement Review",
+    "items": [
+      { "targetPageId": "PRODUCT-000", "title": "Products", "body": "Already know the grade, or need a wider starting point? Use the product directory to review the portfolio and explore process information.", "actionLabel": "Explore Products", "href": "/products/" },
+      { "targetPageId": "DOC-000", "title": "Documents", "body": "Understand technical, quality and origin document types and how to request them.", "actionLabel": "Review Documents", "href": "/documents/" },
+      { "targetPageId": "MARKET-000", "title": "Markets", "body": "Find procurement context for your destination market.", "actionLabel": "Explore Markets", "href": "/markets/" }
+    ]
+  },
+  "finalRfq": {
+    "targetPageId": "CONV-RFQ",
+    "heading": "Share Your Application Requirements",
+    "paragraphs": [
+      "Share the intended application, destination market, required quantity and any technical or documentation requirements. Our team will review the request and identify the appropriate next step.",
+      "If you have not selected a grade, choose “Not sure / Need help” on the quotation form. For an application that is still undecided, choose “Other / Not sure”."
+    ],
+    "action": { "label": "Request a Quote", "href": "/request-a-quote/" }
+  }
+}

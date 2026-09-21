@@ -18,7 +18,7 @@ test("current D32 collection surfaces and shared footer copy", async ({
   );
 });
 
-const routes = ["/", "/products/", "/products/m-350/"];
+const routes = ["/", "/products/", "/products/m-350/", "/applications/"];
 test("M350 breadcrumb items share one vertical center", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto("/products/m-350/");
@@ -115,7 +115,13 @@ for (const route of routes) {
       await page.evaluate(() => scrollTo(0, 0));
       if (width === 390 || width === 1440) {
         const name =
-          route === "/" ? "home" : route === "/products/" ? "products" : "m350";
+          route === "/"
+            ? "home"
+            : route === "/products/"
+              ? "products"
+              : route === "/products/m-350/"
+                ? "m350"
+                : "applications";
         await page.screenshot({
           path: path.resolve(
             process.env.STATIC_EVIDENCE_DIR || "test-results/screenshots",
@@ -177,7 +183,7 @@ for (const route of routes) {
     const html = await response.text();
     expect(
       html.match(
-        /GRADE-M350|PRODUCT-000|HOME-001|GLOBAL-CHROME|D:\\|D:\/|tio2malaysia\.com/g,
+        /GRADE-[A-Z0-9-]+|PRODUCT-000|APP-[A-Z0-9-]+|HOME-001|GLOBAL-CHROME|D:\\|D:\/|tio2malaysia\.com/g,
       ),
     ).toBeNull();
     expect(html.match(/\/products\/(?:m-510|cr-901)\//g)).toBeNull();

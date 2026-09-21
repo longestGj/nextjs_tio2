@@ -17,6 +17,10 @@ const routes = {
     canonical: "https://tio2products.com/products/m-350/",
     h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
   },
+  "/applications/": {
+    canonical: "https://tio2products.com/applications/",
+    h1: "Explore Titanium Dioxide by Application",
+  },
 };
 
 function page({ canonical, h1 }, { includeAssets = true } = {}) {
@@ -96,7 +100,7 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 3, assets: 2 });
+  assert.deepEqual(result, { routes: 4, assets: 2 });
 });
 
 test("rejects pages without Next.js script and stylesheet assets", async () => {

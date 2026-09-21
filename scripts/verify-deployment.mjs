@@ -16,6 +16,11 @@ const routeContracts = [
     canonical: "https://tio2products.com/products/m-350/",
     h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
   },
+  {
+    path: "/applications/",
+    canonical: "https://tio2products.com/applications/",
+    h1: "Explore Titanium Dioxide by Application",
+  },
 ];
 
 function parseAttributes(tag) {
