@@ -60,9 +60,20 @@ test("Applications exposes only currently implemented destinations", async ({ pa
   await expect(page.locator('[data-grade] a[href="/products/m-350/"]')).toHaveCount(4);
   await expect(page.locator("[data-grade] a")).toHaveCount(4);
   await expect(page.locator("[data-grade] span")).toHaveCount(26);
-  await expect(page.locator("[data-application-action]")).toHaveCount(0);
+  await expect(page.locator("[data-application-action]")).toHaveCount(5);
+  expect(
+    await page
+      .locator("[data-application-action]")
+      .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
+  ).toEqual([
+    "/applications/titanium-dioxide-for-coatings/",
+    "/applications/titanium-dioxide-for-plastics/",
+    "/applications/titanium-dioxide-for-masterbatch/",
+    "/applications/titanium-dioxide-for-printing-inks/",
+    "/applications/titanium-dioxide-for-paper/",
+  ]);
   await expect(page.locator("[data-route-sentence]")).toHaveText(
-    "Open a grade page for product information.",
+    "Open a grade page for product information, or explore an application for guidance on what to evaluate.",
   );
   await expect(page.locator("[data-evaluation-step] h3")).toHaveText([
     "Choose your application.",
@@ -84,8 +95,23 @@ test("Applications Schema and Products support match visible readiness", async (
   expect(schema["@graph"].map((node: { "@type": string }) => node["@type"])).toEqual([
     "CollectionPage",
     "BreadcrumbList",
+    "ItemList",
   ]);
-  expect(schema["@graph"].some((node: { "@type": string }) => node["@type"] === "ItemList")).toBe(false);
+  const itemList = schema["@graph"].find(
+    (node: { "@type": string }) => node["@type"] === "ItemList",
+  );
+  expect(itemList.numberOfItems).toBe(5);
+  expect(
+    itemList.itemListElement.map(
+      (item: { item: { url: string } }) => item.item.url,
+    ),
+  ).toEqual([
+    "https://tio2products.com/applications/titanium-dioxide-for-coatings/",
+    "https://tio2products.com/applications/titanium-dioxide-for-plastics/",
+    "https://tio2products.com/applications/titanium-dioxide-for-masterbatch/",
+    "https://tio2products.com/applications/titanium-dioxide-for-printing-inks/",
+    "https://tio2products.com/applications/titanium-dioxide-for-paper/",
+  ]);
 
   const html = await (await request.get("/applications/")).text();
   expect(

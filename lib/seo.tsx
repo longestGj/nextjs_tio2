@@ -1,4 +1,5 @@
 import type { MalaysiaApplicationsHubDto } from "./content/applications-v01-types";
+import type { ApplicationDetailPage } from "./content/application-detail-pages";
 import type { MalaysiaProductDetailDto } from "./content/product-detail-v01-types";
 import type { MalaysiaHomepageDto } from "./content/homepage-v04-types";
 import type { MalaysiaProductHubDto } from "./content/product-hub-v01-types";
@@ -216,4 +217,40 @@ export function applicationsSchema(p: MalaysiaApplicationsHubDto) {
     });
   }
   return { "@context": "https://schema.org", "@graph": graph };
+}
+
+export function applicationDetailSchema(p: ApplicationDetailPage) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": p.canonical + "#webpage",
+        url: p.canonical,
+        name: p.h1,
+        description: p.description,
+        breadcrumb: { "@id": p.canonical + "#breadcrumb" },
+        inLanguage: "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": p.canonical + "#breadcrumb",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin + "/" },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Applications",
+            item: origin + "/applications/",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: p.label,
+            item: p.canonical,
+          },
+        ],
+      },
+    ],
+  };
 }

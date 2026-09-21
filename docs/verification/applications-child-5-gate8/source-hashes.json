@@ -1,0 +1,54 @@
+[
+  {
+    "path": "D:/23MySec/pages/applications/06_handoff/APPLICATIONS-CHILD-5_D32-STATIC-NEXTJS_GATE6_HANDOFF_PACKAGE_V1.0.md",
+    "sha256": "71153324f999035d3bb42357d3a44170651f49c9de4ae36bad054e16e36baa8c"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/05_review/APPLICATIONS-CHILD-5_D32-STATIC-NEXTJS_GATE6_CONTROLLER_CLOSURE_V1.0.md",
+    "sha256": "76cea9360a7f0a3bfdf1d981393c986bc5e941db3c145bcc8457fdb74a516140"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/05_review/APPLICATIONS-CHILD-5_D32-STATIC-NEXTJS_GATE6_INDEPENDENT_REVIEW_V1.0.md",
+    "sha256": "9f75b6f4d0cab0480ba828e668051a52a546ab57b43f1b9e406df31e18375420"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/coatings/04_planning/APP-COAT_GATE2_FULL_BUYER_CLEAN_COPY_V0.2.md",
+    "sha256": "e5c9ffa7bcd7ae0375e45e27ba9bc26b95d00d317ff19c243e7e931b17706531"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/coatings/04_planning/APP-COAT_GATE2_CONTENT_CONTRACT_V0.1.md",
+    "sha256": "ab5fd1d67eae464193d6e20b3f80a94afd36e29383ffb5a2c99db8e7103de400"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/plastics/04_planning/APP-PLAS_GATE2_FULL_BUYER_CLEAN_COPY_V0.3.md",
+    "sha256": "8db6d6fa979831e1e5c5930bdfe3ec261bb74d252304658251a37932bbea4f92"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/plastics/04_planning/APP-PLAS_GATE2_CONTENT_CONTRACT_V0.3.md",
+    "sha256": "646cc89f7c331d22c77d1d71abf2f605c44d1cd2eb4fd633f8a0f72ded5aa204"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/masterbatch/04_planning/APP-MB_GATE2_FULL_BUYER_CLEAN_COPY_V0.3.md",
+    "sha256": "06bdd245d1722223c415e0c4cecc7248f64d938cc37f936ae160b240faa9343f"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/masterbatch/04_planning/APP-MB_GATE2_CONTENT_CONTRACT_V0.3.md",
+    "sha256": "944fee912e10fa2ddf9a5700d2d925e584b07edb998af7b6b13194d8143ad168"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/printing-inks/04_planning/APP-INK_GATE2_FULL_BUYER_CLEAN_COPY_V0.2.md",
+    "sha256": "b5a92976f526fcfee74fdf088ec9ea3ef21456e5ba66965f79c50ec4dd5c938d"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/printing-inks/04_planning/APP-INK_GATE2_CONTENT_CONTRACT_V0.2.md",
+    "sha256": "11883e118e017e7886d91a3a6400150fcc92e3972b56847aafecc9250e960dc3"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/paper/04_planning/APP-PAPER_GATE2_FULL_BUYER_CLEAN_COPY_V0.2.md",
+    "sha256": "14a77a04347e78b7ad080cd9d8b7f6251692450380216506e6e0745724012542"
+  },
+  {
+    "path": "D:/23MySec/pages/applications/paper/04_planning/APP-PAPER_GATE2_CONTENT_CONTRACT_V0.2.md",
+    "sha256": "12ac65fd35f9b48fd5aabfb7085f443f4e94a57b9aead4b1e8b951d2bf1ca244"
+  }
+]

@@ -20,13 +20,43 @@ const routes = {
   "/applications/": {
     canonical: "https://tio2products.com/applications/",
     h1: "Explore Titanium Dioxide by Application",
+    robots: "noindex, nofollow",
+  },
+  "/applications/titanium-dioxide-for-coatings/": {
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-coatings/",
+    h1: "Titanium Dioxide for Coatings",
+    robots: "index, follow",
+  },
+  "/applications/titanium-dioxide-for-plastics/": {
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-plastics/",
+    h1: "Titanium Dioxide for Plastics",
+    robots: "index, follow",
+  },
+  "/applications/titanium-dioxide-for-masterbatch/": {
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-masterbatch/",
+    h1: "Titanium Dioxide for Masterbatch",
+    robots: "index, follow",
+  },
+  "/applications/titanium-dioxide-for-printing-inks/": {
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-printing-inks/",
+    h1: "Titanium Dioxide for Printing Inks",
+    robots: "index, follow",
+  },
+  "/applications/titanium-dioxide-for-paper/": {
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-paper/",
+    h1: "Titanium Dioxide for Paper",
+    robots: "index, follow",
   },
 };
 
-function page({ canonical, h1 }, { includeAssets = true } = {}) {
+for (const route of ["/", "/products/", "/products/m-350/"]) {
+  routes[route].robots = "noindex, nofollow";
+}
+
+function page({ canonical, h1, robots }, { includeAssets = true } = {}) {
   return `<!doctype html>
     <html><head>
-      <meta name="robots" content="noindex, nofollow">
+      <meta name="robots" content="${robots}">
       <link rel="canonical" href="${canonical}">
       ${includeAssets ? '<link rel="stylesheet" href="/_next/static/test.css">' : ""}
       ${includeAssets ? '<script src="/_next/static/test.js"></script>' : ""}
@@ -100,7 +130,7 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 4, assets: 2 });
+  assert.deepEqual(result, { routes: 9, assets: 2 });
 });
 
 test("rejects pages without Next.js script and stylesheet assets", async () => {

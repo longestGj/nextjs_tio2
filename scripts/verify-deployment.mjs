@@ -5,21 +5,55 @@ const routeContracts = [
     path: "/",
     canonical: "https://tio2products.com/",
     h1: "Malaysia Titanium Dioxide for Industrial Buyers",
+    robots: ["noindex", "nofollow"],
   },
   {
     path: "/products/",
     canonical: "https://tio2products.com/products/",
     h1: "Titanium Dioxide Pigment Grades for Industrial Applications",
+    robots: ["noindex", "nofollow"],
   },
   {
     path: "/products/m-350/",
     canonical: "https://tio2products.com/products/m-350/",
     h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
+    robots: ["noindex", "nofollow"],
   },
   {
     path: "/applications/",
     canonical: "https://tio2products.com/applications/",
     h1: "Explore Titanium Dioxide by Application",
+    robots: ["noindex", "nofollow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-coatings/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-coatings/",
+    h1: "Titanium Dioxide for Coatings",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-plastics/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-plastics/",
+    h1: "Titanium Dioxide for Plastics",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-masterbatch/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-masterbatch/",
+    h1: "Titanium Dioxide for Masterbatch",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-printing-inks/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-printing-inks/",
+    h1: "Titanium Dioxide for Printing Inks",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-paper/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-paper/",
+    h1: "Titanium Dioxide for Paper",
+    robots: ["index", "follow"],
   },
 ];
 
@@ -59,8 +93,17 @@ function assertPageContract(html, contract) {
   const robots = tags(html, "meta")
     .map(parseAttributes)
     .find((attributes) => attributes.get("name")?.toLowerCase() === "robots");
-  if (!robots?.get("content")?.toLowerCase().split(/[\s,]+/).includes("noindex")) {
-    throw new Error(`${contract.path} robots metadata does not include noindex`);
+  const robotTokens = robots?.get("content")?.toLowerCase().split(/[\s,]+/) ?? [];
+  for (const token of contract.robots) {
+    if (!robotTokens.includes(token)) {
+      throw new Error(`${contract.path} robots metadata does not include ${token}`);
+    }
+  }
+  const forbiddenRobots = contract.robots[0] === "index"
+    ? ["noindex", "nofollow"]
+    : ["index", "follow"];
+  if (forbiddenRobots.some((token) => robotTokens.includes(token))) {
+    throw new Error(`${contract.path} robots metadata contains a conflicting directive`);
   }
 
   const heading = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);

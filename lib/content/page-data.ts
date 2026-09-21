@@ -1,10 +1,23 @@
 import homeContent from "@/content/home.json";
 import chrome from "@/content/chrome.json";
-type ReadyConditionalPageId = "PRODUCT-000" | "GRADE-M350" | "APP-000";
+type ReadyConditionalPageId =
+  | "PRODUCT-000"
+  | "GRADE-M350"
+  | "APP-000"
+  | "APP-COAT"
+  | "APP-PLAS"
+  | "APP-MB"
+  | "APP-INK"
+  | "APP-PAPER";
 export const tio2MyRouteReadiness = {
   "PRODUCT-000": true,
   "GRADE-M350": true,
   "APP-000": true,
+  "APP-COAT": true,
+  "APP-PLAS": true,
+  "APP-MB": true,
+  "APP-INK": true,
+  "APP-PAPER": true,
 } as const satisfies Readonly<Record<ReadyConditionalPageId, true>>;
 export const home = { ...homeContent, globalChrome: chrome };
 import productContent from "@/content/products.json";

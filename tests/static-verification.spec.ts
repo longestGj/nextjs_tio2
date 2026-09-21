@@ -18,7 +18,37 @@ test("current D32 collection surfaces and shared footer copy", async ({
   );
 });
 
-const routes = ["/", "/products/", "/products/m-350/", "/applications/"];
+const routes = [
+  { path: "/", screenshot: "home", indexable: false },
+  { path: "/products/", screenshot: "products", indexable: false },
+  { path: "/products/m-350/", screenshot: "m350", indexable: false },
+  { path: "/applications/", screenshot: "applications", indexable: false },
+  {
+    path: "/applications/titanium-dioxide-for-coatings/",
+    screenshot: "application-coatings",
+    indexable: true,
+  },
+  {
+    path: "/applications/titanium-dioxide-for-plastics/",
+    screenshot: "application-plastics",
+    indexable: true,
+  },
+  {
+    path: "/applications/titanium-dioxide-for-masterbatch/",
+    screenshot: "application-masterbatch",
+    indexable: true,
+  },
+  {
+    path: "/applications/titanium-dioxide-for-printing-inks/",
+    screenshot: "application-printing-inks",
+    indexable: true,
+  },
+  {
+    path: "/applications/titanium-dioxide-for-paper/",
+    screenshot: "application-paper",
+    indexable: true,
+  },
+] as const;
 test("M350 breadcrumb items share one vertical center", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto("/products/m-350/");
@@ -67,7 +97,7 @@ test("selector waits for hydration before accepting clicks", async ({
 const widths = [320, 390, 768, 1024, 1280, 1440];
 for (const route of routes) {
   for (const width of widths) {
-    test(`${route} static layout ${width}`, async ({ page }) => {
+    test(`${route.path} static layout ${width}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       const errors: string[] = [];
       page.on("pageerror", (error) => errors.push(error.message));
@@ -81,7 +111,7 @@ for (const route of routes) {
         if (/wp-json|graphql|\/api\//.test(request.url()))
           errors.push(request.url());
       });
-      const response = await page.goto(route);
+      const response = await page.goto(route.path);
       expect(response?.status()).toBe(200);
       await expect(page.locator("h1")).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
@@ -105,23 +135,20 @@ for (const route of routes) {
       ).toBe(true);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
         "href",
-        "https://tio2products.com" + route,
+        "https://tio2products.com" + route.path,
       );
-      await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      const robots = page.locator('meta[name="robots"]');
+      await expect(robots).toHaveAttribute(
         "content",
-        /noindex/,
+        route.indexable ? /index/ : /noindex/,
       );
+      if (route.indexable) {
+        await expect(robots).not.toHaveAttribute("content", /noindex|nofollow/);
+      }
       expect(errors).toEqual([]);
       await page.evaluate(() => scrollTo(0, 0));
-      if (width === 390 || width === 1440) {
-        const name =
-          route === "/"
-            ? "home"
-            : route === "/products/"
-              ? "products"
-              : route === "/products/m-350/"
-                ? "m350"
-                : "applications";
+      if (width === 390 || width === 768 || width === 1440) {
+        const name = route.screenshot;
         await page.screenshot({
           path: path.resolve(
             process.env.STATIC_EVIDENCE_DIR || "test-results/screenshots",
@@ -138,9 +165,9 @@ for (const route of routes) {
       }
     });
   }
-  test(`${route} menu and cookie keyboard behavior`, async ({ page }) => {
+  test(`${route.path} menu and cookie keyboard behavior`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(route);
+    await page.goto(route.path);
     const trigger = page.getByRole("button", {
       name: "Open primary navigation",
       exact: true,
@@ -176,10 +203,10 @@ for (const route of routes) {
     await cookie.click();
     await expect(dialog).toContainText("Necessary only; Analytics unavailable");
   });
-  test(`${route} no internal identifiers or unready grade URLs in public HTML`, async ({
+  test(`${route.path} no internal identifiers or unready grade URLs in public HTML`, async ({
     request,
   }) => {
-    const response = await request.get(route);
+    const response = await request.get(route.path);
     const html = await response.text();
     expect(
       html.match(
@@ -189,6 +216,30 @@ for (const route of routes) {
     expect(html.match(/\/products\/(?:m-510|cr-901)\//g)).toBeNull();
   });
 }
+
+test("application detail shared menu and cookie visual states", async ({ page }) => {
+  const evidenceDirectory =
+    process.env.STATIC_EVIDENCE_DIR || "test-results/screenshots";
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/applications/titanium-dioxide-for-coatings/");
+  await page
+    .getByRole("button", { name: "Open primary navigation", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Primary navigation menu" }),
+  ).toBeVisible();
+  await page.screenshot({
+    path: path.resolve(evidenceDirectory, "application-shared-menu-390.png"),
+  });
+  await page.keyboard.press("Escape");
+  await page.getByRole("button", { name: "Cookie Settings", exact: true }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Cookie settings", exact: true }),
+  ).toBeVisible();
+  await page.screenshot({
+    path: path.resolve(evidenceDirectory, "application-shared-cookie-390.png"),
+  });
+});
 
 test("all seven product selections return the approved grade relationships", async ({
   page,
@@ -341,11 +392,11 @@ test("static copy remains available without JavaScript", async ({
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   for (const route of routes) {
-    expect((await page.goto("http://127.0.0.1:8333" + route))?.status()).toBe(
+    expect((await page.goto("http://127.0.0.1:8333" + route.path))?.status()).toBe(
       200,
     );
     await expect(page.locator("h1")).toBeVisible();
-    await expect(page.locator("main")).toContainText("titanium dioxide");
+    await expect(page.locator("main")).toContainText(/titanium dioxide/i);
   }
   await context.close();
 });
