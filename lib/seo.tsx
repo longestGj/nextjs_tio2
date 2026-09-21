@@ -2,6 +2,7 @@ import type { MalaysiaApplicationsHubDto } from "./content/applications-v01-type
 import type { MalaysiaProductDetailDto } from "./content/product-detail-v01-types";
 import type { MalaysiaHomepageDto } from "./content/homepage-v04-types";
 import type { MalaysiaProductHubDto } from "./content/product-hub-v01-types";
+import type { PublicProductDetail } from "./content/product-detail-types";
 const origin = "https://tio2products.com";
 export function JsonLd({ value }: { value: unknown }) {
   return (
@@ -44,6 +45,43 @@ export function m350Schema(p: MalaysiaProductDetailDto) {
           position: i + 1,
           name,
           item: origin + path,
+        })),
+      },
+    ],
+  };
+}
+
+export function productDetailSchema(p: PublicProductDetail) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": p.seo.canonical + "#product",
+        name: `${p.identity.gradeCode} Titanium Dioxide`,
+        sku: p.identity.gradeCode,
+        url: p.seo.canonical,
+        description: `${p.hero.summaryLead} ${p.hero.summaryBody}`,
+        additionalProperty: p.technical.rows.map((row) => {
+          const values = Object.values(row);
+          return {
+            "@type": "PropertyValue",
+            name: values[0],
+            value: values
+              .slice(1)
+              .map((value, index) => `${p.technical.columns[index + 1]}: ${value}`)
+              .join("; "),
+          };
+        }),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": p.seo.canonical + "#breadcrumb",
+        itemListElement: p.breadcrumb.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.label,
+          item: origin + item.href,
         })),
       },
     ],

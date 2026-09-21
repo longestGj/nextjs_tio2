@@ -2,26 +2,9 @@ import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { after, before, test } from "node:test";
 
-import { verifyDeployment } from "../scripts/verify-deployment.mjs";
+import { routeContracts, verifyDeployment } from "../scripts/verify-deployment.mjs";
 
-const routes = {
-  "/": {
-    canonical: "https://tio2products.com/",
-    h1: "Malaysia Titanium Dioxide for Industrial Buyers",
-  },
-  "/products/": {
-    canonical: "https://tio2products.com/products/",
-    h1: "Titanium Dioxide Pigment Grades for Industrial Applications",
-  },
-  "/products/m-350/": {
-    canonical: "https://tio2products.com/products/m-350/",
-    h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
-  },
-  "/applications/": {
-    canonical: "https://tio2products.com/applications/",
-    h1: "Explore Titanium Dioxide by Application",
-  },
-};
+const routes = Object.fromEntries(routeContracts.map(({ path, ...contract }) => [path, contract]));
 
 function page({ canonical, h1 }, { includeAssets = true } = {}) {
   return `<!doctype html>
@@ -100,7 +83,7 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 4, assets: 2 });
+  assert.deepEqual(result, { routes: 17, assets: 2 });
 });
 
 test("rejects pages without Next.js script and stylesheet assets", async () => {

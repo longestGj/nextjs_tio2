@@ -1,11 +1,19 @@
 import homeContent from "@/content/home.json";
 import chrome from "@/content/chrome.json";
-type ReadyConditionalPageId = "PRODUCT-000" | "GRADE-M350" | "APP-000";
-export const tio2MyRouteReadiness = {
+import { productDetailRegistry } from "./product-detail-registry";
+export const globalChrome = chrome;
+const readyProductDetails = Object.fromEntries(
+  productDetailRegistry.map(({ pageId }) => [pageId, true] as const),
+);
+const baseRouteReadiness = {
   "PRODUCT-000": true,
   "GRADE-M350": true,
   "APP-000": true,
-} as const satisfies Readonly<Record<ReadyConditionalPageId, true>>;
+} as const;
+export const tio2MyRouteReadiness = {
+  ...baseRouteReadiness,
+  ...readyProductDetails,
+} as const satisfies Readonly<Record<string, boolean>>;
 export const home = { ...homeContent, globalChrome: chrome };
 import productContent from "@/content/products.json";
 export const products = {
@@ -19,5 +27,5 @@ import applicationsContent from "@/content/applications.json";
 export const applications = {
   ...applicationsContent,
   globalChrome: chrome,
-  routeReadiness: tio2MyRouteReadiness,
+  routeReadiness: baseRouteReadiness,
 };

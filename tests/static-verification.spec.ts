@@ -176,7 +176,7 @@ for (const route of routes) {
     await cookie.click();
     await expect(dialog).toContainText("Necessary only; Analytics unavailable");
   });
-  test(`${route} no internal identifiers or unready grade URLs in public HTML`, async ({
+  test(`${route} exposes no internal identifiers in public HTML`, async ({
     request,
   }) => {
     const response = await request.get(route);
@@ -186,7 +186,6 @@ for (const route of routes) {
         /GRADE-[A-Z0-9-]+|PRODUCT-000|APP-[A-Z0-9-]+|HOME-001|GLOBAL-CHROME|D:\\|D:\/|tio2malaysia\.com/g,
       ),
     ).toBeNull();
-    expect(html.match(/\/products\/(?:m-510|cr-901)\//g)).toBeNull();
   });
 }
 

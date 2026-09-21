@@ -1,6 +1,21 @@
+import { readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { productDetailCandidates } from "../lib/content/product-detail-candidates.mjs";
 
-const routeContracts = [
+const productDetailRouteContracts = await Promise.all(
+  productDetailCandidates.map(async (candidate) => {
+    const contract = JSON.parse(
+      await readFile(new URL(`../content/product-details/${candidate.contractFile}`, import.meta.url), "utf8"),
+    );
+    return {
+      path: candidate.path,
+      canonical: `https://tio2products.com${candidate.path}`,
+      h1: contract.seo.h1,
+    };
+  }),
+);
+
+export const routeContracts = [
   {
     path: "/",
     canonical: "https://tio2products.com/",
@@ -21,6 +36,7 @@ const routeContracts = [
     canonical: "https://tio2products.com/applications/",
     h1: "Explore Titanium Dioxide by Application",
   },
+  ...productDetailRouteContracts,
 ];
 
 function parseAttributes(tag) {
