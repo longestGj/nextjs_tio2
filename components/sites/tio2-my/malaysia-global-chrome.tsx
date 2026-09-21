@@ -19,10 +19,9 @@ const inlineMobileMenuSources = new Set([
   "RES-R706",
   "RES-CHEMOURS",
   "SYS-404",
-  "CONV-THANK",
 ]);
 
-const copyrightFirstSources = new Set(["SYS-404", "CONV-THANK"]);
+const copyrightFirstSources = new Set(["SYS-404"]);
 
 export function MalaysiaGlobalHeader({
   chrome,

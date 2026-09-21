@@ -31,6 +31,14 @@ test("Vercel production deployment is gated by tests on main", async () => {
   assert.match(deployJob, /vars\.VERCEL_PROJECT_ID/);
   assert.match(deployJob, /secrets\.VERCEL_TOKEN/);
   assert.doesNotMatch(workflow.slice(0, workflow.indexOf("  deploy:")), /VERCEL_TOKEN/);
+  const testJob = workflow.slice(
+    workflow.indexOf("  test:"),
+    workflow.indexOf("  deploy:"),
+  );
+  assert.match(
+    testJob,
+    /NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY:\s*00000000-0000-4000-8000-000000000001/,
+  );
 
   const cliCalls = deployJob.match(/vercel@54\.18\.7/g) ?? [];
   assert.equal(cliCalls.length, 3, "pull, build and deploy must pin Vercel CLI");

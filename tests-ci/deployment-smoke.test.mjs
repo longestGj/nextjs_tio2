@@ -21,16 +21,33 @@ const routes = {
     canonical: "https://tio2products.com/applications/",
     h1: "Explore Titanium Dioxide by Application",
   },
+  "/request-a-quote/": {
+    canonical: "https://tio2products.com/request-a-quote/",
+    h1: "Request a Titanium Dioxide Quote",
+    requiredHtml: ['name="grade_id"', 'name="business_email"'],
+  },
+  "/thank-you/": {
+    canonical: "https://tio2products.com/thank-you/",
+    h1: "How can we help?",
+  },
+  "/privacy-policy/": {
+    canonical: "https://tio2products.com/privacy-policy/",
+    h1: "Privacy Policy",
+    requiredHtml: ["Web3Forms", "Last updated: 5 September 2026"],
+  },
 };
 
-function page({ canonical, h1 }, { includeAssets = true } = {}) {
+function page(
+  { canonical, h1, requiredHtml = [] },
+  { includeAssets = true, omitRequiredHtml = false } = {},
+) {
   return `<!doctype html>
     <html><head>
       <meta name="robots" content="noindex, nofollow">
       <link rel="canonical" href="${canonical}">
       ${includeAssets ? '<link rel="stylesheet" href="/_next/static/test.css">' : ""}
       ${includeAssets ? '<script src="/_next/static/test.js"></script>' : ""}
-    </head><body><h1>${h1}</h1></body></html>`;
+    </head><body><h1>${h1}</h1>${omitRequiredHtml ? "" : requiredHtml.join(" ")}</body></html>`;
 }
 
 function startFixture({
@@ -38,6 +55,7 @@ function startFixture({
   includeAssets = true,
   assetContentType = "text/javascript",
   emptyScript = false,
+  omitRfqMarkup = false,
 } = {}) {
   const server = createServer((request, response) => {
     if (request.url === "/_next/static/test.js") {
@@ -69,7 +87,13 @@ function startFixture({
     }
 
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
-    response.end(page(contract, { includeAssets }));
+    response.end(
+      page(contract, {
+        includeAssets,
+        omitRequiredHtml:
+          omitRfqMarkup && request.url === "/request-a-quote/",
+      }),
+    );
   });
 
   return new Promise((resolve, reject) => {
@@ -100,7 +124,19 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 4, assets: 2 });
+  assert.deepEqual(result, { routes: 7, assets: 2 });
+});
+
+test("rejects an RFQ deployment without configured form markup", async () => {
+  const fixture = await startFixture({ omitRfqMarkup: true });
+  try {
+    await assert.rejects(
+      () => verifyDeployment(fixture.origin),
+      /request-a-quote.*name="grade_id"/i,
+    );
+  } finally {
+    await fixture.close();
+  }
 });
 
 test("rejects pages without Next.js script and stylesheet assets", async () => {

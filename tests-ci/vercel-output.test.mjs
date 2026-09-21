@@ -23,6 +23,9 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
   await Promise.all([
     mkdir(join(directory, "static", "applications"), { recursive: true }),
     mkdir(join(directory, "static", "products", "m-350"), { recursive: true }),
+    mkdir(join(directory, "static", "request-a-quote"), { recursive: true }),
+    mkdir(join(directory, "static", "thank-you"), { recursive: true }),
+    mkdir(join(directory, "static", "privacy-policy"), { recursive: true }),
     mkdir(join(directory, "static", "404"), { recursive: true }),
   ]);
   await Promise.all(
@@ -31,6 +34,9 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
       "static/applications/index.html",
       "static/products/index.html",
       "static/products/m-350/index.html",
+      "static/request-a-quote/index.html",
+      "static/thank-you/index.html",
+      "static/privacy-policy/index.html",
       "static/404/index.html",
     ].map(async (path) => {
       await mkdir(join(directory, path, ".."), { recursive: true });
@@ -59,6 +65,18 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
         path: "products/m-350/index",
         contentType: "text/html",
       },
+      "request-a-quote/index.html": {
+        path: "request-a-quote/index",
+        contentType: "text/html",
+      },
+      "thank-you/index.html": {
+        path: "thank-you/index",
+        contentType: "text/html",
+      },
+      "privacy-policy/index.html": {
+        path: "privacy-policy/index",
+        contentType: "text/html",
+      },
       "404/index.html": { path: "404/index", contentType: "text/html" },
     },
   };
@@ -69,21 +87,24 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
 test("adds directory-index routes before the filesystem handler", async () => {
   const directory = await fixture();
 
-  assert.deepEqual(await prepareVercelOutput(directory), { routes: 4 });
-  assert.deepEqual(await prepareVercelOutput(directory), { routes: 4 });
+  assert.deepEqual(await prepareVercelOutput(directory), { routes: 7 });
+  assert.deepEqual(await prepareVercelOutput(directory), { routes: 7 });
 
   const config = JSON.parse(await readFile(join(directory, "config.json"), "utf8"));
   const filesystemIndex = config.routes.findIndex(
     (route) => route.handle === "filesystem",
   );
-  assert.deepEqual(config.routes.slice(filesystemIndex - 4, filesystemIndex), [
+  assert.deepEqual(config.routes.slice(filesystemIndex - 7, filesystemIndex), [
     { src: "^/$", dest: "/index" },
     { src: "^/applications/$", dest: "/applications/index" },
+    { src: "^/privacy\\-policy/$", dest: "/privacy-policy/index" },
     { src: "^/products/$", dest: "/products/index" },
     {
       src: "^/products/m\\-350/$",
       dest: "/products/m-350/index",
     },
+    { src: "^/request\\-a\\-quote/$", dest: "/request-a-quote/index" },
+    { src: "^/thank\\-you/$", dest: "/thank-you/index" },
   ]);
 });
 

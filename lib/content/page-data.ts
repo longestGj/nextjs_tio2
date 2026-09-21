@@ -21,3 +21,17 @@ export const applications = {
   globalChrome: chrome,
   routeReadiness: tio2MyRouteReadiness,
 };
+import privacyContent from "@/content/privacy.json";
+import type { MalaysiaPrivacyPageDto } from "./privacy-types";
+export const privacy = {
+  ...privacyContent,
+  globalChrome: chrome,
+} as MalaysiaPrivacyPageDto;
+import thankYouContent from "@/content/thank-you.json";
+export const thankYou = { ...thankYouContent, globalChrome: chrome };
+import rfqContent from "@/content/rfq.json";
+import type { MalaysiaRfqPageDto } from "./rfq-types";
+export const rfq = {
+  ...rfqContent,
+  globalChrome: chrome,
+} as MalaysiaRfqPageDto;

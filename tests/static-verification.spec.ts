@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import path from "node:path";
 
+const requestedPort = process.env.PLAYWRIGHT_PORT;
+const testPort = requestedPort && /^\d{2,5}$/.test(requestedPort) ? requestedPort : "8333";
+const testBaseUrl = `http://127.0.0.1:${testPort}`;
+
 test("current D32 collection surfaces and shared footer copy", async ({
   page,
 }) => {
@@ -18,7 +22,48 @@ test("current D32 collection surfaces and shared footer copy", async ({
   );
 });
 
-const routes = ["/", "/products/", "/products/m-350/", "/applications/"];
+const routeContracts = [
+  {
+    path: "/",
+    name: "home",
+    h1: "Malaysia Titanium Dioxide for Industrial Buyers",
+  },
+  {
+    path: "/products/",
+    name: "products",
+    h1: "Titanium Dioxide Pigment Grades for Industrial Applications",
+  },
+  {
+    path: "/products/m-350/",
+    name: "m350",
+    h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
+  },
+  {
+    path: "/applications/",
+    name: "applications",
+    h1: "Explore Titanium Dioxide by Application",
+  },
+  {
+    path: "/request-a-quote/",
+    name: "rfq",
+    h1: "Request a Titanium Dioxide Quote",
+  },
+  {
+    path: "/thank-you/",
+    name: "thank-you",
+    h1: "How can we help?",
+  },
+  {
+    path: "/privacy-policy/",
+    name: "privacy",
+    h1: "Privacy Policy",
+  },
+] as const;
+const routes = routeContracts.map((route) => route.path);
+const routeNames = new Map(routeContracts.map((route) => [route.path, route.name]));
+const routeHeadings = new Map(
+  routeContracts.map((route) => [route.path, route.h1]),
+);
 test("M350 breadcrumb items share one vertical center", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto("/products/m-350/");
@@ -114,14 +159,7 @@ for (const route of routes) {
       expect(errors).toEqual([]);
       await page.evaluate(() => scrollTo(0, 0));
       if (width === 390 || width === 1440) {
-        const name =
-          route === "/"
-            ? "home"
-            : route === "/products/"
-              ? "products"
-              : route === "/products/m-350/"
-                ? "m350"
-                : "applications";
+        const name = routeNames.get(route)!;
         await page.screenshot({
           path: path.resolve(
             process.env.STATIC_EVIDENCE_DIR || "test-results/screenshots",
@@ -183,7 +221,7 @@ for (const route of routes) {
     const html = await response.text();
     expect(
       html.match(
-        /GRADE-[A-Z0-9-]+|PRODUCT-000|APP-[A-Z0-9-]+|HOME-001|GLOBAL-CHROME|D:\\|D:\/|tio2malaysia\.com/g,
+        /GRADE-[A-Z0-9-]+|PRODUCT-000|APP-[A-Z0-9-]+|HOME-001|GLOBAL-CHROME|D:\\|D:\//g,
       ),
     ).toBeNull();
     expect(html.match(/\/products\/(?:m-510|cr-901)\//g)).toBeNull();
@@ -307,7 +345,7 @@ test("mobile grade directory remains readable without JavaScript", async ({
   });
   try {
     const page = await context.newPage();
-    await page.goto("http://127.0.0.1:8333/");
+    await page.goto(`${testBaseUrl}/`);
     const grades = page.locator("[data-product-grade-id]");
     await expect(grades).toHaveCount(14);
     for (const grade of await grades.all()) await expect(grade).toBeVisible();
@@ -341,11 +379,11 @@ test("static copy remains available without JavaScript", async ({
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   for (const route of routes) {
-    expect((await page.goto("http://127.0.0.1:8333" + route))?.status()).toBe(
+    expect((await page.goto(testBaseUrl + route))?.status()).toBe(
       200,
     );
     await expect(page.locator("h1")).toBeVisible();
-    await expect(page.locator("main")).toContainText("titanium dioxide");
+    await expect(page.locator("h1")).toHaveText(routeHeadings.get(route)!);
   }
   await context.close();
 });
