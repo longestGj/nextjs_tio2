@@ -3,7 +3,7 @@
 ## Candidate
 
 - Branch: `codex/rfq-page`
-- Candidate SHA: `b874bfcd4a2c11aa5ce5a46e1c7cbe26dea90c7b`
+- Candidate SHA: `f976a59f368c064d54710020e972f6e3778145d4`
 - Verification date: 2026-09-21 (Asia/Shanghai)
 - Scope: `/request-a-quote/`, `/thank-you/`, `/privacy-policy/`, shared chrome, six-route static deployment gates, and the existing Home, Products, and M-350 regression surface.
 
@@ -16,7 +16,7 @@ The worktree was clean before locked verification. The build used only the fixed
 | `npm ci` | Exit 0; 30 packages installed, 0 vulnerabilities. |
 | `npm run typecheck` | Exit 0; Next.js route types generated and TypeScript passed. |
 | `npm run build` | Exit 0; static export generated all six implemented routes. |
-| `npm test` | Exit 0; 9/9 deployment contracts passed; Playwright 95 passed, 1 conditionally skipped, 0 failed, 0 flaky. |
+| `npm test` | Exit 0; 9/9 deployment contracts passed; serial Playwright run 95 passed, 1 conditionally skipped, 0 failed, 0 flaky. |
 | Tracked credential/config audit | Only the approved dummy UUID is tracked; no `.env`, `.vercel`, `out`, or transient `test-results` paths are tracked. |
 | `git diff --check develop...HEAD` | Exit 0. |
 | Vercel Production variable-name check | `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` exists; its value was not read or recorded. |
@@ -47,7 +47,7 @@ Visual review found no horizontal overflow, clipped controls, overlapping conten
 - Vercel Production now contains the required variable under the linked `tio2-malaysia` project. The environment listing was checked by name only.
 - The workflow test job uses the fixed non-production UUID. The deploy job obtains Production configuration through `vercel pull` and the public smoke check rejects a deployment without RFQ form markup.
 - The browser accepts success only for HTTP 200, JSON media type, valid JSON, and `success: true`. Every ambiguous or negative response keeps the form unconfirmed and creates no Thank You receipt.
-- The Thank You success state requires one matching, fresh session receipt; URL parameters alone cannot create a success state.
+- The Thank You success state requires one matching, fresh session receipt; URL parameters alone cannot create a success state, and a successful read consumes the receipt so it cannot be replayed by refreshing the page.
 
 ## Remaining release work and deliberate limits
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "candidateSha": "b874bfcd4a2c11aa5ce5a46e1c7cbe26dea90c7b",
-  "recordedAt": "2026-09-21T01:53:04.736Z",
+  "candidateSha": "f976a59f368c064d54710020e972f6e3778145d4",
+  "recordedAt": "2026-09-21T02:08:09.960Z",
   "commands": [
     "npm ci",
     "npm run typecheck",
@@ -14,12 +14,13 @@
     "failed": 0
   },
   "playwright": {
-    "durationMs": 64721.891,
+    "durationMs": 110747.835,
     "passed": 95,
     "skipped": 1,
     "failed": 0,
     "flaky": 0,
-    "total": 96
+    "total": 96,
+    "workers": 1
   },
   "tests": [
     {
@@ -28,7 +29,7 @@
       "line": 37,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2206,
+      "durationMs": 2182,
       "annotations": []
     },
     {
@@ -37,7 +38,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2640,
+      "durationMs": 2568,
       "annotations": []
     },
     {
@@ -46,7 +47,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2774,
+      "durationMs": 2635,
       "annotations": []
     },
     {
@@ -55,7 +56,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2650,
+      "durationMs": 2629,
       "annotations": []
     },
     {
@@ -64,7 +65,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2640,
+      "durationMs": 2651,
       "annotations": []
     },
     {
@@ -73,7 +74,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2655,
+      "durationMs": 2648,
       "annotations": []
     },
     {
@@ -82,7 +83,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2650,
+      "durationMs": 2677,
       "annotations": []
     },
     {
@@ -91,7 +92,7 @@
       "line": 94,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2669,
+      "durationMs": 2638,
       "annotations": []
     },
     {
@@ -100,7 +101,7 @@
       "line": 119,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1730,
+      "durationMs": 1791,
       "annotations": []
     },
     {
@@ -109,7 +110,7 @@
       "line": 132,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1810,
+      "durationMs": 1829,
       "annotations": []
     },
     {
@@ -118,7 +119,7 @@
       "line": 155,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 3016,
+      "durationMs": 3020,
       "annotations": []
     },
     {
@@ -127,7 +128,7 @@
       "line": 180,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 507,
+      "durationMs": 511,
       "annotations": []
     },
     {
@@ -136,7 +137,7 @@
       "line": 205,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 307,
+      "durationMs": 325,
       "annotations": []
     },
     {
@@ -145,7 +146,7 @@
       "line": 221,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 290,
+      "durationMs": 314,
       "annotations": []
     },
     {
@@ -154,7 +155,7 @@
       "line": 233,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 295,
+      "durationMs": 333,
       "annotations": []
     },
     {
@@ -163,7 +164,7 @@
       "line": 244,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 335,
+      "durationMs": 390,
       "annotations": []
     },
     {
@@ -172,7 +173,7 @@
       "line": 261,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 279,
+      "durationMs": 308,
       "annotations": []
     },
     {
@@ -181,7 +182,7 @@
       "line": 275,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 5025,
+      "durationMs": 5003,
       "annotations": []
     },
     {
@@ -190,7 +191,7 @@
       "line": 312,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 466,
+      "durationMs": 433,
       "annotations": []
     },
     {
@@ -199,7 +200,7 @@
       "line": 346,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 445,
+      "durationMs": 461,
       "annotations": []
     },
     {
@@ -208,7 +209,7 @@
       "line": 359,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 358,
+      "durationMs": 398,
       "annotations": []
     },
     {
@@ -217,7 +218,7 @@
       "line": 447,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 357,
+      "durationMs": 342,
       "annotations": []
     },
     {
@@ -226,7 +227,7 @@
       "line": 477,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1771,
+      "durationMs": 1803,
       "annotations": []
     },
     {
@@ -235,7 +236,7 @@
       "line": 500,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1857,
+      "durationMs": 783,
       "annotations": []
     },
     {
@@ -244,7 +245,7 @@
       "line": 543,
       "expectedStatus": "skipped",
       "status": "skipped",
-      "durationMs": 290,
+      "durationMs": 314,
       "annotations": [
         {
           "type": "skip",
@@ -258,7 +259,7 @@
       "line": 558,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 268,
+      "durationMs": 325,
       "annotations": []
     },
     {
@@ -267,67 +268,31 @@
       "line": 564,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 264,
+      "durationMs": 520,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "thank-you rejects duplicate request parameters",
-      "line": 630,
+      "line": 637,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 271,
+      "durationMs": 262,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "thank-you rejects expired receipt",
-      "line": 630,
+      "line": 637,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 253,
+      "durationMs": 260,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "thank-you rejects future receipt",
-      "line": 630,
-      "expectedStatus": "passed",
-      "status": "passed",
-      "durationMs": 286,
-      "annotations": []
-    },
-    {
-      "file": "pages.spec.ts",
-      "title": "thank-you rejects mismatched request",
-      "line": 630,
-      "expectedStatus": "passed",
-      "status": "passed",
-      "durationMs": 277,
-      "annotations": []
-    },
-    {
-      "file": "pages.spec.ts",
-      "title": "thank-you rejects missing flow id",
-      "line": 630,
-      "expectedStatus": "passed",
-      "status": "passed",
-      "durationMs": 247,
-      "annotations": []
-    },
-    {
-      "file": "pages.spec.ts",
-      "title": "thank-you rejects corrupt receipt JSON",
-      "line": 653,
-      "expectedStatus": "passed",
-      "status": "passed",
-      "durationMs": 244,
-      "annotations": []
-    },
-    {
-      "file": "pages.spec.ts",
-      "title": "thank-you falls back when storage cannot be read",
-      "line": 661,
+      "line": 637,
       "expectedStatus": "passed",
       "status": "passed",
       "durationMs": 264,
@@ -335,47 +300,83 @@
     },
     {
       "file": "pages.spec.ts",
-      "title": "privacy policy preserves the approved legal contract",
-      "line": 671,
+      "title": "thank-you rejects mismatched request",
+      "line": 637,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 383,
+      "durationMs": 267,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects missing flow id",
+      "line": 637,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 251,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects corrupt receipt JSON",
+      "line": 660,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 267,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you falls back when storage cannot be read",
+      "line": 668,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 301,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "privacy policy preserves the approved legal contract",
+      "line": 678,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 366,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "M350 deep link and collection navigation",
-      "line": 699,
+      "line": 706,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 498,
+      "durationMs": 565,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "home renders independently of WordPress",
-      "line": 723,
+      "line": 730,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 322,
+      "durationMs": 330,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "products filters and limits detail links",
-      "line": 739,
+      "line": 746,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 420,
+      "durationMs": 390,
       "annotations": []
     },
     {
       "file": "pages.spec.ts",
       "title": "structured data keeps only available grade URLs",
-      "line": 776,
+      "line": 783,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 445,
+      "durationMs": 464,
       "annotations": []
     },
     {
@@ -384,7 +385,7 @@
       "line": 8,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 618,
+      "durationMs": 300,
       "annotations": []
     },
     {
@@ -393,7 +394,7 @@
       "line": 62,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 394,
+      "durationMs": 375,
       "annotations": []
     },
     {
@@ -402,7 +403,7 @@
       "line": 81,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 365,
+      "durationMs": 354,
       "annotations": []
     },
     {
@@ -411,7 +412,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2055,
+      "durationMs": 2056,
       "annotations": []
     },
     {
@@ -420,7 +421,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2307,
+      "durationMs": 2299,
       "annotations": []
     },
     {
@@ -429,7 +430,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2125,
+      "durationMs": 2052,
       "annotations": []
     },
     {
@@ -438,7 +439,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1921,
+      "durationMs": 1852,
       "annotations": []
     },
     {
@@ -447,7 +448,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1807,
+      "durationMs": 1778,
       "annotations": []
     },
     {
@@ -456,7 +457,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2276,
+      "durationMs": 2303,
       "annotations": []
     },
     {
@@ -465,7 +466,7 @@
       "line": 174,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 524,
+      "durationMs": 734,
       "annotations": []
     },
     {
@@ -474,7 +475,7 @@
       "line": 212,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 13,
+      "durationMs": 21,
       "annotations": []
     },
     {
@@ -483,7 +484,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1961,
+      "durationMs": 2020,
       "annotations": []
     },
     {
@@ -492,7 +493,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2074,
+      "durationMs": 2167,
       "annotations": []
     },
     {
@@ -501,7 +502,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1748,
+      "durationMs": 1818,
       "annotations": []
     },
     {
@@ -510,7 +511,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1753,
+      "durationMs": 1783,
       "annotations": []
     },
     {
@@ -519,7 +520,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1509,
+      "durationMs": 1567,
       "annotations": []
     },
     {
@@ -528,7 +529,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1793,
+      "durationMs": 1814,
       "annotations": []
     },
     {
@@ -537,7 +538,7 @@
       "line": 174,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 456,
+      "durationMs": 491,
       "annotations": []
     },
     {
@@ -546,7 +547,7 @@
       "line": 212,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 10,
+      "durationMs": 7,
       "annotations": []
     },
     {
@@ -555,7 +556,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1986,
+      "durationMs": 2018,
       "annotations": []
     },
     {
@@ -564,7 +565,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2233,
+      "durationMs": 2218,
       "annotations": []
     },
     {
@@ -573,7 +574,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1612,
+      "durationMs": 1755,
       "annotations": []
     },
     {
@@ -582,7 +583,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1574,
+      "durationMs": 1711,
       "annotations": []
     },
     {
@@ -591,7 +592,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1590,
+      "durationMs": 1625,
       "annotations": []
     },
     {
@@ -600,7 +601,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1899,
+      "durationMs": 1820,
       "annotations": []
     },
     {
@@ -609,7 +610,7 @@
       "line": 174,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 510,
+      "durationMs": 475,
       "annotations": []
     },
     {
@@ -618,7 +619,7 @@
       "line": 212,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 12,
+      "durationMs": 7,
       "annotations": []
     },
     {
@@ -627,7 +628,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1348,
+      "durationMs": 1325,
       "annotations": []
     },
     {
@@ -636,7 +637,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1338,
+      "durationMs": 1393,
       "annotations": []
     },
     {
@@ -645,7 +646,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1367,
+      "durationMs": 1357,
       "annotations": []
     },
     {
@@ -654,7 +655,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1268,
+      "durationMs": 1242,
       "annotations": []
     },
     {
@@ -663,7 +664,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1240,
+      "durationMs": 1244,
       "annotations": []
     },
     {
@@ -672,7 +673,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1434,
+      "durationMs": 1491,
       "annotations": []
     },
     {
@@ -681,7 +682,7 @@
       "line": 174,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 497,
+      "durationMs": 539,
       "annotations": []
     },
     {
@@ -690,7 +691,7 @@
       "line": 212,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 8,
+      "durationMs": 9,
       "annotations": []
     },
     {
@@ -699,7 +700,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 344,
+      "durationMs": 375,
       "annotations": []
     },
     {
@@ -708,7 +709,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 431,
+      "durationMs": 482,
       "annotations": []
     },
     {
@@ -717,7 +718,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 346,
+      "durationMs": 433,
       "annotations": []
     },
     {
@@ -726,7 +727,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 326,
+      "durationMs": 440,
       "annotations": []
     },
     {
@@ -735,7 +736,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 306,
+      "durationMs": 381,
       "annotations": []
     },
     {
@@ -744,7 +745,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 425,
+      "durationMs": 516,
       "annotations": []
     },
     {
@@ -753,7 +754,7 @@
       "line": 174,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 415,
+      "durationMs": 459,
       "annotations": []
     },
     {
@@ -762,7 +763,7 @@
       "line": 212,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 7,
+      "durationMs": 8,
       "annotations": []
     },
     {
@@ -771,7 +772,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2007,
+      "durationMs": 2076,
       "annotations": []
     },
     {
@@ -780,7 +781,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2143,
+      "durationMs": 2278,
       "annotations": []
     },
     {
@@ -789,7 +790,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1895,
+      "durationMs": 2026,
       "annotations": []
     },
     {
@@ -798,7 +799,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1952,
+      "durationMs": 1984,
       "annotations": []
     },
     {
@@ -807,7 +808,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 1793,
+      "durationMs": 1869,
       "annotations": []
     },
     {
@@ -816,7 +817,7 @@
       "line": 110,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 2089,
+      "durationMs": 2211,
       "annotations": []
     },
     {
@@ -825,7 +826,7 @@
       "line": 174,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 402,
+      "durationMs": 526,
       "annotations": []
     },
     {
@@ -834,7 +835,7 @@
       "line": 212,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 7,
+      "durationMs": 9,
       "annotations": []
     },
     {
@@ -843,7 +844,7 @@
       "line": 226,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 424,
+      "durationMs": 455,
       "annotations": []
     },
     {
@@ -852,7 +853,7 @@
       "line": 294,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 275,
+      "durationMs": 316,
       "annotations": []
     },
     {
@@ -861,7 +862,7 @@
       "line": 306,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 270,
+      "durationMs": 297,
       "annotations": []
     },
     {
@@ -870,7 +871,7 @@
       "line": 334,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 257,
+      "durationMs": 364,
       "annotations": []
     },
     {
@@ -879,7 +880,7 @@
       "line": 356,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 338,
+      "durationMs": 376,
       "annotations": []
     },
     {
@@ -888,7 +889,7 @@
       "line": 371,
       "expectedStatus": "passed",
       "status": "passed",
-      "durationMs": 444,
+      "durationMs": 536,
       "annotations": []
     }
   ]
