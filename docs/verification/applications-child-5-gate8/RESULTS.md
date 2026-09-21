@@ -4,6 +4,12 @@ Date: 2026-09-21. Original baseline: `53280559074eab582aecabea6e2593aaf9ccd8ed`.
 
 This integrated candidate contains the five approved static application-detail routes plus the RFQ, Thank You and Privacy work merged from `develop`. It enables the five conditional Hub actions and the now-ready RFQ actions, while making only the five detail pages technically indexable. It does not publish, deploy, change DNS, submit Search Console data or claim that Google has indexed a page. The parallel product-detail branch remains independent and is not included.
 
+## Gate 9 targeted repair return
+
+The returned candidate `0c117ee0941a3b307f761ff0db5ea67fc98b5a07` was repaired in implementation commit `ede0e32c2c73477589447344921c34370307206a`. The shared Cookie Settings dialog now loops keyboard focus from the first control to the last with `Shift+Tab` and from the last control to the first with `Tab`; Escape, button/backdrop close and trigger focus restoration remain intact. The regression assertion was observed failing before the implementation and passing after a fresh static rebuild. All 12 implemented routes exercise the shared behavior.
+
+The exact repaired `out/` contains 93 files. `gate9-repair-build-binding.json` lists every relative path and SHA-256 and binds them to the implementation commit. `gate9-repair-test-results.json` records the fresh typecheck, build, full test and narrowed focus results. The repository-external V1.1 Manifest identifies the later evidence commit without creating a commit self-reference.
+
 ## Verification result
 
 - `npm ci`: passed on the baseline; 31 packages, zero reported vulnerabilities.
@@ -39,11 +45,11 @@ This integrated candidate contains the five approved static application-detail r
 
 | Route file | SHA-256 |
 |---|---|
-| `out/applications/titanium-dioxide-for-coatings/index.html` | `9b1e1f44586321cd1f4b9044445c9dd2094fdb972d89ef59dd7d9e6503108733` |
-| `out/applications/titanium-dioxide-for-plastics/index.html` | `2f57bfc639c37f94ea642995fdf2d8da648d69f579ecf035e2541f958700ee29` |
-| `out/applications/titanium-dioxide-for-masterbatch/index.html` | `8280952389a968364cecc149fabf2fd6d276fa149d3b4a98fbfc56840c3a1713` |
-| `out/applications/titanium-dioxide-for-printing-inks/index.html` | `083e0c08f3c3dffaf3298b29defaa897f2b0e68f8a40a4863e7f85e20d621e75` |
-| `out/applications/titanium-dioxide-for-paper/index.html` | `9209d4f3ce59a2034cb464ba32cca49ea51268fe0c3fd147c64aca1256a55930` |
+| `out/applications/titanium-dioxide-for-coatings/index.html` | `5457b28ed845e50313b9c83deb5db960c0129718107329f9be1c6c52759fc472` |
+| `out/applications/titanium-dioxide-for-plastics/index.html` | `d9bb253d24a86e514aae7603fa0b912bad7b21d12eac87784e3e5fded6e4e6e9` |
+| `out/applications/titanium-dioxide-for-masterbatch/index.html` | `b51caa17c5ef9483b14a0b44be9f053897c2e2a2ac6267fa18ce952ba45af61c` |
+| `out/applications/titanium-dioxide-for-printing-inks/index.html` | `06eecb440b29c2fd3ee547143f5db887c16f584fd429c9f082844c54ee117402` |
+| `out/applications/titanium-dioxide-for-paper/index.html` | `7e35544a28f7fc56151f10c887a93f05d7b8bfe3db4756afe46b69dd6ae6f75e` |
 
 The source package, closure, independent review and five copy/contract hashes are in `source-hashes.json`.
 
