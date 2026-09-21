@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "candidateSha": "b874bfcd4a2c11aa5ce5a46e1c7cbe26dea90c7b",
+  "recordedAt": "2026-09-21T01:53:04.736Z",
+  "commands": [
+    "npm ci",
+    "npm run typecheck",
+    "npm run build",
+    "npm test"
+  ],
+  "contractTests": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0
+  },
+  "playwright": {
+    "durationMs": 64721.891,
+    "passed": 95,
+    "skipped": 1,
+    "failed": 0,
+    "flaky": 0,
+    "total": 96
+  },
+  "tests": [
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms accepts an explicit provider success and creates the receipt",
+      "line": 37,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2206,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms HTTP 400 remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2640,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms HTTP 422 remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2774,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms HTTP 429 remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2650,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms HTTP 500 remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2640,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms success false remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2655,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms malformed JSON remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2650,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms HTML body remains unconfirmed and retains values",
+      "line": 94,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2669,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms network abort never creates success",
+      "line": 119,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1730,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "Web3Forms timeout remains unconfirmed",
+      "line": 132,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1810,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "submission retry keeps values and uses a new request token",
+      "line": 155,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 3016,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "submission double dispatch sends only one pending request",
+      "line": 180,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 507,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "RFQ accepts only approved query prefills",
+      "line": 205,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 307,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "prefill rejects whitespace, unknown values, and overlong destinations",
+      "line": 221,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 290,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "prefill deduplicates approved documents and rejects unapproved labels",
+      "line": 233,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 295,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "prefill applies Sulfate only to M-2377 and excludes Specialty Materials",
+      "line": 244,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 335,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "prefill accepts Packaging review and approved market fallbacks",
+      "line": 261,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 279,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "prefill forwards only approved source context combinations",
+      "line": 275,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 5025,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "draft stores and restores only the approved four fields",
+      "line": 312,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 466,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "clean RFQ links stay free of automatic M350 prefill",
+      "line": 346,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 445,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "RFQ preserves the approved field contract",
+      "line": 359,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 358,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "RFQ empty submit exposes the exact accessible error contract",
+      "line": 447,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 357,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "RFQ preserves exact email and website validation messages",
+      "line": 477,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1771,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "RFQ preserves the remaining boundary error messages",
+      "line": 500,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1857,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "RFQ receiver unavailable fails closed",
+      "line": 543,
+      "expectedStatus": "skipped",
+      "status": "skipped",
+      "durationMs": 290,
+      "annotations": [
+        {
+          "type": "skip",
+          "description": "requires the unconfigured RFQ build"
+        }
+      ]
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you does not trust the URL alone",
+      "line": 558,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 268,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you accepts one matching fresh receipt",
+      "line": 564,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 264,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects duplicate request parameters",
+      "line": 630,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 271,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects expired receipt",
+      "line": 630,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 253,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects future receipt",
+      "line": 630,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 286,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects mismatched request",
+      "line": 630,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 277,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects missing flow id",
+      "line": 630,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 247,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you rejects corrupt receipt JSON",
+      "line": 653,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 244,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "thank-you falls back when storage cannot be read",
+      "line": 661,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 264,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "privacy policy preserves the approved legal contract",
+      "line": 671,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 383,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "M350 deep link and collection navigation",
+      "line": 699,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 498,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "home renders independently of WordPress",
+      "line": 723,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 322,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "products filters and limits detail links",
+      "line": 739,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 420,
+      "annotations": []
+    },
+    {
+      "file": "pages.spec.ts",
+      "title": "structured data keeps only available grade URLs",
+      "line": 776,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 445,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "current D32 collection surfaces and shared footer copy",
+      "line": 8,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 618,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "M350 breadcrumb items share one vertical center",
+      "line": 62,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 394,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "selector waits for hydration before accepting clicks",
+      "line": 81,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 365,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ static layout 320",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2055,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ static layout 390",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2307,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ static layout 768",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2125,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ static layout 1024",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1921,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ static layout 1280",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1807,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ static layout 1440",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2276,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ menu and cookie keyboard behavior",
+      "line": 174,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 524,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/ no internal identifiers or unready grade URLs in public HTML",
+      "line": 212,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 13,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ static layout 320",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1961,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ static layout 390",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2074,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ static layout 768",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1748,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ static layout 1024",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1753,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ static layout 1280",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1509,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ static layout 1440",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1793,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ menu and cookie keyboard behavior",
+      "line": 174,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 456,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/ no internal identifiers or unready grade URLs in public HTML",
+      "line": 212,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 10,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ static layout 320",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1986,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ static layout 390",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2233,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ static layout 768",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1612,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ static layout 1024",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1574,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ static layout 1280",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1590,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ static layout 1440",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1899,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ menu and cookie keyboard behavior",
+      "line": 174,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 510,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/products/m-350/ no internal identifiers or unready grade URLs in public HTML",
+      "line": 212,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 12,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ static layout 320",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1348,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ static layout 390",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1338,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ static layout 768",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1367,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ static layout 1024",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1268,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ static layout 1280",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1240,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ static layout 1440",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1434,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ menu and cookie keyboard behavior",
+      "line": 174,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 497,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/request-a-quote/ no internal identifiers or unready grade URLs in public HTML",
+      "line": 212,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 8,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ static layout 320",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 344,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ static layout 390",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 431,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ static layout 768",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 346,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ static layout 1024",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 326,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ static layout 1280",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 306,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ static layout 1440",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 425,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ menu and cookie keyboard behavior",
+      "line": 174,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 415,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/thank-you/ no internal identifiers or unready grade URLs in public HTML",
+      "line": 212,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 7,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ static layout 320",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2007,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ static layout 390",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2143,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ static layout 768",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1895,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ static layout 1024",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1952,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ static layout 1280",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 1793,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ static layout 1440",
+      "line": 110,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 2089,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ menu and cookie keyboard behavior",
+      "line": 174,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 402,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "/privacy-policy/ no internal identifiers or unready grade URLs in public HTML",
+      "line": 212,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 7,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "all seven product selections return the approved grade relationships",
+      "line": 226,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 424,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "approved fonts are bundled locally",
+      "line": 294,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 275,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "all fifteen technical rows reproduce approved data",
+      "line": 306,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 270,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "mobile grade directory remains readable without JavaScript",
+      "line": 334,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 257,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "mobile grade disclosure works after hydration",
+      "line": 356,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 338,
+      "annotations": []
+    },
+    {
+      "file": "static-verification.spec.ts",
+      "title": "static copy remains available without JavaScript",
+      "line": 371,
+      "expectedStatus": "passed",
+      "status": "passed",
+      "durationMs": 444,
+      "annotations": []
+    }
+  ]
+}
