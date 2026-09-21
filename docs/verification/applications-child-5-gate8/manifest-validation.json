@@ -1,0 +1,1046 @@
+{
+  "status": "PASS",
+  "handoff_id": "APPLICATIONS-CHILD-5-GATE8-RETURN1-20260921",
+  "checks": [
+    {
+      "id": "static_schema",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "commit_chain",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_evidence:docs/verification/applications-child-5-gate8/RESULTS.md",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "evidence_hash:docs/verification/applications-child-5-gate8/RESULTS.md",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "evidence_secret_scan:docs/verification/applications-child-5-gate8/RESULTS.md",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_evidence:docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "evidence_hash:docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "evidence_secret_scan:docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_evidence:docs/verification/applications-child-5-gate8/gate9-repair-test-results.json",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "evidence_hash:docs/verification/applications-child-5-gate8/gate9-repair-test-results.json",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "evidence_secret_scan:docs/verification/applications-child-5-gate8/gate9-repair-test-results.json",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "receipt_references",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "receipt_secret_scan",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "implementation_binding",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "committed_artifact_binding",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:__next.__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/0cz1d0mv5g_q7.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/0rf15cv5cquf9.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/19mx3mg6lkumu.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/1oeoktc83usfn.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/2jv-7y0xhv323.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/2s8y1atpyme4i.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/344n2zhqbh4pn.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/37e91o6a6165a.css",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/3b9e1m6m565m-.css",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/3fntmmi971322.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/3kmozkq6tgqnz.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/3s6nzrbk-8mnv.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/3tce-qpdw9hng.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/chunks/turbopack-0ol8c8yjy8j3w.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/QavB78ZQZzcwmtbfIA3Q0/_buildManifest.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/QavB78ZQZzcwmtbfIA3Q0/_clientMiddlewareManifest.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_next/static/QavB78ZQZzcwmtbfIA3Q0/_ssgManifest.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_not-found/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_not-found/__next._not-found/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_not-found/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_not-found/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:_not-found/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:404.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:404/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/__next.applications/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-coatings/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-coatings/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-coatings/__next.applications/titanium-dioxide-for-coatings/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-coatings/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-coatings/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-masterbatch/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-masterbatch/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-masterbatch/__next.applications/titanium-dioxide-for-masterbatch/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-masterbatch/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-masterbatch/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-paper/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-paper/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-paper/__next.applications/titanium-dioxide-for-paper/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-paper/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-paper/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-plastics/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-plastics/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-plastics/__next.applications/titanium-dioxide-for-plastics/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-plastics/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-plastics/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-printing-inks/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-printing-inks/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-printing-inks/__next.applications/titanium-dioxide-for-printing-inks/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-printing-inks/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:applications/titanium-dioxide-for-printing-inks/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:fonts/Inter-Variable.ttf",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:fonts/LICENSE.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:privacy-policy/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:privacy-policy/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:privacy-policy/__next.privacy-policy/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:privacy-policy/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:privacy-policy/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/__next.products/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/m-350/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/m-350/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/m-350/__next.products/m-350/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/m-350/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:products/m-350/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:request-a-quote/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:request-a-quote/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:request-a-quote/__next.request-a-quote/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:request-a-quote/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:request-a-quote/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:robots.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:sitemap.xml",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:thank-you/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:thank-you/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:thank-you/__next.thank-you/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:thank-you/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:thank-you/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:tio2-my/brand/tio2-malaysia-favicon-safe-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:tio2-my/brand/tio2-malaysia-primary-horizontal-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:tio2-my/brand/tio2-malaysia-reverse-monochrome-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:tio2-my/brand/tio2-malaysia-symbol-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "unique_artifact:tio2-my/homepage-hero-material-reference.png",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:404.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:robots.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:sitemap.xml",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:__next.__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:404/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:fonts/Inter-Variable.ttf",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:fonts/LICENSE.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:privacy-policy/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:privacy-policy/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:privacy-policy/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:privacy-policy/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:request-a-quote/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:request-a-quote/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:request-a-quote/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:request-a-quote/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:thank-you/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:thank-you/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:thank-you/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:thank-you/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:tio2-my/homepage-hero-material-reference.png",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_not-found/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_not-found/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_not-found/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_not-found/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-coatings/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-coatings/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-coatings/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-coatings/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-masterbatch/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-masterbatch/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-masterbatch/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-masterbatch/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-paper/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-paper/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-paper/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-paper/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-plastics/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-plastics/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-plastics/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-plastics/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-printing-inks/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-printing-inks/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-printing-inks/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-printing-inks/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/__next.applications/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-coatings/__next.applications/titanium-dioxide-for-coatings/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-masterbatch/__next.applications/titanium-dioxide-for-masterbatch/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-paper/__next.applications/titanium-dioxide-for-paper/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-plastics/__next.applications/titanium-dioxide-for-plastics/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:applications/titanium-dioxide-for-printing-inks/__next.applications/titanium-dioxide-for-printing-inks/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:privacy-policy/__next.privacy-policy/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/m-350/index.html",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/m-350/index.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/m-350/__next._full.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/m-350/__next._tree.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/__next.products/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:products/m-350/__next.products/m-350/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:request-a-quote/__next.request-a-quote/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:thank-you/__next.thank-you/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:tio2-my/brand/tio2-malaysia-favicon-safe-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:tio2-my/brand/tio2-malaysia-primary-horizontal-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:tio2-my/brand/tio2-malaysia-reverse-monochrome-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:tio2-my/brand/tio2-malaysia-symbol-v0.1.svg",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/0cz1d0mv5g_q7.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/0rf15cv5cquf9.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/19mx3mg6lkumu.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/1oeoktc83usfn.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/2jv-7y0xhv323.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/2s8y1atpyme4i.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/344n2zhqbh4pn.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/37e91o6a6165a.css",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/3b9e1m6m565m-.css",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/3fntmmi971322.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/3kmozkq6tgqnz.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/3s6nzrbk-8mnv.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/3tce-qpdw9hng.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/chunks/turbopack-0ol8c8yjy8j3w.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/QavB78ZQZzcwmtbfIA3Q0/_buildManifest.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/QavB78ZQZzcwmtbfIA3Q0/_clientMiddlewareManifest.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_next/static/QavB78ZQZzcwmtbfIA3Q0/_ssgManifest.js",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "artifact_hash:_not-found/__next._not-found/__PAGE__.txt",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "complete_artifact_inventory",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "runtime_artifact:/applications/titanium-dioxide-for-coatings/",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "runtime_artifact:/applications/titanium-dioxide-for-plastics/",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "runtime_artifact:/applications/titanium-dioxide-for-masterbatch/",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "runtime_artifact:/applications/titanium-dioxide-for-printing-inks/",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "runtime_artifact:/applications/titanium-dioxide-for-paper/",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "id": "page_runtime_coverage",
+      "result": "PASS",
+      "detail": null
+    }
+  ]
+}

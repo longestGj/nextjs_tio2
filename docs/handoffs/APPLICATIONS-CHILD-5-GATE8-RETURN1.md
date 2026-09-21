@@ -12,6 +12,12 @@ The targeted repair adds a bidirectional keyboard focus loop to the shared Cooki
 
 The static candidate is served from `D:/32NextJS/.worktrees/applications-child-5-gate8/out` at `http://127.0.0.1:8342` for Gate 9 read-only verification. It must be released or replaced if Gate 9 reports pass, return or environment release.
 
+## Machine handoff package
+
+The current machine manifest is committed at `docs/verification/applications-child-5-gate8/gate8_evidence_manifest.json` with `schema_version=gate8-evidence-manifest-v1.1` and SHA-256 `b024118ed931b71fc03db93d6581dfaa1495665cdf8dbc10aa80984d0f27866c`. Standard validation is committed at `docs/verification/applications-child-5-gate8/manifest-validation.json` with status `PASS` and SHA-256 `dc09c0854a3c21560d5c74524b4b8838d4df48002ce004c1d5f38209417413fa`. The two-round runtime preflight is committed at `docs/verification/applications-child-5-gate8/preflight.json` with status `PASS`, 10/10 successful requests and SHA-256 `b67be98d602962d74685070ec744a706f74e678e399315814b0da3285209ec3d`.
+
+The Manifest correctly retains `57a333ed31d6cded722533ab9ff2525742c6f939` as its evidence head. The three machine handoff files are committed afterward and are intentionally not added to the Manifest's receipt evidence set: V1.2 requires the Manifest to be generated after the committed evidence/receipt so it does not recursively bind itself.
+
 EVIDENCE: docs/verification/applications-child-5-gate8/RESULTS.md
 EVIDENCE: docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json
 EVIDENCE: docs/verification/applications-child-5-gate8/gate9-repair-test-results.json

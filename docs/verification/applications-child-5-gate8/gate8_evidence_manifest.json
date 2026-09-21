@@ -1,0 +1,546 @@
+{
+  "schema_version": "gate8-evidence-manifest-v1.1",
+  "handoff_id": "APPLICATIONS-CHILD-5-GATE8-RETURN1-20260921",
+  "gate8_task_id": "01a0be2a-838b-76c0-b116-6677b9cadb70",
+  "receipt_path": "docs/handoffs/APPLICATIONS-CHILD-5-GATE8-RETURN1.md",
+  "pages": [
+    {
+      "page_id": "APP-COAT",
+      "acceptance_condition_ids": [
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "runtime_path": "/applications/titanium-dioxide-for-coatings/"
+    },
+    {
+      "page_id": "APP-PLAS",
+      "acceptance_condition_ids": [
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "runtime_path": "/applications/titanium-dioxide-for-plastics/"
+    },
+    {
+      "page_id": "APP-MB",
+      "acceptance_condition_ids": [
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "runtime_path": "/applications/titanium-dioxide-for-masterbatch/"
+    },
+    {
+      "page_id": "APP-INK",
+      "acceptance_condition_ids": [
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "runtime_path": "/applications/titanium-dioxide-for-printing-inks/"
+    },
+    {
+      "page_id": "APP-PAPER",
+      "acceptance_condition_ids": [
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "runtime_path": "/applications/titanium-dioxide-for-paper/"
+    }
+  ],
+  "git": {
+    "repository": "D:/32NextJS/.worktrees/applications-child-5-gate8",
+    "baseline_commit": "0c117ee0941a3b307f761ff0db5ea67fc98b5a07",
+    "implementation_commit": "ede0e32c2c73477589447344921c34370307206a",
+    "evidence_head": "57a333ed31d6cded722533ab9ff2525742c6f939"
+  },
+  "build": {
+    "directory": "D:/32NextJS/.worktrees/applications-child-5-gate8/out",
+    "implementation_commit": "ede0e32c2c73477589447344921c34370307206a",
+    "files": [
+      {
+        "path": "__next.__PAGE__.txt",
+        "sha256": "87935026ad606df4af5879ef9cc5579d5ecac49d6a5f8564af59eb848cd01b5e"
+      },
+      {
+        "path": "__next._full.txt",
+        "sha256": "b0296c09c64db92971e963679a33794f978f332dd8e2fab8946816a63b810f8a"
+      },
+      {
+        "path": "__next._tree.txt",
+        "sha256": "a977616e5fe89bde274b09ce985e964c67e6f78e12bf2442b699f759efcaeba1"
+      },
+      {
+        "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+        "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+      },
+      {
+        "path": "_next/static/chunks/0rf15cv5cquf9.js",
+        "sha256": "b58996101c49b3235792d28873b74895556f2229d7eacc4df2c71c7497954104"
+      },
+      {
+        "path": "_next/static/chunks/19mx3mg6lkumu.js",
+        "sha256": "170f3982866674a829571beec30cc23c69fcd36196739ff34b9d586b3ad73cd7"
+      },
+      {
+        "path": "_next/static/chunks/1oeoktc83usfn.js",
+        "sha256": "97925d178aea958a94181d32177166f305cc5bfabb11c424ef2026d96c9a840e"
+      },
+      {
+        "path": "_next/static/chunks/2jv-7y0xhv323.js",
+        "sha256": "47c0937539b045b83c84ce4503f994352878ef6f015cafe00f1feb5c7b3e11be"
+      },
+      {
+        "path": "_next/static/chunks/2s8y1atpyme4i.js",
+        "sha256": "0350f4e203eb22ece661eaf2f4b2a24bb8f30c8ddc1734a0412b66d76e8efee3"
+      },
+      {
+        "path": "_next/static/chunks/344n2zhqbh4pn.js",
+        "sha256": "402430c6c1775a4891306a3de15db1afdf7b84a35170845737b21d7e469dbdd3"
+      },
+      {
+        "path": "_next/static/chunks/37e91o6a6165a.css",
+        "sha256": "5a85d57810c33faa0da4c345692997917737473f733a0e22883c904454a8358f"
+      },
+      {
+        "path": "_next/static/chunks/3b9e1m6m565m-.css",
+        "sha256": "9f415e607f87a6d12032d3ee7e64aa033a3c3a658c98064ff7f2137d272cc827"
+      },
+      {
+        "path": "_next/static/chunks/3fntmmi971322.js",
+        "sha256": "34ed6abf4c6d0d1bb3dc56d3f133d2a5dbc3a3c89c791deab314e27143ac14ce"
+      },
+      {
+        "path": "_next/static/chunks/3kmozkq6tgqnz.js",
+        "sha256": "5041f52530a4c19c096ff1fd24f890f17301ade46cf0b21a3a4f5b20d024eca4"
+      },
+      {
+        "path": "_next/static/chunks/3s6nzrbk-8mnv.js",
+        "sha256": "1d36f2e3f57740f75eb021aaec1208d7e938130e36c106a9f28678e4a98559b0"
+      },
+      {
+        "path": "_next/static/chunks/3tce-qpdw9hng.js",
+        "sha256": "77ece73090bc1c44a7fd140a01da21432606b98d44f36505d33476b22bf7926a"
+      },
+      {
+        "path": "_next/static/chunks/turbopack-0ol8c8yjy8j3w.js",
+        "sha256": "7974af7335385a0228e58fbaaaa2ddd9d7f0cf16be1910b6b39a33311f3e091d"
+      },
+      {
+        "path": "_next/static/QavB78ZQZzcwmtbfIA3Q0/_buildManifest.js",
+        "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+      },
+      {
+        "path": "_next/static/QavB78ZQZzcwmtbfIA3Q0/_clientMiddlewareManifest.js",
+        "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+      },
+      {
+        "path": "_next/static/QavB78ZQZzcwmtbfIA3Q0/_ssgManifest.js",
+        "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+      },
+      {
+        "path": "_not-found/__next._full.txt",
+        "sha256": "75d4658c44f1961753676015692b282987375d8e69a6bf02ec02ead30ed11e8f"
+      },
+      {
+        "path": "_not-found/__next._not-found/__PAGE__.txt",
+        "sha256": "d1fd636b41d285742c0b24dacc18c3fc65b5c2bdfbf67602393c8369b058a7bc"
+      },
+      {
+        "path": "_not-found/__next._tree.txt",
+        "sha256": "a71abe63212f168561d404e8b7d0e7507dff6691bb93394bec452c7ccc3e7327"
+      },
+      {
+        "path": "_not-found/index.html",
+        "sha256": "8a9678a3d8cec576f7af1b8d8939c0263f7b49dfc5b763f16e0bebd62302bff4"
+      },
+      {
+        "path": "_not-found/index.txt",
+        "sha256": "75d4658c44f1961753676015692b282987375d8e69a6bf02ec02ead30ed11e8f"
+      },
+      {
+        "path": "404.html",
+        "sha256": "8a9678a3d8cec576f7af1b8d8939c0263f7b49dfc5b763f16e0bebd62302bff4"
+      },
+      {
+        "path": "404/index.html",
+        "sha256": "8a9678a3d8cec576f7af1b8d8939c0263f7b49dfc5b763f16e0bebd62302bff4"
+      },
+      {
+        "path": "applications/__next._full.txt",
+        "sha256": "57c9f3112b14bb85b4b889d4e1fd77fd6ea7a4726c60bd1fd4c05d640113c236"
+      },
+      {
+        "path": "applications/__next._tree.txt",
+        "sha256": "5ac902053d6af26e82676bc9c243bf4f42263569bb6666b65ccf2af8c4932d11"
+      },
+      {
+        "path": "applications/__next.applications/__PAGE__.txt",
+        "sha256": "01a2d6d76826079d9afb9b7078cec9d228011b6cb3431b8f25260c2d77b41541"
+      },
+      {
+        "path": "applications/index.html",
+        "sha256": "cc187b43f560957c3f96b163905c4be156f5ef2153ebfb8c724fdc729e45b005"
+      },
+      {
+        "path": "applications/index.txt",
+        "sha256": "57c9f3112b14bb85b4b889d4e1fd77fd6ea7a4726c60bd1fd4c05d640113c236"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-coatings/__next._full.txt",
+        "sha256": "ed953c35c22375e890dcb1fd916d3871d65c513721aebba3bc0e3e8fa8553427"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-coatings/__next._tree.txt",
+        "sha256": "6491d3908e5183c3b21bdbfe9ab9d3249db28dde2cb37b183ad734d53e15552c"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-coatings/__next.applications/titanium-dioxide-for-coatings/__PAGE__.txt",
+        "sha256": "8edc57004950cbe7e2ed4eed05c8f64d55439be54c11da008ad7845fbe2d4e56"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-coatings/index.html",
+        "sha256": "5457b28ed845e50313b9c83deb5db960c0129718107329f9be1c6c52759fc472"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-coatings/index.txt",
+        "sha256": "ed953c35c22375e890dcb1fd916d3871d65c513721aebba3bc0e3e8fa8553427"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-masterbatch/__next._full.txt",
+        "sha256": "2afc5149e31f4cf5f2b1392e82506b8ce605c7d41233b8d1be9a3d9193c79fda"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-masterbatch/__next._tree.txt",
+        "sha256": "3d20d00ce960c9402cddc3cfd14af1697238727214720d7e3d5a3ee8e333c5be"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-masterbatch/__next.applications/titanium-dioxide-for-masterbatch/__PAGE__.txt",
+        "sha256": "6f9073d2342abd1ea70ceb93a39c55091b79335cddbd6a1699c26b712bc3acdf"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-masterbatch/index.html",
+        "sha256": "b51caa17c5ef9483b14a0b44be9f053897c2e2a2ac6267fa18ce952ba45af61c"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-masterbatch/index.txt",
+        "sha256": "2afc5149e31f4cf5f2b1392e82506b8ce605c7d41233b8d1be9a3d9193c79fda"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-paper/__next._full.txt",
+        "sha256": "f001cb1485b25419614af73de9bff69bb184402a603cf55e7b3c2d6673a772a0"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-paper/__next._tree.txt",
+        "sha256": "e44ae39075d9fa73b39c76cefc310b05cf6dcdf610a0b78c6a734beca7402b0d"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-paper/__next.applications/titanium-dioxide-for-paper/__PAGE__.txt",
+        "sha256": "611a9462878f0240fb8c844536e0ca4c86ce8fdca0c9f1be20f77e4bc1394fc2"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-paper/index.html",
+        "sha256": "7e35544a28f7fc56151f10c887a93f05d7b8bfe3db4756afe46b69dd6ae6f75e"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-paper/index.txt",
+        "sha256": "f001cb1485b25419614af73de9bff69bb184402a603cf55e7b3c2d6673a772a0"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-plastics/__next._full.txt",
+        "sha256": "bb8e23180e2824ba52d40937a73a7d52797e123ce6ef3c44ae063a744268e6ce"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-plastics/__next._tree.txt",
+        "sha256": "52c381a1f334183fbc16f51c8deea35c5f5b335cfcdca3403a3efced87b99f98"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-plastics/__next.applications/titanium-dioxide-for-plastics/__PAGE__.txt",
+        "sha256": "5ac02e81bc1023469e297fa681dcdcf50f9beb5cd968221867e69dab3fa2b2de"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-plastics/index.html",
+        "sha256": "d9bb253d24a86e514aae7603fa0b912bad7b21d12eac87784e3e5fded6e4e6e9"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-plastics/index.txt",
+        "sha256": "bb8e23180e2824ba52d40937a73a7d52797e123ce6ef3c44ae063a744268e6ce"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-printing-inks/__next._full.txt",
+        "sha256": "390d2040f9d1694e1b269ae7de78b96f98f83e07dce50f40ea248e8976fa527d"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-printing-inks/__next._tree.txt",
+        "sha256": "3e062aff31d3df711770724460128e28148facf022058546af33752f9f2aa099"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-printing-inks/__next.applications/titanium-dioxide-for-printing-inks/__PAGE__.txt",
+        "sha256": "f5abf5f3821a33fbc52709637449843907f20008919d096d1ed1a8737e1d0f65"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-printing-inks/index.html",
+        "sha256": "06eecb440b29c2fd3ee547143f5db887c16f584fd429c9f082844c54ee117402"
+      },
+      {
+        "path": "applications/titanium-dioxide-for-printing-inks/index.txt",
+        "sha256": "390d2040f9d1694e1b269ae7de78b96f98f83e07dce50f40ea248e8976fa527d"
+      },
+      {
+        "path": "fonts/Inter-Variable.ttf",
+        "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+      },
+      {
+        "path": "fonts/LICENSE.txt",
+        "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+      },
+      {
+        "path": "index.html",
+        "sha256": "76e98bf713a938e3ffd0f7474c65503322e3045e5b0644161c59a0b8a109ed96"
+      },
+      {
+        "path": "index.txt",
+        "sha256": "b0296c09c64db92971e963679a33794f978f332dd8e2fab8946816a63b810f8a"
+      },
+      {
+        "path": "privacy-policy/__next._full.txt",
+        "sha256": "421aef361cd8cd79fc8f12a303851c8a337ab4f34861096fd8335d022481700a"
+      },
+      {
+        "path": "privacy-policy/__next._tree.txt",
+        "sha256": "80940aee11dc3bff78b9f72489c9fe43f4e9c4fbf5d32ab15f5c6b0c7a3f592b"
+      },
+      {
+        "path": "privacy-policy/__next.privacy-policy/__PAGE__.txt",
+        "sha256": "47675cd55cf8a472e9a8b851e737c8abe687c74770615143b93104cd6a6b6060"
+      },
+      {
+        "path": "privacy-policy/index.html",
+        "sha256": "c5bb45a47ba39d3d04597e40893404ca8cef80d87dfc9b46a22d90cb696ea832"
+      },
+      {
+        "path": "privacy-policy/index.txt",
+        "sha256": "421aef361cd8cd79fc8f12a303851c8a337ab4f34861096fd8335d022481700a"
+      },
+      {
+        "path": "products/__next._full.txt",
+        "sha256": "ebfc5f3ed636d480592fc7ae5f8c00b79c79995324d4f119466a9992dd9393fc"
+      },
+      {
+        "path": "products/__next._tree.txt",
+        "sha256": "53b0aeaa5eac0b02e024b1c33147feb8ff3a66efd59f23b76c0dcafc7ed6a675"
+      },
+      {
+        "path": "products/__next.products/__PAGE__.txt",
+        "sha256": "c34ffa364482f1e0c158ecf23a2a68f645ab130b988602457af87607769a8ceb"
+      },
+      {
+        "path": "products/index.html",
+        "sha256": "115ca63f0963318be6efcf24ddbd496a28263afb2c439e71ad9150003fc79050"
+      },
+      {
+        "path": "products/index.txt",
+        "sha256": "ebfc5f3ed636d480592fc7ae5f8c00b79c79995324d4f119466a9992dd9393fc"
+      },
+      {
+        "path": "products/m-350/__next._full.txt",
+        "sha256": "7902a797825652e675967bfb259110e8ed241f5d7f7a98cf2663115266665a4e"
+      },
+      {
+        "path": "products/m-350/__next._tree.txt",
+        "sha256": "ac6e934ab81d6339e2ea21c06f3b82b005775dc490e606861729937367de108f"
+      },
+      {
+        "path": "products/m-350/__next.products/m-350/__PAGE__.txt",
+        "sha256": "3fdc8678ae1d4f76e172e5b1b44426f06a10cbc200b6c83f2f45dd44a1022faa"
+      },
+      {
+        "path": "products/m-350/index.html",
+        "sha256": "fcbf22bbbd017c4579f5db56a9a1bcb94b59fc2eec88b85a820d73f8cd1df851"
+      },
+      {
+        "path": "products/m-350/index.txt",
+        "sha256": "7902a797825652e675967bfb259110e8ed241f5d7f7a98cf2663115266665a4e"
+      },
+      {
+        "path": "request-a-quote/__next._full.txt",
+        "sha256": "cff8e78713f921c2ba1073a3b7fda6adc6bd39868c551c8466dce39d971b6c2e"
+      },
+      {
+        "path": "request-a-quote/__next._tree.txt",
+        "sha256": "03f5315816c2a2f2188f8d28e040455e07dc9131c0ced1e40930003ecf0949a3"
+      },
+      {
+        "path": "request-a-quote/__next.request-a-quote/__PAGE__.txt",
+        "sha256": "b5680cc01ccbdfc3e07589cdafd8faffa7055b4bd340f87fa87e9fa1bc6b5a4b"
+      },
+      {
+        "path": "request-a-quote/index.html",
+        "sha256": "54bb6d60a967016357504ce742b781043ccc1753a04b2c412afb246de93c3dd3"
+      },
+      {
+        "path": "request-a-quote/index.txt",
+        "sha256": "cff8e78713f921c2ba1073a3b7fda6adc6bd39868c551c8466dce39d971b6c2e"
+      },
+      {
+        "path": "robots.txt",
+        "sha256": "fe1aa29ddb51408dedd7556214df8f967c11cfd09ed107656aa68ae353461332"
+      },
+      {
+        "path": "sitemap.xml",
+        "sha256": "5ebdf34bb654723f2a64d01115211e9e488f102be4ec86a3d15c8c92ecf62063"
+      },
+      {
+        "path": "thank-you/__next._full.txt",
+        "sha256": "737e38fdbdfd235982c9891ebe0777840dcef415db3748e1a6212a16daad1464"
+      },
+      {
+        "path": "thank-you/__next._tree.txt",
+        "sha256": "569db312121d6d4e93c9e50ef8cfbbe82a6fb7a5aa402adccfe3a28f8c898c50"
+      },
+      {
+        "path": "thank-you/__next.thank-you/__PAGE__.txt",
+        "sha256": "7515f12d8c15f25fd5fe6277fcfea3b7eafc0887faa24a7a9bd6e0a7b0d0cfad"
+      },
+      {
+        "path": "thank-you/index.html",
+        "sha256": "bc5ce60c73429327ca74ba1dad5c246d9e9ca6baee3337af53971038ab0507ac"
+      },
+      {
+        "path": "thank-you/index.txt",
+        "sha256": "737e38fdbdfd235982c9891ebe0777840dcef415db3748e1a6212a16daad1464"
+      },
+      {
+        "path": "tio2-my/brand/tio2-malaysia-favicon-safe-v0.1.svg",
+        "sha256": "f1d1b97ff66211410a50279eed16414b5a6e888c27c11419e41265168d08692c"
+      },
+      {
+        "path": "tio2-my/brand/tio2-malaysia-primary-horizontal-v0.1.svg",
+        "sha256": "eeed3a758e7ae1b847238d1c88e86eee7a8e67b863969af4d286747e9a72487c"
+      },
+      {
+        "path": "tio2-my/brand/tio2-malaysia-reverse-monochrome-v0.1.svg",
+        "sha256": "7cfaeafa02ac8469a006c9489db2f92b15b2621e4151b04efe1b30fc734c1b5e"
+      },
+      {
+        "path": "tio2-my/brand/tio2-malaysia-symbol-v0.1.svg",
+        "sha256": "9fd1fafafad4bc6fef0c05f499c27baf1051eef084d1b834b1061caf3b8b85a0"
+      },
+      {
+        "path": "tio2-my/homepage-hero-material-reference.png",
+        "sha256": "7308472e4e633584fe4d7761afd7ed9ea4ea4c622576e2d7736c105f13cf50a5"
+      }
+    ],
+    "binding_evidence": "docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json"
+  },
+  "runtime": {
+    "base_url": "http://127.0.0.1:8342",
+    "environment_type": "local-production",
+    "started_at": "2026-09-21T03:04:23.841Z",
+    "hold_until": "GATE9_PASS_OR_RETURN_NOTICE",
+    "checks": [
+      {
+        "path": "/applications/titanium-dioxide-for-coatings/",
+        "expected_status": 200,
+        "contains": [
+          "Titanium Dioxide for Coatings"
+        ],
+        "artifact_path": "applications/titanium-dioxide-for-coatings/index.html"
+      },
+      {
+        "path": "/applications/titanium-dioxide-for-plastics/",
+        "expected_status": 200,
+        "contains": [
+          "Titanium Dioxide for Plastics"
+        ],
+        "artifact_path": "applications/titanium-dioxide-for-plastics/index.html"
+      },
+      {
+        "path": "/applications/titanium-dioxide-for-masterbatch/",
+        "expected_status": 200,
+        "contains": [
+          "Titanium Dioxide for Masterbatch"
+        ],
+        "artifact_path": "applications/titanium-dioxide-for-masterbatch/index.html"
+      },
+      {
+        "path": "/applications/titanium-dioxide-for-printing-inks/",
+        "expected_status": 200,
+        "contains": [
+          "Titanium Dioxide for Printing Inks"
+        ],
+        "artifact_path": "applications/titanium-dioxide-for-printing-inks/index.html"
+      },
+      {
+        "path": "/applications/titanium-dioxide-for-paper/",
+        "expected_status": 200,
+        "contains": [
+          "Titanium Dioxide for Paper"
+        ],
+        "artifact_path": "applications/titanium-dioxide-for-paper/index.html"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "path": "docs/verification/applications-child-5-gate8/RESULTS.md",
+      "sha256": "73346093801cdb98b5c1d39e101615d0c74e25a3f6a53d8017967124b687bd78",
+      "evidence_type": "TEST_RESULT",
+      "proves": [
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "command": "Review committed Gate 8 verification result and targeted repair section.",
+      "environment": "D32 static Next.js Gate 8 worktree at evidence head."
+    },
+    {
+      "path": "docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json",
+      "sha256": "c7b35b6827360442bb16e4a84092777b510c980687c1f1fc6a4b23b801048c6d",
+      "evidence_type": "IDENTITY",
+      "proves": [
+        "APP5-D32-G9-F01",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "command": "Hash every regular file under the repaired out directory and bind the sorted complete inventory to implementation_commit.",
+      "environment": "D32 static Next.js out directory generated from implementation commit."
+    },
+    {
+      "path": "docs/verification/applications-child-5-gate8/gate9-repair-test-results.json",
+      "sha256": "c11ada6db93dfbf28f3dff999d6b91fd155e3fb874776417b3a2a569b2d70266",
+      "evidence_type": "TEST_RESULT",
+      "proves": [
+        "APP5-D32-G9-F02",
+        "APP5-G9-05",
+        "APP5-G9-11",
+        "APP5-G9-12"
+      ],
+      "command": "Run typecheck, build, full npm test and narrowed Cookie Settings keyboard regression suite.",
+      "environment": "Windows local static export with fixed non-production RFQ routing configuration and Playwright port 8341."
+    }
+  ],
+  "receipt_evidence_references": [
+    "docs/verification/applications-child-5-gate8/RESULTS.md",
+    "docs/verification/applications-child-5-gate8/gate9-repair-build-binding.json",
+    "docs/verification/applications-child-5-gate8/gate9-repair-test-results.json"
+  ],
+  "known_open_items": [
+    {
+      "id": "APP5-INTEGRATION-PROMOTION",
+      "owner": "Total control task",
+      "blocking_layer": "INTEGRATION",
+      "closure_evidence": "Authorized merge decision and post-merge develop verification on the selected candidate.",
+      "closure_timing": "After Gate 9 accepts the targeted repair and total control authorizes integration."
+    },
+    {
+      "id": "APP5-RELEASE-AUTHORIZATION",
+      "owner": "Total control task",
+      "blocking_layer": "RELEASE",
+      "closure_evidence": "Explicit release authorization plus deployment and post-deployment verification receipts.",
+      "closure_timing": "Only after integration acceptance and separate release authorization."
+    }
+  ]
+}
