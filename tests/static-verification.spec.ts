@@ -222,6 +222,22 @@ for (const route of routes) {
       dialog.getByRole("button", { name: "Close", exact: true }),
     ).toBeFocused();
     await expect(dialog).toContainText("Optional Analytics is not active");
+    const closeCookieSettings = dialog.getByRole("button", {
+      name: "Close",
+      exact: true,
+    });
+    const cookiePolicy = dialog.getByRole("link", {
+      name: "Read Cookie Policy",
+      exact: true,
+    });
+    await page.keyboard.press("Shift+Tab");
+    await expect(cookiePolicy).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(closeCookieSettings).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(cookiePolicy).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    await expect(closeCookieSettings).toBeFocused();
     await page.keyboard.press("Escape");
     await expect(dialog).not.toBeVisible();
     await expect(cookie).toBeFocused();
