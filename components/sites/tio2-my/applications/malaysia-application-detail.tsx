@@ -142,7 +142,8 @@ function isAllowedInternalLink(href: string) {
     href === "/products/" ||
     href === "/products/m-350/" ||
     href === "/applications/titanium-dioxide-for-plastics/" ||
-    href === "/applications/titanium-dioxide-for-masterbatch/"
+    href === "/applications/titanium-dioxide-for-masterbatch/" ||
+    href === "/request-a-quote/"
   );
 }
 
@@ -237,7 +238,7 @@ function Blocks({
       return <h3 key={`heading-${index}`}>{block.text}</h3>;
     }
     if (block.type === "paragraph") {
-      if (/^\[[^\]]+\]\(\/request-[^)]+\)$/.test(block.text)) {
+      if (/^\[[^\]]+\]\(\/request-(?:documents|sample)\/\)$/.test(block.text)) {
         return null;
       }
       const actionParagraph = hero && /\]\(#[^)]+\)/.test(block.text);

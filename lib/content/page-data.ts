@@ -8,7 +8,8 @@ type ReadyConditionalPageId =
   | "APP-PLAS"
   | "APP-MB"
   | "APP-INK"
-  | "APP-PAPER";
+  | "APP-PAPER"
+  | "CONV-RFQ";
 export const tio2MyRouteReadiness = {
   "PRODUCT-000": true,
   "GRADE-M350": true,
@@ -18,6 +19,7 @@ export const tio2MyRouteReadiness = {
   "APP-MB": true,
   "APP-INK": true,
   "APP-PAPER": true,
+  "CONV-RFQ": true,
 } as const satisfies Readonly<Record<ReadyConditionalPageId, true>>;
 export const home = { ...homeContent, globalChrome: chrome };
 import productContent from "@/content/products.json";
@@ -34,3 +36,17 @@ export const applications = {
   globalChrome: chrome,
   routeReadiness: tio2MyRouteReadiness,
 };
+import privacyContent from "@/content/privacy.json";
+import type { MalaysiaPrivacyPageDto } from "./privacy-types";
+export const privacy = {
+  ...privacyContent,
+  globalChrome: chrome,
+} as MalaysiaPrivacyPageDto;
+import thankYouContent from "@/content/thank-you.json";
+export const thankYou = { ...thankYouContent, globalChrome: chrome };
+import rfqContent from "@/content/rfq.json";
+import type { MalaysiaRfqPageDto } from "./rfq-types";
+export const rfq = {
+  ...rfqContent,
+  globalChrome: chrome,
+} as MalaysiaRfqPageDto;

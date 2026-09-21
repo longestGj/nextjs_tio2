@@ -1,0 +1,44 @@
+{
+  "pageId": "CONV-THANK",
+  "seo": {
+    "title": "Thank You | TiO2 Malaysia",
+    "description": "Continue from a TiO2 Malaysia business request.",
+    "canonical": "https://tio2products.com/thank-you/"
+  },
+  "receiptCue": "REQUEST RECEIVED",
+  "states": {
+    "quote": {
+      "heading": "Thank you. We’ve received your quotation request.",
+      "body": "Our team will review the details and contact you using the information provided.",
+      "actions": [
+        { "label": "Explore Products", "href": "/products/" },
+        { "label": "Go to Homepage", "href": "/" }
+      ]
+    },
+    "documents": {
+      "heading": "Thank you. We’ve received your document request.",
+      "body": "Our team will review the requested documents and contact you using the information provided.",
+      "actions": [
+        { "label": "Return to Documents", "href": "/documents/" },
+        { "label": "Explore Products", "href": "/products/" }
+      ]
+    },
+    "sample": {
+      "heading": "Thank you. We’ve received your sample request.",
+      "body": "Our team will review your application and sample requirements and contact you using the information provided.",
+      "actions": [
+        { "label": "Explore Products", "href": "/products/" },
+        { "label": "View Applications", "href": "/applications/" }
+      ]
+    },
+    "direct": {
+      "heading": "How can we help?",
+      "body": "Choose the request you’d like to make, and our team will guide you through the next step.",
+      "actions": [
+        { "label": "Request a Quote", "href": "/request-a-quote/" },
+        { "label": "Request Documents", "href": "/request-documents/" },
+        { "label": "Request a Sample", "href": "/request-sample/" }
+      ]
+    }
+  }
+}

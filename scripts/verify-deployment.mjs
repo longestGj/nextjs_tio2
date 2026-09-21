@@ -55,6 +55,26 @@ const routeContracts = [
     h1: "Titanium Dioxide for Paper",
     robots: ["index", "follow"],
   },
+  {
+    path: "/request-a-quote/",
+    canonical: "https://tio2products.com/request-a-quote/",
+    h1: "Request a Titanium Dioxide Quote",
+    robots: ["noindex", "nofollow"],
+    requiredHtml: ['name="grade_id"', 'name="business_email"'],
+  },
+  {
+    path: "/thank-you/",
+    canonical: "https://tio2products.com/thank-you/",
+    h1: "How can we help?",
+    robots: ["noindex", "nofollow"],
+  },
+  {
+    path: "/privacy-policy/",
+    canonical: "https://tio2products.com/privacy-policy/",
+    h1: "Privacy Policy",
+    robots: ["noindex", "nofollow"],
+    requiredHtml: ["Web3Forms", "Last updated: 5 September 2026"],
+  },
 ];
 
 function parseAttributes(tag) {
@@ -109,6 +129,12 @@ function assertPageContract(html, contract) {
   const heading = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
   if (!heading || normalizeText(heading[1]) !== contract.h1) {
     throw new Error(`${contract.path} H1 does not match ${contract.h1}`);
+  }
+
+  for (const required of contract.requiredHtml ?? []) {
+    if (!html.includes(required)) {
+      throw new Error(`${contract.path} is missing required HTML: ${required}`);
+    }
   }
 }
 

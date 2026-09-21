@@ -184,9 +184,10 @@ for (const expected of pages) {
     );
     await expect(
       page.locator(
-        'main a[href^="/request-documents/"], main a[href^="/request-sample/"], main a[href^="/request-a-quote/"]',
+        'main a[href^="/request-documents/"], main a[href^="/request-sample/"]',
       ),
     ).toHaveCount(0);
+    await expect(page.locator('main a[href="/request-a-quote/"]')).toHaveCount(1);
 
     const sourceLinks = page.locator("[data-technical-sources] a");
     await expect(sourceLinks).toHaveCount(expected.sources);
@@ -225,7 +226,7 @@ for (const expected of pages) {
     expect(mainHtml).toBeDefined();
     expect(
       mainHtml?.match(
-        /\/request-(?:documents|sample|a-quote)\/|\/products\/(?:m-510|m-896|m-996|m-2196|m-895|m-52|m-2377|m-200|m-108|m-210|m-340|m-886)\//g,
+        /\/request-(?:documents|sample)\/|\/products\/(?:m-510|m-896|m-996|m-2196|m-895|m-52|m-2377|m-200|m-108|m-210|m-340|m-886)\//g,
       ),
     ).toBeNull();
   });

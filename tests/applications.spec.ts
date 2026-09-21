@@ -44,6 +44,7 @@ test("Applications renders the approved static route and metadata", async ({ pag
     "M2-APPLICATION_PATHS",
     "M3-EVALUATION_GUIDE",
     "M4-PROCUREMENT_PATHS",
+    "M5-FINAL-RFQ",
   ]);
 });
 
@@ -82,8 +83,8 @@ test("Applications exposes only currently implemented destinations", async ({ pa
   ]);
   await expect(page.locator("[data-procurement-card] h3")).toHaveText(["Products"]);
   await expect(page.locator('[data-procurement-card] a[href="/products/"]')).toHaveCount(1);
-  await expect(page.locator('[data-module="M5-FINAL-RFQ"]')).toHaveCount(0);
-  await expect(page.locator('main a[href="/request-a-quote/"]')).toHaveCount(0);
+  await expect(page.locator('[data-module="M5-FINAL-RFQ"]')).toHaveCount(1);
+  await expect(page.locator('main a[href="/request-a-quote/"]')).toHaveCount(2);
   await expect(page.locator('[data-module*="PROCESS"], [data-module*="FAQ"]')).toHaveCount(0);
 });
 

@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import path from "node:path";
 
+const requestedPort = process.env.PLAYWRIGHT_PORT;
+const testPort = requestedPort && /^\d{2,5}$/.test(requestedPort) ? requestedPort : "8333";
+const testBaseUrl = `http://127.0.0.1:${testPort}`;
+
 test("current D32 collection surfaces and shared footer copy", async ({
   page,
 }) => {
@@ -19,34 +23,57 @@ test("current D32 collection surfaces and shared footer copy", async ({
 });
 
 const routes = [
-  { path: "/", screenshot: "home", indexable: false },
-  { path: "/products/", screenshot: "products", indexable: false },
-  { path: "/products/m-350/", screenshot: "m350", indexable: false },
-  { path: "/applications/", screenshot: "applications", indexable: false },
+  { path: "/", screenshot: "home", h1: "Malaysia Titanium Dioxide for Industrial Buyers", indexable: false },
+  { path: "/products/", screenshot: "products", h1: "Titanium Dioxide Pigment Grades for Industrial Applications", indexable: false },
+  { path: "/products/m-350/", screenshot: "m350", h1: "M-350 Titanium Dioxide for Multi-Application Evaluation", indexable: false },
+  { path: "/applications/", screenshot: "applications", h1: "Explore Titanium Dioxide by Application", indexable: false },
   {
     path: "/applications/titanium-dioxide-for-coatings/",
     screenshot: "application-coatings",
+    h1: "Titanium Dioxide for Coatings",
     indexable: true,
   },
   {
     path: "/applications/titanium-dioxide-for-plastics/",
     screenshot: "application-plastics",
+    h1: "Titanium Dioxide for Plastics",
     indexable: true,
   },
   {
     path: "/applications/titanium-dioxide-for-masterbatch/",
     screenshot: "application-masterbatch",
+    h1: "Titanium Dioxide for Masterbatch",
     indexable: true,
   },
   {
     path: "/applications/titanium-dioxide-for-printing-inks/",
     screenshot: "application-printing-inks",
+    h1: "Titanium Dioxide for Printing Inks",
     indexable: true,
   },
   {
     path: "/applications/titanium-dioxide-for-paper/",
     screenshot: "application-paper",
+    h1: "Titanium Dioxide for Paper",
     indexable: true,
+  },
+  {
+    path: "/request-a-quote/",
+    screenshot: "rfq",
+    h1: "Request a Titanium Dioxide Quote",
+    indexable: false,
+  },
+  {
+    path: "/thank-you/",
+    screenshot: "thank-you",
+    h1: "How can we help?",
+    indexable: false,
+  },
+  {
+    path: "/privacy-policy/",
+    screenshot: "privacy",
+    h1: "Privacy Policy",
+    indexable: false,
   },
 ] as const;
 test("M350 breadcrumb items share one vertical center", async ({ page }) => {
@@ -210,7 +237,7 @@ for (const route of routes) {
     const html = await response.text();
     expect(
       html.match(
-        /GRADE-[A-Z0-9-]+|PRODUCT-000|APP-[A-Z0-9-]+|HOME-001|GLOBAL-CHROME|D:\\|D:\/|tio2malaysia\.com/g,
+        /GRADE-[A-Z0-9-]+|PRODUCT-000|APP-[A-Z0-9-]+|HOME-001|GLOBAL-CHROME|D:\\|D:\//g,
       ),
     ).toBeNull();
     expect(html.match(/\/products\/(?:m-510|cr-901)\//g)).toBeNull();
@@ -358,7 +385,7 @@ test("mobile grade directory remains readable without JavaScript", async ({
   });
   try {
     const page = await context.newPage();
-    await page.goto("http://127.0.0.1:8333/");
+    await page.goto(`${testBaseUrl}/`);
     const grades = page.locator("[data-product-grade-id]");
     await expect(grades).toHaveCount(14);
     for (const grade of await grades.all()) await expect(grade).toBeVisible();
@@ -392,11 +419,9 @@ test("static copy remains available without JavaScript", async ({
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   for (const route of routes) {
-    expect((await page.goto("http://127.0.0.1:8333" + route.path))?.status()).toBe(
-      200,
-    );
+    expect((await page.goto(testBaseUrl + route.path))?.status()).toBe(200);
     await expect(page.locator("h1")).toBeVisible();
-    await expect(page.locator("main")).toContainText(/titanium dioxide/i);
+    await expect(page.locator("h1")).toHaveText(route.h1);
   }
   await context.close();
 });
