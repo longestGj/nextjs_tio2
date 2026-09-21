@@ -737,10 +737,10 @@ test("home renders independently of WordPress", async ({ page }) => {
   await expect(page.locator("header")).toHaveCount(1);
   await expect(page.locator("footer")).toHaveCount(1);
   await expect(page.locator('a[href="/products/"]').first()).toBeVisible();
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
-    "content",
-    /noindex/,
-  );
+  const robots = page.locator('meta[name="robots"]');
+  await expect(robots).toHaveAttribute("content", /index/i);
+  await expect(robots).toHaveAttribute("content", /follow/i);
+  await expect(robots).not.toHaveAttribute("content", /noindex|nofollow/i);
 });
 
 test("products filters and exposes all validated detail links", async ({ page }) => {

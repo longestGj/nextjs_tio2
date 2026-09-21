@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "handoff_id": "APPLICATIONS-CHILD-5-GATE8-RETURN1-20260921",
+  "gate8_task_id": "01a0be2a-838b-76c0-b116-6677b9cadb70",
+  "site_scope": null,
+  "identity": {
+    "implementation_commit": "ede0e32c2c73477589447344921c34370307206a",
+    "evidence_head": "57a333ed31d6cded722533ab9ff2525742c6f939",
+    "build_id": null,
+    "artifact_files": 93
+  },
+  "runtime": {
+    "base_url": "http://127.0.0.1:8342",
+    "rounds": 2,
+    "requests": 10,
+    "successful_requests": 10,
+    "observations": [
+      {
+        "round": 1,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-coatings/",
+        "status": 200,
+        "bytes": 73221,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-coatings/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 1,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-plastics/",
+        "status": 200,
+        "bytes": 71368,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-plastics/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 1,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-masterbatch/",
+        "status": 200,
+        "bytes": 68145,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-masterbatch/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 1,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-printing-inks/",
+        "status": 200,
+        "bytes": 62733,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-printing-inks/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 1,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-paper/",
+        "status": 200,
+        "bytes": 68020,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-paper/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 2,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-coatings/",
+        "status": 200,
+        "bytes": 73221,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-coatings/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 2,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-plastics/",
+        "status": 200,
+        "bytes": 71368,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-plastics/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 2,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-masterbatch/",
+        "status": 200,
+        "bytes": 68145,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-masterbatch/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 2,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-printing-inks/",
+        "status": 200,
+        "bytes": 62733,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-printing-inks/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      },
+      {
+        "round": 2,
+        "url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-paper/",
+        "status": 200,
+        "bytes": 68020,
+        "final_url": "http://127.0.0.1:8342/applications/titanium-dioxide-for-paper/",
+        "artifact_mismatch": false,
+        "missing_markers": [],
+        "scope_header": null,
+        "scope_mismatch": false,
+        "build_marker_missing": false,
+        "result": "PASS"
+      }
+    ]
+  },
+  "evidence_validation": {
+    "status": "PASS"
+  }
+}

@@ -9,6 +9,12 @@ const baseRouteReadiness = {
   "PRODUCT-000": true,
   "GRADE-M350": true,
   "APP-000": true,
+  "APP-COAT": true,
+  "APP-PLAS": true,
+  "APP-MB": true,
+  "APP-INK": true,
+  "APP-PAPER": true,
+  "CONV-RFQ": true,
 } as const;
 export const tio2MyRouteReadiness = {
   ...baseRouteReadiness,

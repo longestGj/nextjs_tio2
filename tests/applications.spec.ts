@@ -33,7 +33,10 @@ test("Applications renders the approved static route and metadata", async ({ pag
     "content",
     "Explore titanium dioxide application paths for coatings, plastics, masterbatch, printing inks, paper and specialty materials.",
   );
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  const robots = page.locator('meta[name="robots"]');
+  await expect(robots).toHaveAttribute("content", /index/i);
+  await expect(robots).toHaveAttribute("content", /follow/i);
+  await expect(robots).not.toHaveAttribute("content", /noindex|nofollow/i);
   await expect(page.locator('nav[aria-label="Primary navigation"] a[aria-current="page"]')).toHaveText("Applications");
   expect(
     await page
@@ -44,6 +47,7 @@ test("Applications renders the approved static route and metadata", async ({ pag
     "M2-APPLICATION_PATHS",
     "M3-EVALUATION_GUIDE",
     "M4-PROCUREMENT_PATHS",
+    "M5-FINAL-RFQ",
   ]);
 });
 
@@ -60,9 +64,20 @@ test("Applications exposes only currently implemented destinations", async ({ pa
   await expect(page.locator('[data-grade] a[href="/products/m-350/"]')).toHaveCount(4);
   await expect(page.locator("[data-grade] a")).toHaveCount(4);
   await expect(page.locator("[data-grade] span")).toHaveCount(26);
-  await expect(page.locator("[data-application-action]")).toHaveCount(0);
+  await expect(page.locator("[data-application-action]")).toHaveCount(5);
+  expect(
+    await page
+      .locator("[data-application-action]")
+      .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
+  ).toEqual([
+    "/applications/titanium-dioxide-for-coatings/",
+    "/applications/titanium-dioxide-for-plastics/",
+    "/applications/titanium-dioxide-for-masterbatch/",
+    "/applications/titanium-dioxide-for-printing-inks/",
+    "/applications/titanium-dioxide-for-paper/",
+  ]);
   await expect(page.locator("[data-route-sentence]")).toHaveText(
-    "Open a grade page for product information.",
+    "Open a grade page for product information, or explore an application for guidance on what to evaluate.",
   );
   await expect(page.locator("[data-evaluation-step] h3")).toHaveText([
     "Choose your application.",
@@ -71,8 +86,8 @@ test("Applications exposes only currently implemented destinations", async ({ pa
   ]);
   await expect(page.locator("[data-procurement-card] h3")).toHaveText(["Products"]);
   await expect(page.locator('[data-procurement-card] a[href="/products/"]')).toHaveCount(1);
-  await expect(page.locator('[data-module="M5-FINAL-RFQ"]')).toHaveCount(0);
-  await expect(page.locator('main a[href="/request-a-quote/"]')).toHaveCount(0);
+  await expect(page.locator('[data-module="M5-FINAL-RFQ"]')).toHaveCount(1);
+  await expect(page.locator('main a[href="/request-a-quote/"]')).toHaveCount(2);
   await expect(page.locator('[data-module*="PROCESS"], [data-module*="FAQ"]')).toHaveCount(0);
 });
 
@@ -84,8 +99,23 @@ test("Applications Schema and Products support match visible readiness", async (
   expect(schema["@graph"].map((node: { "@type": string }) => node["@type"])).toEqual([
     "CollectionPage",
     "BreadcrumbList",
+    "ItemList",
   ]);
-  expect(schema["@graph"].some((node: { "@type": string }) => node["@type"] === "ItemList")).toBe(false);
+  const itemList = schema["@graph"].find(
+    (node: { "@type": string }) => node["@type"] === "ItemList",
+  );
+  expect(itemList.numberOfItems).toBe(5);
+  expect(
+    itemList.itemListElement.map(
+      (item: { item: { url: string } }) => item.item.url,
+    ),
+  ).toEqual([
+    "https://tio2products.com/applications/titanium-dioxide-for-coatings/",
+    "https://tio2products.com/applications/titanium-dioxide-for-plastics/",
+    "https://tio2products.com/applications/titanium-dioxide-for-masterbatch/",
+    "https://tio2products.com/applications/titanium-dioxide-for-printing-inks/",
+    "https://tio2products.com/applications/titanium-dioxide-for-paper/",
+  ]);
 
   const html = await (await request.get("/applications/")).text();
   expect(

@@ -89,7 +89,10 @@ for (const candidate of productDetailCandidates) {
     await expect(page).toHaveTitle(contract.seo.title);
     await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", contract.seo.description);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical);
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex, nofollow/i);
+    const robots = page.locator('meta[name="robots"]');
+    await expect(robots).toHaveAttribute("content", /index/i);
+    await expect(robots).toHaveAttribute("content", /follow/i);
+    await expect(robots).not.toHaveAttribute("content", /noindex|nofollow/i);
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", canonical);
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", contract.seo.title);
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute("content", contract.seo.description);

@@ -22,48 +22,60 @@ test("current D32 collection surfaces and shared footer copy", async ({
   );
 });
 
-const routeContracts = [
+const routes = [
+  { path: "/", screenshot: "home", h1: "Malaysia Titanium Dioxide for Industrial Buyers", indexable: true },
+  { path: "/products/", screenshot: "products", h1: "Titanium Dioxide Pigment Grades for Industrial Applications", indexable: true },
+  { path: "/products/m-350/", screenshot: "m350", h1: "M-350 Titanium Dioxide for Multi-Application Evaluation", indexable: true },
+  { path: "/applications/", screenshot: "applications", h1: "Explore Titanium Dioxide by Application", indexable: true },
   {
-    path: "/",
-    name: "home",
-    h1: "Malaysia Titanium Dioxide for Industrial Buyers",
+    path: "/applications/titanium-dioxide-for-coatings/",
+    screenshot: "application-coatings",
+    h1: "Titanium Dioxide for Coatings",
+    indexable: true,
   },
   {
-    path: "/products/",
-    name: "products",
-    h1: "Titanium Dioxide Pigment Grades for Industrial Applications",
+    path: "/applications/titanium-dioxide-for-plastics/",
+    screenshot: "application-plastics",
+    h1: "Titanium Dioxide for Plastics",
+    indexable: true,
   },
   {
-    path: "/products/m-350/",
-    name: "m350",
-    h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
+    path: "/applications/titanium-dioxide-for-masterbatch/",
+    screenshot: "application-masterbatch",
+    h1: "Titanium Dioxide for Masterbatch",
+    indexable: true,
   },
   {
-    path: "/applications/",
-    name: "applications",
-    h1: "Explore Titanium Dioxide by Application",
+    path: "/applications/titanium-dioxide-for-printing-inks/",
+    screenshot: "application-printing-inks",
+    h1: "Titanium Dioxide for Printing Inks",
+    indexable: true,
+  },
+  {
+    path: "/applications/titanium-dioxide-for-paper/",
+    screenshot: "application-paper",
+    h1: "Titanium Dioxide for Paper",
+    indexable: true,
   },
   {
     path: "/request-a-quote/",
-    name: "rfq",
+    screenshot: "rfq",
     h1: "Request a Titanium Dioxide Quote",
+    indexable: true,
   },
   {
     path: "/thank-you/",
-    name: "thank-you",
+    screenshot: "thank-you",
     h1: "How can we help?",
+    indexable: true,
   },
   {
     path: "/privacy-policy/",
-    name: "privacy",
+    screenshot: "privacy",
     h1: "Privacy Policy",
+    indexable: true,
   },
 ] as const;
-const routes = routeContracts.map((route) => route.path);
-const routeNames = new Map(routeContracts.map((route) => [route.path, route.name]));
-const routeHeadings = new Map(
-  routeContracts.map((route) => [route.path, route.h1]),
-);
 test("M350 breadcrumb items share one vertical center", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto("/products/m-350/");
@@ -112,7 +124,7 @@ test("selector waits for hydration before accepting clicks", async ({
 const widths = [320, 390, 768, 1024, 1280, 1440];
 for (const route of routes) {
   for (const width of widths) {
-    test(`${route} static layout ${width}`, async ({ page }) => {
+    test(`${route.path} static layout ${width}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       const errors: string[] = [];
       page.on("pageerror", (error) => errors.push(error.message));
@@ -126,7 +138,7 @@ for (const route of routes) {
         if (/wp-json|graphql|\/api\//.test(request.url()))
           errors.push(request.url());
       });
-      const response = await page.goto(route);
+      const response = await page.goto(route.path);
       expect(response?.status()).toBe(200);
       await expect(page.locator("h1")).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
@@ -150,16 +162,20 @@ for (const route of routes) {
       ).toBe(true);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
         "href",
-        "https://tio2products.com" + route,
+        "https://tio2products.com" + route.path,
       );
-      await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      const robots = page.locator('meta[name="robots"]');
+      await expect(robots).toHaveAttribute(
         "content",
-        /noindex/,
+        route.indexable ? /index/ : /noindex/,
       );
+      if (route.indexable) {
+        await expect(robots).not.toHaveAttribute("content", /noindex|nofollow/);
+      }
       expect(errors).toEqual([]);
       await page.evaluate(() => scrollTo(0, 0));
-      if (width === 390 || width === 1440) {
-        const name = routeNames.get(route)!;
+      if (width === 390 || width === 768 || width === 1440) {
+        const name = route.screenshot;
         await page.screenshot({
           path: path.resolve(
             process.env.STATIC_EVIDENCE_DIR || "test-results/screenshots",
@@ -176,9 +192,9 @@ for (const route of routes) {
       }
     });
   }
-  test(`${route} menu and cookie keyboard behavior`, async ({ page }) => {
+  test(`${route.path} menu and cookie keyboard behavior`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto(route);
+    await page.goto(route.path);
     const trigger = page.getByRole("button", {
       name: "Open primary navigation",
       exact: true,
@@ -206,6 +222,22 @@ for (const route of routes) {
       dialog.getByRole("button", { name: "Close", exact: true }),
     ).toBeFocused();
     await expect(dialog).toContainText("Optional Analytics is not active");
+    const closeCookieSettings = dialog.getByRole("button", {
+      name: "Close",
+      exact: true,
+    });
+    const cookiePolicy = dialog.getByRole("link", {
+      name: "Read Cookie Policy",
+      exact: true,
+    });
+    await page.keyboard.press("Shift+Tab");
+    await expect(cookiePolicy).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(closeCookieSettings).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(cookiePolicy).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    await expect(closeCookieSettings).toBeFocused();
     await page.keyboard.press("Escape");
     await expect(dialog).not.toBeVisible();
     await expect(cookie).toBeFocused();
@@ -214,10 +246,10 @@ for (const route of routes) {
     await cookie.click();
     await expect(dialog).toContainText("Necessary only; Analytics unavailable");
   });
-  test(`${route} exposes no internal identifiers in public HTML`, async ({
+  test(`${route.path} exposes no internal identifiers in public HTML`, async ({
     request,
   }) => {
-    const response = await request.get(route);
+    const response = await request.get(route.path);
     const html = await response.text();
     expect(
       html.match(
@@ -226,6 +258,30 @@ for (const route of routes) {
     ).toBeNull();
   });
 }
+
+test("application detail shared menu and cookie visual states", async ({ page }) => {
+  const evidenceDirectory =
+    process.env.STATIC_EVIDENCE_DIR || "test-results/screenshots";
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/applications/titanium-dioxide-for-coatings/");
+  await page
+    .getByRole("button", { name: "Open primary navigation", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Primary navigation menu" }),
+  ).toBeVisible();
+  await page.screenshot({
+    path: path.resolve(evidenceDirectory, "application-shared-menu-390.png"),
+  });
+  await page.keyboard.press("Escape");
+  await page.getByRole("button", { name: "Cookie Settings", exact: true }).click();
+  await expect(
+    page.getByRole("dialog", { name: "Cookie settings", exact: true }),
+  ).toBeVisible();
+  await page.screenshot({
+    path: path.resolve(evidenceDirectory, "application-shared-cookie-390.png"),
+  });
+});
 
 test("all seven product selections return the approved grade relationships", async ({
   page,
@@ -378,11 +434,9 @@ test("static copy remains available without JavaScript", async ({
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   for (const route of routes) {
-    expect((await page.goto(testBaseUrl + route))?.status()).toBe(
-      200,
-    );
+    expect((await page.goto(testBaseUrl + route.path))?.status()).toBe(200);
     await expect(page.locator("h1")).toBeVisible();
-    await expect(page.locator("h1")).toHaveText(routeHeadings.get(route)!);
+    await expect(page.locator("h1")).toHaveText(route.h1);
   }
   await context.close();
 });

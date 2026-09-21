@@ -48,6 +48,13 @@ for (const candidate of productDetailCandidates) {
   });
 }
 
-test("the 13 preview routes remain sitemap-excluded", async ({ request }) => {
-  expect((await request.get("/sitemap.xml")).status()).toBe(404);
+test("the 13 product detail routes are included in the sitemap", async ({ request }) => {
+  const response = await request.get("/sitemap.xml");
+  expect(response.status()).toBe(200);
+  const sitemap = await response.text();
+  for (const candidate of productDetailCandidates) {
+    expect(sitemap).toContain(
+      `<loc>https://tio2products.com${candidate.path}</loc>`,
+    );
+  }
 });

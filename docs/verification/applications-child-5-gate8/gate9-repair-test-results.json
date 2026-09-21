@@ -1,0 +1,53 @@
+{
+  "schema_version": "applications-child-5-gate9-repair-results-v1",
+  "recorded_at": "2026-09-21T11:02:14+08:00",
+  "implementation_commit": "ede0e32c2c73477589447344921c34370307206a",
+  "baseline_commit": "0c117ee0941a3b307f761ff0db5ea67fc98b5a07",
+  "artifact_directory": "D:/32NextJS/.worktrees/applications-child-5-gate8/out",
+  "artifact_file_count": 93,
+  "checks": [
+    {
+      "command": "npm run typecheck",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Next route types generated and tsc --noEmit completed."
+    },
+    {
+      "command": "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=<fixed-non-production-routing-value> npm run build",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Next.js 16.3.5 exported 12 implemented pages plus 404, robots.txt and sitemap.xml."
+    },
+    {
+      "command": "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=<fixed-non-production-routing-value> PLAYWRIGHT_PORT=8341 npm test",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Node contracts 9/9 passed; Playwright 158 passed and 1 intentional unconfigured-receiver variant skipped."
+    },
+    {
+      "command": "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=<fixed-non-production-routing-value> PLAYWRIGHT_PORT=8341 npx playwright test tests/static-verification.spec.ts --grep 'menu and cookie keyboard behavior'",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "12/12 shared-page Cookie Settings keyboard tests passed, including first-to-last Shift+Tab, last-to-first Tab, Escape close and trigger focus restoration."
+    }
+  ],
+  "tdd_regression": {
+    "red": "The Coatings shared-chrome test failed because Shift+Tab from Close left Read Cookie Policy unfocused.",
+    "green": "After rebuilding the static export with the dialog focus trap, the same test and all 12 shared-page variants passed."
+  },
+  "application_html_sha256": {
+    "applications/titanium-dioxide-for-coatings/index.html": "5457b28ed845e50313b9c83deb5db960c0129718107329f9be1c6c52759fc472",
+    "applications/titanium-dioxide-for-plastics/index.html": "d9bb253d24a86e514aae7603fa0b912bad7b21d12eac87784e3e5fded6e4e6e9",
+    "applications/titanium-dioxide-for-masterbatch/index.html": "b51caa17c5ef9483b14a0b44be9f053897c2e2a2ac6267fa18ce952ba45af61c",
+    "applications/titanium-dioxide-for-printing-inks/index.html": "06eecb440b29c2fd3ee547143f5db887c16f584fd429c9f082844c54ee117402",
+    "applications/titanium-dioxide-for-paper/index.html": "7e35544a28f7fc56151f10c887a93f05d7b8bfe3db4756afe46b69dd6ae6f75e"
+  },
+  "not_performed": [
+    "merge to develop or main",
+    "push",
+    "deployment",
+    "DNS or Search Console changes",
+    "production Web3Forms submission",
+    "WordPress changes"
+  ]
+}

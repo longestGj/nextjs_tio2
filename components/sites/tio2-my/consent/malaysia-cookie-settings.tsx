@@ -64,7 +64,6 @@ export function MalaysiaCookieSettingsHost() {
       aria-describedby="cookie-settings-description"
       onKeyDown={(event) => {
         if (event.key !== "Tab") return;
-
         const focusable = Array.from(
           event.currentTarget.querySelectorAll<HTMLElement>(
             'button:not([disabled]), a[href]',
@@ -73,7 +72,6 @@ export function MalaysiaCookieSettingsHost() {
         const first = focusable.at(0);
         const last = focusable.at(-1);
         if (!first || !last) return;
-
         const active = document.activeElement;
         if (
           event.shiftKey &&

@@ -4,15 +4,20 @@ import { after, before, test } from "node:test";
 
 import { routeContracts, verifyDeployment } from "../scripts/verify-deployment.mjs";
 
-const routes = Object.fromEntries(routeContracts.map(({ path, ...contract }) => [path, contract]));
+const routes = Object.fromEntries(
+  routeContracts.map(({ path, robots, ...contract }) => [
+    path,
+    { ...contract, robots: robots.join(", ") },
+  ]),
+);
 
 function page(
-  { canonical, h1, requiredHtml = [] },
+  { canonical, h1, robots, requiredHtml = [] },
   { includeAssets = true, omitRequiredHtml = false } = {},
 ) {
   return `<!doctype html>
     <html><head>
-      <meta name="robots" content="noindex, nofollow">
+      <meta name="robots" content="${robots}">
       <link rel="canonical" href="${canonical}">
       ${includeAssets ? '<link rel="stylesheet" href="/_next/static/test.css">' : ""}
       ${includeAssets ? '<script src="/_next/static/test.js"></script>' : ""}
@@ -80,6 +85,14 @@ function startFixture({
 let healthy;
 let broken;
 
+test("publishes all 25 content routes as index and follow", () => {
+  assert.equal(routeContracts.length, 25);
+  assert.deepEqual(
+    [...new Set(routeContracts.map(({ robots }) => robots.join(",")))],
+    ["index,follow"],
+  );
+});
+
 before(async () => {
   [healthy, broken] = await Promise.all([
     startFixture(),
@@ -93,7 +106,7 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 20, assets: 2 });
+  assert.deepEqual(result, { routes: 25, assets: 2 });
 });
 
 test("rejects an RFQ deployment without configured form markup", async () => {

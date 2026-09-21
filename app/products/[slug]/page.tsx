@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: seo.title,
     description: seo.description,
     alternates: { canonical: seo.canonical },
-    robots: { index: false, follow: false },
+    robots: { index: true, follow: true },
     openGraph: { title: seo.title, description: seo.description, url: seo.canonical, type: "website" },
   };
 }

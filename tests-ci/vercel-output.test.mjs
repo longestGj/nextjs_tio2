@@ -22,6 +22,11 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
 
   await Promise.all([
     mkdir(join(directory, "static", "applications"), { recursive: true }),
+    mkdir(join(directory, "static", "applications", "titanium-dioxide-for-coatings"), { recursive: true }),
+    mkdir(join(directory, "static", "applications", "titanium-dioxide-for-plastics"), { recursive: true }),
+    mkdir(join(directory, "static", "applications", "titanium-dioxide-for-masterbatch"), { recursive: true }),
+    mkdir(join(directory, "static", "applications", "titanium-dioxide-for-printing-inks"), { recursive: true }),
+    mkdir(join(directory, "static", "applications", "titanium-dioxide-for-paper"), { recursive: true }),
     mkdir(join(directory, "static", "products", "m-350"), { recursive: true }),
     mkdir(join(directory, "static", "request-a-quote"), { recursive: true }),
     mkdir(join(directory, "static", "thank-you"), { recursive: true }),
@@ -32,6 +37,11 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
     [
       "static/index.html",
       "static/applications/index.html",
+      "static/applications/titanium-dioxide-for-coatings/index.html",
+      "static/applications/titanium-dioxide-for-plastics/index.html",
+      "static/applications/titanium-dioxide-for-masterbatch/index.html",
+      "static/applications/titanium-dioxide-for-printing-inks/index.html",
+      "static/applications/titanium-dioxide-for-paper/index.html",
       "static/products/index.html",
       "static/products/m-350/index.html",
       "static/request-a-quote/index.html",
@@ -55,6 +65,26 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
       "index.html": { path: "index", contentType: "text/html" },
       "applications/index.html": {
         path: "applications/index",
+        contentType: "text/html",
+      },
+      "applications/titanium-dioxide-for-coatings/index.html": {
+        path: "applications/titanium-dioxide-for-coatings/index",
+        contentType: "text/html",
+      },
+      "applications/titanium-dioxide-for-plastics/index.html": {
+        path: "applications/titanium-dioxide-for-plastics/index",
+        contentType: "text/html",
+      },
+      "applications/titanium-dioxide-for-masterbatch/index.html": {
+        path: "applications/titanium-dioxide-for-masterbatch/index",
+        contentType: "text/html",
+      },
+      "applications/titanium-dioxide-for-printing-inks/index.html": {
+        path: "applications/titanium-dioxide-for-printing-inks/index",
+        contentType: "text/html",
+      },
+      "applications/titanium-dioxide-for-paper/index.html": {
+        path: "applications/titanium-dioxide-for-paper/index",
         contentType: "text/html",
       },
       "products/index.html": {
@@ -87,16 +117,36 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
 test("adds directory-index routes before the filesystem handler", async () => {
   const directory = await fixture();
 
-  assert.deepEqual(await prepareVercelOutput(directory), { routes: 7 });
-  assert.deepEqual(await prepareVercelOutput(directory), { routes: 7 });
+  assert.deepEqual(await prepareVercelOutput(directory), { routes: 12 });
+  assert.deepEqual(await prepareVercelOutput(directory), { routes: 12 });
 
   const config = JSON.parse(await readFile(join(directory, "config.json"), "utf8"));
   const filesystemIndex = config.routes.findIndex(
     (route) => route.handle === "filesystem",
   );
-  assert.deepEqual(config.routes.slice(filesystemIndex - 7, filesystemIndex), [
+  assert.deepEqual(config.routes.slice(filesystemIndex - 12, filesystemIndex), [
     { src: "^/$", dest: "/index" },
     { src: "^/applications/$", dest: "/applications/index" },
+    {
+      src: "^/applications/titanium\\-dioxide\\-for\\-coatings/$",
+      dest: "/applications/titanium-dioxide-for-coatings/index",
+    },
+    {
+      src: "^/applications/titanium\\-dioxide\\-for\\-masterbatch/$",
+      dest: "/applications/titanium-dioxide-for-masterbatch/index",
+    },
+    {
+      src: "^/applications/titanium\\-dioxide\\-for\\-paper/$",
+      dest: "/applications/titanium-dioxide-for-paper/index",
+    },
+    {
+      src: "^/applications/titanium\\-dioxide\\-for\\-plastics/$",
+      dest: "/applications/titanium-dioxide-for-plastics/index",
+    },
+    {
+      src: "^/applications/titanium\\-dioxide\\-for\\-printing\\-inks/$",
+      dest: "/applications/titanium-dioxide-for-printing-inks/index",
+    },
     { src: "^/privacy\\-policy/$", dest: "/privacy-policy/index" },
     { src: "^/products/$", dest: "/products/index" },
     {

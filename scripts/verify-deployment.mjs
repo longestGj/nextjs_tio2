@@ -11,6 +11,7 @@ const productDetailRouteContracts = await Promise.all(
       path: candidate.path,
       canonical: `https://tio2products.com${candidate.path}`,
       h1: contract.seo.h1,
+      robots: ["index", "follow"],
     };
   }),
 );
@@ -20,37 +21,74 @@ export const routeContracts = [
     path: "/",
     canonical: "https://tio2products.com/",
     h1: "Malaysia Titanium Dioxide for Industrial Buyers",
+    robots: ["index", "follow"],
   },
   {
     path: "/products/",
     canonical: "https://tio2products.com/products/",
     h1: "Titanium Dioxide Pigment Grades for Industrial Applications",
+    robots: ["index", "follow"],
   },
   {
     path: "/products/m-350/",
     canonical: "https://tio2products.com/products/m-350/",
     h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
+    robots: ["index", "follow"],
   },
   {
     path: "/applications/",
     canonical: "https://tio2products.com/applications/",
     h1: "Explore Titanium Dioxide by Application",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-coatings/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-coatings/",
+    h1: "Titanium Dioxide for Coatings",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-plastics/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-plastics/",
+    h1: "Titanium Dioxide for Plastics",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-masterbatch/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-masterbatch/",
+    h1: "Titanium Dioxide for Masterbatch",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-printing-inks/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-printing-inks/",
+    h1: "Titanium Dioxide for Printing Inks",
+    robots: ["index", "follow"],
+  },
+  {
+    path: "/applications/titanium-dioxide-for-paper/",
+    canonical: "https://tio2products.com/applications/titanium-dioxide-for-paper/",
+    h1: "Titanium Dioxide for Paper",
+    robots: ["index", "follow"],
   },
   {
     path: "/request-a-quote/",
     canonical: "https://tio2products.com/request-a-quote/",
     h1: "Request a Titanium Dioxide Quote",
+    robots: ["index", "follow"],
     requiredHtml: ['name="grade_id"', 'name="business_email"'],
   },
   {
     path: "/thank-you/",
     canonical: "https://tio2products.com/thank-you/",
     h1: "How can we help?",
+    robots: ["index", "follow"],
   },
   {
     path: "/privacy-policy/",
     canonical: "https://tio2products.com/privacy-policy/",
     h1: "Privacy Policy",
+    robots: ["index", "follow"],
     requiredHtml: ["Web3Forms", "Last updated: 5 September 2026"],
   },
   ...productDetailRouteContracts,
@@ -92,8 +130,17 @@ function assertPageContract(html, contract) {
   const robots = tags(html, "meta")
     .map(parseAttributes)
     .find((attributes) => attributes.get("name")?.toLowerCase() === "robots");
-  if (!robots?.get("content")?.toLowerCase().split(/[\s,]+/).includes("noindex")) {
-    throw new Error(`${contract.path} robots metadata does not include noindex`);
+  const robotTokens = robots?.get("content")?.toLowerCase().split(/[\s,]+/) ?? [];
+  for (const token of contract.robots) {
+    if (!robotTokens.includes(token)) {
+      throw new Error(`${contract.path} robots metadata does not include ${token}`);
+    }
+  }
+  const forbiddenRobots = contract.robots[0] === "index"
+    ? ["noindex", "nofollow"]
+    : ["index", "follow"];
+  if (forbiddenRobots.some((token) => robotTokens.includes(token))) {
+    throw new Error(`${contract.path} robots metadata contains a conflicting directive`);
   }
 
   const heading = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
