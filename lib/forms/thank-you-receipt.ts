@@ -88,7 +88,13 @@ export function resolveMalaysiaThankYouRequest(
     return "direct";
   }
 
-  return receipt.request === requests[0] ? receipt.request : "direct";
+  if (receipt.request !== requests[0]) return "direct";
+  try {
+    storage.removeItem(storageKey);
+  } catch {
+    return "direct";
+  }
+  return receipt.request;
 }
 
 export function writeMalaysiaThankYouReceipt(

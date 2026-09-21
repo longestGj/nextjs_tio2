@@ -562,7 +562,8 @@ test("thank-you does not trust the URL alone", async ({ page }) => {
 });
 
 test("thank-you accepts one matching fresh receipt", async ({ page }) => {
-  await page.addInitScript(({ key }) => {
+  await page.goto("/");
+  await page.evaluate(({ key }) => {
     sessionStorage.setItem(
       key,
       JSON.stringify({
@@ -578,6 +579,12 @@ test("thank-you accepts one matching fresh receipt", async ({ page }) => {
     "Thank you. We’ve received your quotation request.",
   );
   await expect(page.getByText("REQUEST RECEIVED")).toBeVisible();
+  expect(
+    await page.evaluate((key) => sessionStorage.getItem(key), thankYouReceiptKey),
+  ).toBeNull();
+  await page.reload();
+  await expect(page.locator("h1")).toHaveText("How can we help?");
+  await expect(page.getByText("REQUEST RECEIVED")).toHaveCount(0);
 });
 
 for (const invalid of [

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import type thankYouContent from "@/content/thank-you.json";
 import {
@@ -20,9 +20,14 @@ export function MalaysiaThankYouPanel({
   readonly states: typeof thankYouContent.states;
 }) {
   const [state, setState] = useState<ThankYouState>("direct");
+  const resolvedStateRef = useRef<ThankYouState | null>(null);
 
   useLayoutEffect(() => {
-    setState(resolveMalaysiaThankYouRequest(window.location.search));
+    const resolvedState =
+      resolvedStateRef.current ??
+      resolveMalaysiaThankYouRequest(window.location.search);
+    resolvedStateRef.current = resolvedState;
+    setState(resolvedState);
   }, []);
 
   const panel = states[state];
