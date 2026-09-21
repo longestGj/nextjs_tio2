@@ -15,3 +15,5 @@ export const privacy = {
   ...privacyContent,
   globalChrome: chrome,
 } as MalaysiaPrivacyPageDto;
+import thankYouContent from "@/content/thank-you.json";
+export const thankYou = { ...thankYouContent, globalChrome: chrome };

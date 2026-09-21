@@ -1,5 +1,120 @@
 import { test, expect } from "@playwright/test";
 
+const thankYouReceiptKey = "tio2-my:thank-you:receipt:v1";
+
+test("thank-you does not trust the URL alone", async ({ page }) => {
+  await page.goto("/thank-you/?request=quote");
+  await expect(page.locator("h1")).toHaveText("How can we help?");
+  await expect(page.getByText("REQUEST RECEIVED")).toHaveCount(0);
+});
+
+test("thank-you accepts one matching fresh receipt", async ({ page }) => {
+  await page.addInitScript(({ key }) => {
+    sessionStorage.setItem(
+      key,
+      JSON.stringify({
+        version: 1,
+        request: "quote",
+        succeededAt: Date.now(),
+        flowId: "test-flow",
+      }),
+    );
+  }, { key: thankYouReceiptKey });
+  await page.goto("/thank-you/?request=quote");
+  await expect(page.locator("h1")).toHaveText(
+    "Thank you. We’ve received your quotation request.",
+  );
+  await expect(page.getByText("REQUEST RECEIVED")).toBeVisible();
+});
+
+for (const invalid of [
+  {
+    name: "duplicate request parameters",
+    search: "?request=quote&request=quote",
+    receipt: {
+      version: 1,
+      request: "quote",
+      succeededAt: "now",
+      flowId: "test-flow",
+    },
+  },
+  {
+    name: "expired receipt",
+    search: "?request=quote",
+    receipt: {
+      version: 1,
+      request: "quote",
+      succeededAt: "expired",
+      flowId: "test-flow",
+    },
+  },
+  {
+    name: "future receipt",
+    search: "?request=quote",
+    receipt: {
+      version: 1,
+      request: "quote",
+      succeededAt: "future",
+      flowId: "test-flow",
+    },
+  },
+  {
+    name: "mismatched request",
+    search: "?request=quote",
+    receipt: {
+      version: 1,
+      request: "documents",
+      succeededAt: "now",
+      flowId: "test-flow",
+    },
+  },
+  {
+    name: "missing flow id",
+    search: "?request=quote",
+    receipt: { version: 1, request: "quote", succeededAt: "now" },
+  },
+] as const) {
+  test(`thank-you rejects ${invalid.name}`, async ({ page }) => {
+    await page.addInitScript(
+      ({ key, receipt }) => {
+        const now = Date.now();
+        const succeededAt =
+          receipt.succeededAt === "expired"
+            ? now - 600_001
+            : receipt.succeededAt === "future"
+              ? now + 600_001
+              : now;
+        sessionStorage.setItem(
+          key,
+          JSON.stringify({ ...receipt, succeededAt }),
+        );
+      },
+      { key: thankYouReceiptKey, receipt: invalid.receipt },
+    );
+    await page.goto(`/thank-you/${invalid.search}`);
+    await expect(page.locator("h1")).toHaveText("How can we help?");
+    await expect(page.getByText("REQUEST RECEIVED")).toHaveCount(0);
+  });
+}
+
+test("thank-you rejects corrupt receipt JSON", async ({ page }) => {
+  await page.addInitScript(({ key }) => {
+    sessionStorage.setItem(key, "not-json");
+  }, { key: thankYouReceiptKey });
+  await page.goto("/thank-you/?request=quote");
+  await expect(page.locator("h1")).toHaveText("How can we help?");
+});
+
+test("thank-you falls back when storage cannot be read", async ({ page }) => {
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => {
+      throw new Error("storage unavailable");
+    };
+  });
+  await page.goto("/thank-you/?request=quote");
+  await expect(page.locator("h1")).toHaveText("How can we help?");
+});
+
 test("privacy policy preserves the approved legal contract", async ({
   page,
 }) => {
