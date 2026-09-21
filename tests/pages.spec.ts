@@ -1,4 +1,33 @@
 import { test, expect } from "@playwright/test";
+
+test("privacy policy preserves the approved legal contract", async ({
+  page,
+}) => {
+  const response = await page.goto("/privacy-policy/");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toHaveText("Privacy Policy");
+  await expect(
+    page.getByText("Last updated: 5 September 2026"),
+  ).toBeVisible();
+  await expect(page.locator("main article h2")).toHaveText([
+    "Who We Are",
+    "Information We Collect",
+    "How We Use Information",
+    "Service Providers and International Processing",
+    "How Long We Keep Information",
+    "Cookies and Analytics",
+    "Your Rights and Choices",
+    "Security and Data Minimisation",
+    "Business Users and Children",
+    "Changes and Contact",
+  ]);
+  await expect(page.locator("main")).toContainText("Web3Forms");
+  await expect(page.locator("main")).toContainText("up to three years");
+  await expect(
+    page.locator('a[href="mailto:info@tio2malaysia.com"]').first(),
+  ).toBeVisible();
+});
+
 test("M350 deep link and collection navigation", async ({ page }) => {
   const response = await page.goto("/products/m-350/");
   expect(response?.status()).toBe(200);

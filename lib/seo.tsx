@@ -1,6 +1,7 @@
 import type { MalaysiaProductDetailDto } from "./content/product-detail-v01-types";
 import type { MalaysiaHomepageDto } from "./content/homepage-v04-types";
 import type { MalaysiaProductHubDto } from "./content/product-hub-v01-types";
+import type { MalaysiaPrivacyPageDto } from "./content/privacy-types";
 const origin = "https://tio2products.com";
 export function JsonLd({ value }: { value: unknown }) {
   return (
@@ -160,6 +161,36 @@ export function productsSchema(p: MalaysiaProductHubDto, company: string) {
           "@type": "Question",
           name: item.question,
           acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      },
+    ],
+  };
+}
+
+export function privacySchema(p: MalaysiaPrivacyPageDto) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": p.seo.canonical + "#webpage",
+        url: p.seo.canonical,
+        name: p.title,
+        description: p.seo.description,
+        isPartOf: ref("website"),
+        inLanguage: "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": p.seo.canonical + "#breadcrumb",
+        itemListElement: [
+          ["Home", "/"],
+          ["Privacy Policy", "/privacy-policy/"],
+        ].map(([name, path], index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name,
+          item: origin + path,
         })),
       },
     ],

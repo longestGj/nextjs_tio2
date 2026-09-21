@@ -9,3 +9,9 @@ export const products = {
 };
 import m350Content from "@/content/m350.json";
 export const m350 = { ...m350Content, globalChrome: chrome };
+import privacyContent from "@/content/privacy.json";
+import type { MalaysiaPrivacyPageDto } from "./privacy-types";
+export const privacy = {
+  ...privacyContent,
+  globalChrome: chrome,
+} as MalaysiaPrivacyPageDto;
