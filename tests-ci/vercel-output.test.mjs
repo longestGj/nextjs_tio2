@@ -21,12 +21,14 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
   temporaryDirectories.push(directory);
 
   await Promise.all([
+    mkdir(join(directory, "static", "applications"), { recursive: true }),
     mkdir(join(directory, "static", "products", "m-350"), { recursive: true }),
     mkdir(join(directory, "static", "404"), { recursive: true }),
   ]);
   await Promise.all(
     [
       "static/index.html",
+      "static/applications/index.html",
       "static/products/index.html",
       "static/products/m-350/index.html",
       "static/404/index.html",
@@ -45,6 +47,10 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
     ],
     overrides: {
       "index.html": { path: "index", contentType: "text/html" },
+      "applications/index.html": {
+        path: "applications/index",
+        contentType: "text/html",
+      },
       "products/index.html": {
         path: "products/index",
         contentType: "text/html",
@@ -63,15 +69,16 @@ async function fixture({ includeFilesystemHandle = true } = {}) {
 test("adds directory-index routes before the filesystem handler", async () => {
   const directory = await fixture();
 
-  assert.deepEqual(await prepareVercelOutput(directory), { routes: 3 });
-  assert.deepEqual(await prepareVercelOutput(directory), { routes: 3 });
+  assert.deepEqual(await prepareVercelOutput(directory), { routes: 4 });
+  assert.deepEqual(await prepareVercelOutput(directory), { routes: 4 });
 
   const config = JSON.parse(await readFile(join(directory, "config.json"), "utf8"));
   const filesystemIndex = config.routes.findIndex(
     (route) => route.handle === "filesystem",
   );
-  assert.deepEqual(config.routes.slice(filesystemIndex - 3, filesystemIndex), [
+  assert.deepEqual(config.routes.slice(filesystemIndex - 4, filesystemIndex), [
     { src: "^/$", dest: "/index" },
+    { src: "^/applications/$", dest: "/applications/index" },
     { src: "^/products/$", dest: "/products/index" },
     {
       src: "^/products/m\\-350/$",
