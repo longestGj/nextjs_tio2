@@ -228,6 +228,15 @@
   margin-top: 32px;
 }
 
+.failureMessage {
+  border-color: #e9b737;
+  background: #fff8e5;
+}
+
+.failureMessage h3 {
+  color: #b5490d;
+}
+
 .errorSummary h3,
 .stateMessage h3 {
   margin: 0 0 8px;
@@ -248,6 +257,17 @@
 .errorSummary a {
   color: #9f251f;
   font-weight: 700;
+}
+
+.retryButton {
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 0 26px;
+  border: 1px solid var(--rfq-navy);
+  border-radius: 6px;
+  color: var(--rfq-navy);
+  background: #fff;
+  font-weight: 800;
 }
 
 .privacyNotice {

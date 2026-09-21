@@ -16,6 +16,192 @@ const rfqFieldNames = [
   "additional_requirements",
 ];
 
+async function fillValidRfq(page: import("@playwright/test").Page) {
+  const form = page.locator("form");
+  await form.locator('[name="grade_id"]').selectOption("M-350");
+  await form.locator('[name="application_id"]').selectOption("Coatings");
+  await form.locator('[name="quantity_mt"]').fill("20");
+  await form.locator('[name="destination_country"]').fill("Malaysia");
+  await form.locator('[name="destination_port_city"]').fill("Port Klang");
+  await form.locator('[name="company_name"]').fill("IKHLAS Trading");
+  await form.locator('[name="contact_name"]').fill("Test Buyer");
+  await form.locator('[name="business_email"]').fill("buyer@company.com");
+  await form.locator('[name="phone_whatsapp"]').fill("+60 12 345 6789");
+  await form.locator('[name="website"]').fill("https://company.com");
+  await form
+    .locator('[name="additional_requirements"]')
+    .fill("Please quote standard packaging.");
+  return form;
+}
+
+test("Web3Forms accepts an explicit provider success and creates the receipt", async ({
+  page,
+}) => {
+  let submissions = 0;
+  await page.route("https://api.web3forms.com/submit", async (route) => {
+    submissions += 1;
+    const payload = route.request().postDataJSON();
+    expect(payload).toMatchObject({
+      access_key: "00000000-0000-4000-8000-000000000001",
+      subject: "TiO2 Malaysia quotation request",
+      from_name: "TiO2 Malaysia RFQ",
+      email: "buyer@company.com",
+      site_scope: "tio2-my",
+      page_id: "CONV-RFQ",
+      workflow_type: "rfq",
+      locale: "en",
+      grade_id: "M-350",
+      application_id: "Coatings",
+      quantity_mt: "20",
+      quantity_unit: "MT",
+      destination_country: "Malaysia",
+      destination_port_city: "Port Klang",
+      company_name: "IKHLAS Trading",
+      contact_name: "Test Buyer",
+      business_email: "buyer@company.com",
+      phone_whatsapp: "+60 12 345 6789",
+      website: "https://company.com",
+      additional_requirements: "Please quote standard packaging.",
+    });
+    expect(payload.request_token).toMatch(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
+    );
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: '{"success":true}',
+    });
+  });
+  await page.goto("/request-a-quote/");
+  const form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  await expect(page).toHaveURL(/\/thank-you\/\?request=quote$/);
+  await expect(page.locator("h1")).toHaveText(
+    "Thank you. We’ve received your quotation request.",
+  );
+  expect(submissions).toBe(1);
+});
+
+for (const responseCase of [
+  { name: "HTTP 400", status: 400, contentType: "application/json", body: '{"success":false,"message":"Invalid request"}' },
+  { name: "HTTP 422", status: 422, contentType: "application/json", body: '{"success":false,"message":"Invalid email"}' },
+  { name: "HTTP 429", status: 429, contentType: "application/json", body: '{"success":false}' },
+  { name: "HTTP 500", status: 500, contentType: "application/json", body: '{"success":false}' },
+  { name: "success false", status: 200, contentType: "application/json", body: '{"success":false}' },
+  { name: "malformed JSON", status: 200, contentType: "application/json", body: "{" },
+  { name: "HTML body", status: 200, contentType: "text/html", body: "<html>upstream error</html>" },
+] as const) {
+  test(`Web3Forms ${responseCase.name} remains unconfirmed and retains values`, async ({
+    page,
+  }) => {
+    await page.route("https://api.web3forms.com/submit", (route) =>
+      route.fulfill({
+        status: responseCase.status,
+        contentType: responseCase.contentType,
+        body: responseCase.body,
+      }),
+    );
+    await page.goto("/request-a-quote/");
+    const form = await fillValidRfq(page);
+    await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+    await expect(form.locator('[role="alert"]')).toContainText(
+      "Something went wrong while submitting your request.",
+    );
+    await expect(form.locator('[name="business_email"]')).toHaveValue(
+      "buyer@company.com",
+    );
+    expect(await page.evaluate((key) => sessionStorage.getItem(key), thankYouReceiptKey)).toBeNull();
+    await form.getByRole("button", { name: "TRY AGAIN" }).click();
+    await expect(form.locator('[role="alert"]')).toHaveCount(0);
+  });
+}
+
+test("Web3Forms network abort never creates success", async ({ page }) => {
+  await page.route("https://api.web3forms.com/submit", (route) =>
+    route.abort("failed"),
+  );
+  await page.goto("/request-a-quote/");
+  const form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  await expect(form.locator('[role="alert"]')).toContainText(
+    "Something went wrong while submitting your request.",
+  );
+  expect(await page.evaluate((key) => sessionStorage.getItem(key), thankYouReceiptKey)).toBeNull();
+});
+
+test("Web3Forms timeout remains unconfirmed", async ({ page }) => {
+  await page.addInitScript(() => {
+    const nativeSetTimeout = window.setTimeout.bind(window);
+    window.setTimeout = ((handler: TimerHandler, timeout?: number, ...args: unknown[]) =>
+      nativeSetTimeout(handler, timeout === 10_000 ? 10 : timeout, ...args)) as typeof window.setTimeout;
+  });
+  await page.route("https://api.web3forms.com/submit", async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 1_000));
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: '{"success":true}',
+    });
+  });
+  await page.goto("/request-a-quote/");
+  const form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  await expect(form.locator('[role="alert"]')).toContainText(
+    "Something went wrong while submitting your request.",
+  );
+  expect(await page.evaluate((key) => sessionStorage.getItem(key), thankYouReceiptKey)).toBeNull();
+});
+
+test("submission retry keeps values and uses a new request token", async ({ page }) => {
+  const requestTokens: string[] = [];
+  await page.route("https://api.web3forms.com/submit", async (route) => {
+    const payload = route.request().postDataJSON();
+    requestTokens.push(payload.request_token);
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: requestTokens.length === 1 ? '{"success":false}' : '{"success":true}',
+    });
+  });
+  await page.goto("/request-a-quote/");
+  const form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  await expect(form.locator('[role="alert"]')).toBeFocused();
+  await form.getByRole("button", { name: "TRY AGAIN" }).click();
+  await expect(form.locator('[name="business_email"]')).toHaveValue(
+    "buyer@company.com",
+  );
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  await expect(page).toHaveURL(/\/thank-you\/\?request=quote$/);
+  expect(requestTokens).toHaveLength(2);
+  expect(requestTokens[1]).not.toBe(requestTokens[0]);
+});
+
+test("submission double dispatch sends only one pending request", async ({ page }) => {
+  let release!: () => void;
+  const gate = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  let submissions = 0;
+  await page.route("https://api.web3forms.com/submit", async (route) => {
+    submissions += 1;
+    await gate;
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: '{"success":true}',
+    });
+  });
+  await page.goto("/request-a-quote/");
+  const form = await fillValidRfq(page);
+  await form.dispatchEvent("submit");
+  await form.dispatchEvent("submit");
+  await expect(form.getByRole("button", { name: "SUBMITTING…" })).toBeDisabled();
+  expect(submissions).toBe(1);
+  release();
+  await expect(page).toHaveURL(/\/thank-you\/\?request=quote$/);
+});
+
 test("RFQ preserves the approved field contract", async ({ page }) => {
   await page.goto("/request-a-quote/");
   await expect(page.locator("h1")).toHaveText(

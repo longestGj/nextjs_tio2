@@ -14,6 +14,8 @@ import {
   type RfqErrors,
   type RfqValues,
 } from "@/lib/forms/rfq-model";
+import { writeMalaysiaThankYouReceipt } from "@/lib/forms/thank-you-receipt";
+import { submitWeb3FormsBrowser } from "@/lib/forms/web3forms-browser";
 
 import styles from "./malaysia-rfq-page.module.css";
 
@@ -32,7 +34,7 @@ function describedBy(name: keyof RfqValues, hasError: boolean) {
 export function MalaysiaRfqForm({
   form,
   receiverAvailable,
-  accessKey: _accessKey,
+  accessKey,
   privacyPolicyHref,
 }: {
   readonly form: RfqFormContract;
@@ -40,12 +42,16 @@ export function MalaysiaRfqForm({
   readonly accessKey: string | undefined;
   readonly privacyPolicyHref: string;
 }) {
-  void _accessKey;
   const [values, setValues] = useState<RfqValues>(emptyRfqValues);
   const [errors, setErrors] = useState<RfqErrors>({});
+  const [submissionState, setSubmissionState] = useState<
+    "ready" | "submitting" | "unconfirmed" | "unavailable"
+  >(receiverAvailable ? "ready" : "unavailable");
   const summaryRef = useRef<HTMLDivElement>(null);
+  const failureRef = useRef<HTMLDivElement>(null);
+  const pendingRef = useRef(false);
 
-  if (!receiverAvailable) {
+  if (!receiverAvailable || submissionState === "unavailable") {
     return (
       <div className={styles.stateMessage} role="status">
         <h3>{form.unavailable.heading}</h3>
@@ -77,12 +83,67 @@ export function MalaysiaRfqForm({
     ) : null;
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (pendingRef.current) return;
     const nextErrors = validateRfq(values, form);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
       requestAnimationFrame(() => summaryRef.current?.focus());
+      return;
+    }
+
+    if (!accessKey) {
+      setSubmissionState("unavailable");
+      return;
+    }
+
+    pendingRef.current = true;
+    setSubmissionState("submitting");
+    const requestToken = crypto.randomUUID();
+    try {
+      const outcome = await submitWeb3FormsBrowser({
+        accessKey,
+        requestToken,
+        payload: {
+          subject: "TiO2 Malaysia quotation request",
+          from_name: "TiO2 Malaysia RFQ",
+          email: values.business_email.trim(),
+          site_scope: "tio2-my",
+          page_id: "CONV-RFQ",
+          workflow_type: "rfq",
+          locale: "en",
+          request_token: requestToken,
+          grade_id: values.grade_id.trim(),
+          application_id: values.application_id.trim(),
+          quantity_mt: values.quantity_mt.trim(),
+          quantity_unit: "MT",
+          destination_country: values.destination_country.trim(),
+          destination_port_city: values.destination_port_city.trim(),
+          company_name: values.company_name.trim(),
+          contact_name: values.contact_name.trim(),
+          business_email: values.business_email.trim(),
+          phone_whatsapp: values.phone_whatsapp.trim(),
+          website: values.website.trim(),
+          additional_requirements: values.additional_requirements.trim(),
+        },
+      });
+      if (outcome.kind === "provider_accepted") {
+        writeMalaysiaThankYouReceipt("quote");
+        window.location.assign("/thank-you/?request=quote");
+        return;
+      }
+      if (outcome.kind === "unavailable") {
+        setSubmissionState("unavailable");
+        return;
+      }
+      setSubmissionState("unconfirmed");
+      requestAnimationFrame(() => failureRef.current?.focus());
+    } catch {
+      setSubmissionState("unconfirmed");
+      requestAnimationFrame(() => failureRef.current?.focus());
+    } finally {
+      pendingRef.current = false;
     }
   }
 
@@ -121,7 +182,26 @@ export function MalaysiaRfqForm({
         </div>
       ) : null}
 
-      <fieldset>
+      {submissionState === "unconfirmed" ? (
+        <div
+          className={`${styles.stateMessage} ${styles.failureMessage}`}
+          role="alert"
+          tabIndex={-1}
+          ref={failureRef}
+        >
+          <h3>{form.failure.heading}</h3>
+          <p>{form.failure.body}</p>
+          <button
+            type="button"
+            className={styles.retryButton}
+            onClick={() => setSubmissionState("ready")}
+          >
+            {form.failure.action}
+          </button>
+        </div>
+      ) : null}
+
+      <fieldset disabled={submissionState === "submitting"}>
         <legend>{form.groups[0]}</legend>
         <div className={styles.fieldGrid}>
           <div className={styles.field}>
@@ -211,7 +291,7 @@ export function MalaysiaRfqForm({
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset disabled={submissionState === "submitting"}>
         <legend>{form.groups[1]}</legend>
         <div className={styles.fieldGrid}>
           <div className={styles.field}>
@@ -249,7 +329,7 @@ export function MalaysiaRfqForm({
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset disabled={submissionState === "submitting"}>
         <legend>{form.groups[2]}</legend>
         <div className={styles.field}>
           <label htmlFor="rfq-additional_requirements">
@@ -265,7 +345,15 @@ export function MalaysiaRfqForm({
         <p>{form.privacy.lead}</p>
         <p>{form.privacy.linkLead} <a href={privacyPolicyHref}>{form.privacy.linkLabel}</a>.</p>
       </div>
-      <button className={styles.submitButton} type="submit">{form.submitLabel}</button>
+      <button
+        className={styles.submitButton}
+        type="submit"
+        disabled={submissionState === "submitting"}
+      >
+        {submissionState === "submitting"
+          ? form.submittingLabel
+          : form.submitLabel}
+      </button>
     </form>
   );
 }
