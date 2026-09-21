@@ -2,40 +2,9 @@ import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { after, before, test } from "node:test";
 
-import { verifyDeployment } from "../scripts/verify-deployment.mjs";
+import { routeContracts, verifyDeployment } from "../scripts/verify-deployment.mjs";
 
-const routes = {
-  "/": {
-    canonical: "https://tio2products.com/",
-    h1: "Malaysia Titanium Dioxide for Industrial Buyers",
-  },
-  "/products/": {
-    canonical: "https://tio2products.com/products/",
-    h1: "Titanium Dioxide Pigment Grades for Industrial Applications",
-  },
-  "/products/m-350/": {
-    canonical: "https://tio2products.com/products/m-350/",
-    h1: "M-350 Titanium Dioxide for Multi-Application Evaluation",
-  },
-  "/applications/": {
-    canonical: "https://tio2products.com/applications/",
-    h1: "Explore Titanium Dioxide by Application",
-  },
-  "/request-a-quote/": {
-    canonical: "https://tio2products.com/request-a-quote/",
-    h1: "Request a Titanium Dioxide Quote",
-    requiredHtml: ['name="grade_id"', 'name="business_email"'],
-  },
-  "/thank-you/": {
-    canonical: "https://tio2products.com/thank-you/",
-    h1: "How can we help?",
-  },
-  "/privacy-policy/": {
-    canonical: "https://tio2products.com/privacy-policy/",
-    h1: "Privacy Policy",
-    requiredHtml: ["Web3Forms", "Last updated: 5 September 2026"],
-  },
-};
+const routes = Object.fromEntries(routeContracts.map(({ path, ...contract }) => [path, contract]));
 
 function page(
   { canonical, h1, requiredHtml = [] },
@@ -124,7 +93,7 @@ after(async () => {
 
 test("verifies all routes and deduplicated Next.js assets", async () => {
   const result = await verifyDeployment(healthy.origin);
-  assert.deepEqual(result, { routes: 7, assets: 2 });
+  assert.deepEqual(result, { routes: 20, assets: 2 });
 });
 
 test("rejects an RFQ deployment without configured form markup", async () => {

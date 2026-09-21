@@ -1,0 +1,129 @@
+{
+  "candidate_commit": "8cee4e8a77de22710dcd95ca9933401f116655c2",
+  "captured_at": "2026-09-21T02:11:57.940984Z",
+  "dependencies": [
+    {
+      "id": "PD13-D32-DEP-HOME",
+      "status": "PASS",
+      "behavior": "Existing Home route retained and regression-tested",
+      "owner": "D32"
+    },
+    {
+      "id": "PD13-D32-DEP-PRODUCT-HUB",
+      "status": "PASS",
+      "behavior": "All fourteen validated detail URLs visible and present in schema",
+      "owner": "D32"
+    },
+    {
+      "id": "PD13-D32-DEP-RFQ",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Fixed shared-chrome RFQ retained; contextual hero RFQ omitted",
+      "owner": "CONV-RFQ target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-SAMPLE",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Sample actions and modules omitted atomically",
+      "owner": "CONV-SAMPLE target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-DOCUMENTS",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Document actions and modules omitted atomically",
+      "owner": "CONV-DOC target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-PROC-CL",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved label retained as text; link omitted",
+      "owner": "PRODUCT-PROC-CL target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-PROC-SU",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved label retained as text; link omitted",
+      "owner": "PRODUCT-PROC-SU target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-APP-COAT",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved content retained; link omitted",
+      "owner": "APP-COAT target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-APP-PLAS",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved content retained; link omitted",
+      "owner": "APP-PLAS target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-APP-MB",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved content retained; link omitted",
+      "owner": "APP-MB target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-APP-INK",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved content retained; link omitted",
+      "owner": "APP-INK target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-APP-PAPER",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved content retained; link omitted",
+      "owner": "APP-PAPER target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-MARKET-EU",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved label retained as text; link omitted",
+      "owner": "MARKET-EU-001 target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-MARKET-UK",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved label retained as text; link omitted",
+      "owner": "MARKET-UK-001 target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-MARKET-IN",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved label retained as text; link omitted",
+      "owner": "MARKET-IN-001 target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-MARKET-BR",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "Approved label retained as text; link omitted",
+      "owner": "MARKET-BR-EN target owner"
+    },
+    {
+      "id": "PD13-D32-DEP-INDEXING",
+      "status": "OPEN_DEPENDENCY",
+      "behavior": "All thirteen routes remain noindex, nofollow and sitemap-excluded",
+      "owner": "Project Control / Gate 10"
+    }
+  ],
+  "user_exceptions": [
+    {
+      "id": "PD13-D32-MANUAL-PHYSICAL",
+      "status": "USER_EXCEPTED",
+      "test_status": "NOT_TESTED",
+      "blocking": "NON_BLOCKING"
+    },
+    {
+      "id": "PD13-D32-MANUAL-AT",
+      "status": "USER_EXCEPTED",
+      "test_status": "NOT_TESTED",
+      "blocking": "NON_BLOCKING"
+    },
+    {
+      "id": "PD13-D32-NATIVE-ZOOM",
+      "status": "USER_EXCEPTED",
+      "test_status": "NOT_TESTED",
+      "blocking": "NON_BLOCKING",
+      "note": "320 CSS px remains responsive evidence only"
+    }
+  ]
+}

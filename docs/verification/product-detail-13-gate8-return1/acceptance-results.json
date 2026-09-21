@@ -1,0 +1,1588 @@
+{
+  "implementation_commit": "8cee4e8a77de22710dcd95ca9933401f116655c2",
+  "build_id": "foS-HPfnTtWVoHkZQg3Jb",
+  "executor": "04开发",
+  "summary": {
+    "pages": 13,
+    "contract_tests": "11/11 PASS",
+    "browser_tests": "121/121 PASS",
+    "required_widths": [
+      1440,
+      1024,
+      768,
+      430,
+      390,
+      320
+    ],
+    "gate9_return_finding": "PD13-D32-G9-ROOT-F01 CLOSED_IN_GATE8_CANDIDATE",
+    "shared_cookie_focus_routes": 5
+  },
+  "pages": [
+    {
+      "page_id": "GRADE-CR901",
+      "grade_code": "CR-901",
+      "runtime_path": "/products/cr-901/",
+      "contract_file": "content/product-details/GRADE-CR901_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M108",
+      "grade_code": "M-108",
+      "runtime_path": "/products/m-108/",
+      "contract_file": "content/product-details/GRADE-M108_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M200",
+      "grade_code": "M-200",
+      "runtime_path": "/products/m-200/",
+      "contract_file": "content/product-details/GRADE-M200_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.2.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M210",
+      "grade_code": "M-210",
+      "runtime_path": "/products/m-210/",
+      "contract_file": "content/product-details/GRADE-M210_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M2196",
+      "grade_code": "M-2196",
+      "runtime_path": "/products/m-2196/",
+      "contract_file": "content/product-details/GRADE-M2196_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M2377",
+      "grade_code": "M-2377",
+      "runtime_path": "/products/m-2377/",
+      "contract_file": "content/product-details/GRADE-M2377_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M340",
+      "grade_code": "M-340",
+      "runtime_path": "/products/m-340/",
+      "contract_file": "content/product-details/GRADE-M340_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M510",
+      "grade_code": "M-510",
+      "runtime_path": "/products/m-510/",
+      "contract_file": "content/product-details/GRADE-M510_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M52",
+      "grade_code": "M-52",
+      "runtime_path": "/products/m-52/",
+      "contract_file": "content/product-details/GRADE-M52_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M886",
+      "grade_code": "M-886",
+      "runtime_path": "/products/m-886/",
+      "contract_file": "content/product-details/GRADE-M886_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M895",
+      "grade_code": "M-895",
+      "runtime_path": "/products/m-895/",
+      "contract_file": "content/product-details/GRADE-M895_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M896",
+      "grade_code": "M-896",
+      "runtime_path": "/products/m-896/",
+      "contract_file": "content/product-details/GRADE-M896_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.2.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "page_id": "GRADE-M996",
+      "grade_code": "M-996",
+      "runtime_path": "/products/m-996/",
+      "contract_file": "content/product-details/GRADE-M996_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "acceptance_conditions": [
+        {
+          "id": "PD13-D32-AC-IDENTITY",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-CONTENT",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-TECHNICAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESTRICTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SEO-SOCIAL",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-SCHEMA",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ACTIONS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-RESPONSIVE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-A11Y",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-HUB-READINESS",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-ISOLATION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-REGRESSION",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-PREVIEW",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        },
+        {
+          "id": "PD13-D32-AC-EVIDENCE",
+          "status": "PASS",
+          "evidence": [
+            "docs/verification/product-detail-13-gate8-return1/test.log",
+            "docs/verification/product-detail-13-gate8-return1/playwright-results.json"
+          ]
+        }
+      ]
+    }
+  ],
+  "not_tested": [
+    "Physical-device testing",
+    "Manual assistive-technology testing",
+    "Native browser zoom testing; 320 CSS px was used as the 200%-zoom-equivalent narrow-layout proxy"
+  ],
+  "exceptions_requested": []
+}

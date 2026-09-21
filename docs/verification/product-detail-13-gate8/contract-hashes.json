@@ -1,0 +1,110 @@
+{
+  "source": "Gate 6 authoritative contracts",
+  "count": 13,
+  "contracts": [
+    {
+      "page_id": "GRADE-CR901",
+      "grade_code": "CR-901",
+      "path": "/products/cr-901/",
+      "file": "content/product-details/GRADE-CR901_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "4BDB27E2F4BC9CBC0F1A21C9B2FCAF54553431E1DE614355F8263C7489050522",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M108",
+      "grade_code": "M-108",
+      "path": "/products/m-108/",
+      "file": "content/product-details/GRADE-M108_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "998C57D70AC303C0F47AC3E14B0C9214F4D53BC91130044274773B7CD3260BFF",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M200",
+      "grade_code": "M-200",
+      "path": "/products/m-200/",
+      "file": "content/product-details/GRADE-M200_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.2.json",
+      "sha256": "A19BDC03170470EECCC46497AFBBE4FFEF6288DB59C9C5F6163017C3DF6D8320",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M210",
+      "grade_code": "M-210",
+      "path": "/products/m-210/",
+      "file": "content/product-details/GRADE-M210_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "F977D5DD3C49119966CD3C4EC5E846448BBFBD5BE1F4846B82B8CD1CBA6463B2",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M2196",
+      "grade_code": "M-2196",
+      "path": "/products/m-2196/",
+      "file": "content/product-details/GRADE-M2196_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "6ADB2A350F3E7F2A3F5138969E4A16A5F7E81993A25729A4906838FB2116CA3C",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M2377",
+      "grade_code": "M-2377",
+      "path": "/products/m-2377/",
+      "file": "content/product-details/GRADE-M2377_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "F735A9FF9486E8693B5E59E9BF25BBAD39F4B46D1B47DDAC630225D540AFB7FA",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M340",
+      "grade_code": "M-340",
+      "path": "/products/m-340/",
+      "file": "content/product-details/GRADE-M340_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "8DF979421B4D716BA82E910A42F62BF4982102BF00D82DB2782578F5B5AB93A6",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M510",
+      "grade_code": "M-510",
+      "path": "/products/m-510/",
+      "file": "content/product-details/GRADE-M510_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "09B41E1AB403372495D4BE8DB3DDD1260A710E310327FC289D8D344B05AB095C",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M52",
+      "grade_code": "M-52",
+      "path": "/products/m-52/",
+      "file": "content/product-details/GRADE-M52_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "977A72AF33377F7A3CAB12C4F72314E93CFD79F2BE0CCFCFD62A3A2D009DE1A7",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M886",
+      "grade_code": "M-886",
+      "path": "/products/m-886/",
+      "file": "content/product-details/GRADE-M886_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "D4A68225CC29B06D9B9700DB5CFA9C8D74C154C49E643A450A24B759981267B0",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M895",
+      "grade_code": "M-895",
+      "path": "/products/m-895/",
+      "file": "content/product-details/GRADE-M895_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "CCBAB8EF7BEBB5641F409CF0925E861D57990EB53186448473754E88B48E3A5A",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M896",
+      "grade_code": "M-896",
+      "path": "/products/m-896/",
+      "file": "content/product-details/GRADE-M896_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.2.json",
+      "sha256": "BA735FA0570E81F8055C76B7AC7B434498446BBD5540A1F2A32F0A9E6F3EC03A",
+      "status": "PASS"
+    },
+    {
+      "page_id": "GRADE-M996",
+      "grade_code": "M-996",
+      "path": "/products/m-996/",
+      "file": "content/product-details/GRADE-M996_PRODUCT_DETAIL_CONTENT_CONTRACT_V0.1.json",
+      "sha256": "4EAF22AA4F3F551F27CB83B41D644CAA59312B6EF20F02BCBD9AA6522F3EC66A",
+      "status": "PASS"
+    }
+  ]
+}

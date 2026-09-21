@@ -743,7 +743,7 @@ test("home renders independently of WordPress", async ({ page }) => {
   );
 });
 
-test("products filters and limits detail links", async ({ page }) => {
+test("products filters and exposes all validated detail links", async ({ page }) => {
   const response = await page.goto("/products/");
   expect(response?.status()).toBe(200);
   const choices = page.getByRole("group").getByRole("button");
@@ -768,9 +768,25 @@ test("products filters and limits detail links", async ({ page }) => {
   const hrefs = await page
     .locator('a[href^="/products/"]')
     .evaluateAll((nodes) => nodes.map((node) => node.getAttribute("href")));
-  expect(
-    hrefs.every((href) => href === "/products/" || href === "/products/m-350/"),
-  ).toBe(true);
+  expect([...new Set(hrefs.filter(Boolean))].sort()).toEqual(
+    [
+      "/products/",
+      "/products/cr-901/",
+      "/products/m-108/",
+      "/products/m-200/",
+      "/products/m-210/",
+      "/products/m-2196/",
+      "/products/m-2377/",
+      "/products/m-340/",
+      "/products/m-350/",
+      "/products/m-510/",
+      "/products/m-52/",
+      "/products/m-886/",
+      "/products/m-895/",
+      "/products/m-896/",
+      "/products/m-996/",
+    ].sort(),
+  );
   const faq = page
     .locator('button[aria-controls^="product-faq-answer-"]')
     .nth(1);
@@ -800,7 +816,22 @@ test("structured data keeps only available grade URLs", async ({ page }) => {
     items
       .filter((entry: { item: { url?: string } }) => entry.item.url)
       .map((entry: { item: { url: string } }) => entry.item.url),
-  ).toEqual(["https://tio2products.com/products/m-350/"]);
+  ).toEqual([
+    "https://tio2products.com/products/m-350/",
+    "https://tio2products.com/products/m-510/",
+    "https://tio2products.com/products/m-896/",
+    "https://tio2products.com/products/m-996/",
+    "https://tio2products.com/products/m-2196/",
+    "https://tio2products.com/products/m-895/",
+    "https://tio2products.com/products/m-200/",
+    "https://tio2products.com/products/m-108/",
+    "https://tio2products.com/products/m-210/",
+    "https://tio2products.com/products/m-340/",
+    "https://tio2products.com/products/m-886/",
+    "https://tio2products.com/products/m-52/",
+    "https://tio2products.com/products/m-2377/",
+    "https://tio2products.com/products/cr-901/",
+  ]);
   await page.goto("/products/m-350/");
   const detail = JSON.parse(
     await page.locator('script[type="application/ld+json"]').innerText(),

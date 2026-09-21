@@ -1,6 +1,6 @@
-# Seven-page static site
+# Twenty-route static site
 
-Next.js static export for `/`, `/products/`, `/products/m-350/`, `/applications/`, `/request-a-quote/`, `/thank-you/`, and `/privacy-policy/`. There is no WordPress runtime, database, custom API server or form backend. Content belongs to D23; D32 implements and publishes approved changes.
+Next.js static export for `/`, `/products/`, fourteen Product Detail routes, `/applications/`, `/request-a-quote/`, `/thank-you/`, and `/privacy-policy/`. There is no WordPress runtime, database, custom API server or form backend. Content belongs to D23; D32 implements and publishes approved changes.
 
 ## Run locally
 
@@ -24,10 +24,10 @@ The RFQ form is emitted only when `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` contains a 
 
 ## Change content / add a page
 
-- `content/home.json`, `products.json`, `m350.json`, `applications.json`, `rfq.json`, `thank-you.json`, `privacy.json`, and `chrome.json`: approved content and shared navigation; all committed with the code.
-- `app/`: fixed page routes and metadata.
-- `components/sites/tio2-my/`: shared chrome, Hero, selector, FAQ, Applications, legal, RFQ and Thank You page layouts.
-- `lib/content/page-data.ts`: server/build-time composition. Products links are enabled only for implemented details. Client selector data excludes internal IDs and unavailable URLs.
+- `content/home.json`, `products.json`, `m350.json`, `applications.json`, `rfq.json`, `thank-you.json`, `privacy.json`, `chrome.json`, and `content/product-details/*.json`: approved content and shared navigation; all committed with the code.
+- `app/`: fixed routes, the validated static Product Detail route, and metadata.
+- `components/sites/tio2-my/`: shared chrome, Hero, selector, FAQ, Product Detail, Applications, legal, RFQ and Thank You page layouts.
+- `lib/content/page-data.ts` and the Product Detail registry: server/build-time composition. Products links are enabled for all fourteen implemented details. Client selector data excludes internal IDs and unavailable URLs.
 - `lib/seo.tsx`: structured data generated from the same visible content. M350 withdrawn/conflicted technical rows are omitted from both table and Schema; Paper is independently conditional.
 - `public/`: local assets and the Inter font license.
 
@@ -35,7 +35,7 @@ A new page normally needs approved content, a route and a reusable component, pl
 
 ## Deliberate limits
 
-Only the seven routes listed above are implemented. Shared navigation and Home retain approved links to future destinations; these are genuine missing-page dependencies. Products exposes only M350 as a working detail link and exposes Applications as a ready support route. Applications links M350 in its four approved relationship occurrences, keeps the other twenty-six grade occurrences as plain text, omits all five unavailable child-Application actions, shows only Products in procurement continuation, and omits its contextual RFQ actions. `/request-sample/`, `/request-documents/`, `/privacy-policy-bm/` and `/cookie-policy/` remain unresolved routes and are not represented as completed pages or successful workflows. Existing shared and M350 RFQ links intentionally stay at the clean `/request-a-quote/` URL.
+Twenty routes are implemented. Products exposes all fourteen Product Detail routes and Applications as a ready support route. Applications links M350 in its four approved relationship occurrences, keeps the other twenty-six grade occurrences as plain text, omits all five unavailable child-Application actions, shows only Products in procurement continuation, and omits its contextual RFQ actions. Contextual RFQ, sample, document, Process, Application-child and Market links remain omitted where their exact receivers are unavailable. `/request-sample/`, `/request-documents/`, `/privacy-policy-bm/` and `/cookie-policy/` remain unresolved routes and are not represented as completed pages or successful workflows. Existing shared and M350 RFQ links intentionally stay at the clean `/request-a-quote/` URL.
 
 RFQ submissions go directly from the browser to Web3Forms. The site accepts success only from an explicit provider response, stores a short-lived one-time session receipt, and lets `/thank-you/` display success only when the URL and receipt agree. Rejection, rate limiting, timeout, malformed response and network failure retain the form without creating success. No form-receiver backend was added. Analytics is inactive: Cookie Settings explains that state and does not store a fictitious choice. The current candidate remains `noindex, nofollow` without a sitemap; formal indexability must be handled as a separately authorized release requirement rather than inferred from this integration.
 
@@ -43,7 +43,7 @@ This is an independent repository at `D:/32NextJS`, imported from the accepted s
 
 ## Deployment
 
-A push to remote `main` starts `.github/workflows/deploy-vercel.yml`. The workflow tests that exact commit with a fixed non-production Web3Forms value before its deploy job can build and publish it to the existing `tio2-malaysia` Vercel project. The deploy job pulls production settings from Vercel, so the Vercel Production environment must define `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`. Because this is a Next.js static export, the deploy job adds directory-index routes from the generated Vercel output before upload. It then checks the public project URL `https://tio2-malaysia.vercel.app` against all seven routes, metadata, headings, RFQ markup and `_next` asset contracts. A missing or malformed production routing value produces no form and therefore fails the public smoke test. Vercel's unique deployment URL remains available as the immutable deployment receipt but may require team authentication under Standard Protection.
+A push to remote `main` starts `.github/workflows/deploy-vercel.yml`. The workflow tests that exact commit with a fixed non-production Web3Forms value before its deploy job can build and publish it to the existing `tio2-malaysia` Vercel project. The deploy job pulls production settings from Vercel, so the Vercel Production environment must define `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`. Because this is a Next.js static export, the deploy job adds directory-index routes from the generated Vercel output before upload. It then checks the public project URL `https://tio2-malaysia.vercel.app` against all twenty routes, metadata, headings, RFQ markup and `_next` asset contracts. A missing or malformed production routing value produces no form and therefore fails the public smoke test. Vercel's unique deployment URL remains available as the immutable deployment receipt but may require team authentication under Standard Protection.
 
 The repository must define GitHub variables `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`, plus the dedicated Actions secret `VERCEL_TOKEN`. Vercel Git auto-deployment is deliberately not connected, so GitHub Actions remains the only automatic publishing path. This phase uses only Vercel's default domain; no custom domain, DNS, OCI or WordPress change is part of the deployment.
 
