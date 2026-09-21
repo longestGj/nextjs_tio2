@@ -202,6 +202,160 @@ test("submission double dispatch sends only one pending request", async ({ page 
   await expect(page).toHaveURL(/\/thank-you\/\?request=quote$/);
 });
 
+test("RFQ accepts only approved query prefills", async ({ page }) => {
+  await page.goto(
+    "/request-a-quote/?grade_id=M-350&application_id=Coatings&destination_country=Malaysia&document_needs%5B%5D=TDS",
+  );
+  await expect(page.locator('[name="grade_id"]')).toHaveValue("M-350");
+  await expect(page.locator('[name="application_id"]')).toHaveValue(
+    "Coatings",
+  );
+  await expect(page.locator('[name="destination_country"]')).toHaveValue(
+    "Malaysia",
+  );
+  await expect(page.locator('[name="additional_requirements"]')).toHaveValue(
+    "TDS",
+  );
+});
+
+test("prefill rejects whitespace, unknown values, and overlong destinations", async ({
+  page,
+}) => {
+  const overlong = "A".repeat(101);
+  await page.goto(
+    `/request-a-quote/?grade_id=%20M-350%20&application_id=Unknown&destination_country=${overlong}`,
+  );
+  await expect(page.locator('[name="grade_id"]')).toHaveValue("");
+  await expect(page.locator('[name="application_id"]')).toHaveValue("");
+  await expect(page.locator('[name="destination_country"]')).toHaveValue("");
+});
+
+test("prefill deduplicates approved documents and rejects unapproved labels", async ({
+  page,
+}) => {
+  await page.goto(
+    "/request-a-quote/?document_needs%5B%5D=TDS&document_needs%5B%5D=Private&document_needs%5B%5D=TDS&document_needs%5B%5D=COA",
+  );
+  await expect(page.locator('[name="additional_requirements"]')).toHaveValue(
+    "TDS; COA",
+  );
+});
+
+test("prefill applies Sulfate only to M-2377 and excludes Specialty Materials", async ({
+  page,
+}) => {
+  await page.goto(
+    "/request-a-quote/?grade_id=M-2377&application_id=Specialty%20Materials&process_context=Sulfate&document_needs%5B%5D=SDS",
+  );
+  await expect(page.locator('[name="grade_id"]')).toHaveValue("M-2377");
+  await expect(page.locator('[name="application_id"]')).toHaveValue("");
+  await expect(page.locator('[name="additional_requirements"]')).toHaveValue(
+    "Sulfate\nSDS",
+  );
+  await page.goto(
+    "/request-a-quote/?grade_id=M-350&process_context=Sulfate",
+  );
+  await expect(page.locator('[name="additional_requirements"]')).toHaveValue("");
+});
+
+test("prefill accepts Packaging review and approved market fallbacks", async ({
+  page,
+}) => {
+  await page.goto(
+    "/request-a-quote/?market=European%20Union&resource_context=Packaging%20review",
+  );
+  await expect(page.locator('[name="destination_country"]')).toHaveValue(
+    "European Union",
+  );
+  await expect(page.locator('[name="additional_requirements"]')).toHaveValue(
+    "Packaging review",
+  );
+});
+
+test("prefill forwards only approved source context combinations", async ({ page }) => {
+  const payloads: Record<string, string>[] = [];
+  await page.route("https://api.web3forms.com/submit", async (route) => {
+    payloads.push(route.request().postDataJSON());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: '{"success":false}',
+    });
+  });
+  await page.goto(
+    "/request-a-quote/?source_page_id=APP-000&interest=alternative-origin-sourcing",
+  );
+  let form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  expect(payloads[0]).toMatchObject({ source_page_id: "APP-000" });
+  expect(payloads[0]).not.toHaveProperty("interest");
+
+  await page.goto(
+    "/request-a-quote/?source_page_id=RES-ORIGIN&interest=alternative-origin-sourcing",
+  );
+  form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  expect(payloads[1]).toMatchObject({
+    source_page_id: "RES-ORIGIN",
+    interest: "alternative-origin-sourcing",
+  });
+
+  await page.goto(
+    "/request-a-quote/?source_page_id=UNAPPROVED&interest=alternative-origin-sourcing",
+  );
+  form = await fillValidRfq(page);
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  expect(payloads[2]).not.toHaveProperty("source_page_id");
+  expect(payloads[2]).not.toHaveProperty("interest");
+});
+
+test("draft stores and restores only the approved four fields", async ({ page }) => {
+  await page.goto("/request-a-quote/");
+  const originalUrl = page.url();
+  const form = page.locator("form");
+  await form.locator('[name="grade_id"]').selectOption("M-510");
+  await form.locator('[name="application_id"]').selectOption("Plastics");
+  await form.locator('[name="destination_country"]').fill("United Kingdom");
+  await form
+    .locator('[name="additional_requirements"]')
+    .fill("TDS; Packaging review");
+  await form.locator('[name="company_name"]').fill("Must not persist");
+  await form.locator('[name="business_email"]').fill("private@company.com");
+  expect(page.url()).toBe(originalUrl);
+  expect(await page.evaluate(() => history.state.rfqDraft)).toEqual({
+    grade_id: "M-510",
+    application_id: "Plastics",
+    destination_country: "United Kingdom",
+    additional_requirements: "TDS; Packaging review",
+  });
+  await page.reload();
+  await expect(page.locator('[name="grade_id"]')).toHaveValue("M-510");
+  await expect(page.locator('[name="application_id"]')).toHaveValue(
+    "Plastics",
+  );
+  await expect(page.locator('[name="destination_country"]')).toHaveValue(
+    "United Kingdom",
+  );
+  await expect(page.locator('[name="additional_requirements"]')).toHaveValue(
+    "TDS; Packaging review",
+  );
+  await expect(page.locator('[name="company_name"]')).toHaveValue("");
+  await expect(page.locator('[name="business_email"]')).toHaveValue("");
+});
+
+test("clean RFQ links stay free of automatic M350 prefill", async ({ page }) => {
+  for (const route of ["/", "/products/m-350/"]) {
+    await page.goto(route);
+    const links = page.locator('a[href^="/request-a-quote/"]');
+    expect(await links.count()).toBeGreaterThan(0);
+    for (const href of await links.evaluateAll((items) =>
+      items.map((item) => item.getAttribute("href")),
+    )) {
+      expect(href).toBe("/request-a-quote/");
+    }
+  }
+});
+
 test("RFQ preserves the approved field contract", async ({ page }) => {
   await page.goto("/request-a-quote/");
   await expect(page.locator("h1")).toHaveText(

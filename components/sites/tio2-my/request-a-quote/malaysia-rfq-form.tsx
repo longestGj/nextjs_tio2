@@ -3,13 +3,14 @@
 import {
   useRef,
   useState,
+  useSyncExternalStore,
   type ChangeEvent,
   type FormEvent,
 } from "react";
 
 import type { RfqFormContract } from "@/lib/content/rfq-types";
 import {
-  emptyRfqValues,
+  resolveRfqPrefill,
   validateRfq,
   type RfqErrors,
   type RfqValues,
@@ -24,6 +25,29 @@ const helperIds: Partial<Record<keyof RfqValues, string>> = {
   business_email: "rfq-business_email-helper",
   additional_requirements: "rfq-additional_requirements-helper",
 };
+const draftFields = [
+  "grade_id",
+  "application_id",
+  "destination_country",
+  "additional_requirements",
+] as const;
+const serverSnapshot = JSON.stringify(["", null]);
+
+function subscribeToRfqContext(onStoreChange: () => void) {
+  window.addEventListener("popstate", onStoreChange);
+  window.addEventListener("pageshow", onStoreChange);
+  return () => {
+    window.removeEventListener("popstate", onStoreChange);
+    window.removeEventListener("pageshow", onStoreChange);
+  };
+}
+
+function getRfqContextSnapshot() {
+  return JSON.stringify([
+    window.location.search,
+    window.history.state?.rfqDraft ?? null,
+  ]);
+}
 
 function describedBy(name: keyof RfqValues, hasError: boolean) {
   return [helperIds[name], hasError ? `rfq-${name}-error` : null]
@@ -42,7 +66,45 @@ export function MalaysiaRfqForm({
   readonly accessKey: string | undefined;
   readonly privacyPolicyHref: string;
 }) {
-  const [values, setValues] = useState<RfqValues>(emptyRfqValues);
+  const snapshot = useSyncExternalStore(
+    subscribeToRfqContext,
+    getRfqContextSnapshot,
+    () => serverSnapshot,
+  );
+  const [search, draft] = JSON.parse(snapshot) as [string, unknown];
+  const context = resolveRfqPrefill(search, draft, form);
+  return (
+    <MalaysiaRfqFormInner
+      key={snapshot}
+      form={form}
+      receiverAvailable={receiverAvailable}
+      accessKey={accessKey}
+      privacyPolicyHref={privacyPolicyHref}
+      initialValues={context.values}
+      sourcePageId={context.sourcePageId}
+      interest={context.interest}
+    />
+  );
+}
+
+function MalaysiaRfqFormInner({
+  form,
+  receiverAvailable,
+  accessKey,
+  privacyPolicyHref,
+  initialValues,
+  sourcePageId,
+  interest,
+}: {
+  readonly form: RfqFormContract;
+  readonly receiverAvailable: boolean;
+  readonly accessKey: string | undefined;
+  readonly privacyPolicyHref: string;
+  readonly initialValues: Readonly<RfqValues>;
+  readonly sourcePageId: string | null;
+  readonly interest: string | null;
+}) {
+  const [values, setValues] = useState<RfqValues>({ ...initialValues });
   const [errors, setErrors] = useState<RfqErrors>({});
   const [submissionState, setSubmissionState] = useState<
     "ready" | "submitting" | "unconfirmed" | "unavailable"
@@ -65,7 +127,20 @@ export function MalaysiaRfqForm({
   ) {
     const name = event.currentTarget.name as keyof RfqValues;
     const value = event.currentTarget.value;
-    setValues((current) => ({ ...current, [name]: value }));
+    const nextValues = { ...values, [name]: value };
+    setValues(nextValues);
+    const rfqDraft = Object.fromEntries(
+      draftFields.map((field) => [field, nextValues[field]]),
+    );
+    const currentHistoryState =
+      window.history.state && typeof window.history.state === "object"
+        ? { ...window.history.state }
+        : {};
+    window.history.replaceState(
+      { ...currentHistoryState, rfqDraft },
+      "",
+      window.location.href,
+    );
     setErrors((current) => {
       if (!current[name]) return current;
       const next = { ...current };
@@ -126,6 +201,8 @@ export function MalaysiaRfqForm({
           phone_whatsapp: values.phone_whatsapp.trim(),
           website: values.website.trim(),
           additional_requirements: values.additional_requirements.trim(),
+          ...(sourcePageId ? { source_page_id: sourcePageId } : {}),
+          ...(interest === "alternative-origin-sourcing" ? { interest } : {}),
         },
       });
       if (outcome.kind === "provider_accepted") {

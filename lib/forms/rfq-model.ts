@@ -30,6 +30,120 @@ export const emptyRfqValues: RfqValues = {
   additional_requirements: "",
 };
 
+const draftFields = [
+  "grade_id",
+  "application_id",
+  "destination_country",
+  "additional_requirements",
+] as const;
+const approvedSourcePageIds = new Set([
+  "APP-000",
+  "PRODUCT-000",
+  "PRODUCT-PROC-CL",
+  "MARKET-EU-001",
+  "MARKET-UK-001",
+  "MARKET-EU-PL",
+  "MARKET-EU-ES",
+  "MARKET-IN-001",
+  "MARKET-EU-NL",
+  "MARKET-EU-BE",
+  "MARKET-BR-EN",
+  "MARKET-BR-PT",
+  "MARKET-EU-DE",
+  "MARKET-EU-IT",
+  "PRODUCT-PROC-SU",
+]);
+const approvedDocumentLabels = new Set(["TDS", "SDS", "COA", "COO"]);
+
+function exactParameter(parameters: URLSearchParams, name: string) {
+  const value = parameters.get(name);
+  return value && value.trim() === value ? value : null;
+}
+
+export function resolveRfqPrefill(
+  search: string,
+  draft: unknown,
+  contract: RfqFormContract,
+): {
+  readonly values: Readonly<RfqValues>;
+  readonly sourcePageId: string | null;
+  readonly interest: string | null;
+} {
+  const parameters = new URLSearchParams(search);
+  const values: RfqValues = { ...emptyRfqValues };
+  const grade = exactParameter(parameters, "grade_id");
+  const application = exactParameter(parameters, "application_id");
+  const market = exactParameter(parameters, "market");
+  const destination =
+    exactParameter(parameters, "destination_country") ??
+    (market === "European Union" || market === "United Kingdom"
+      ? market
+      : null);
+
+  if (grade && contract.gradeOptions.includes(grade)) {
+    values.grade_id = grade;
+  }
+  if (
+    application &&
+    contract.applicationOptions.includes(application) &&
+    !(grade === "M-2377" && application === "Specialty Materials")
+  ) {
+    values.application_id = application;
+  }
+  if (destination && lengthOf(destination) <= 100) {
+    values.destination_country = destination;
+  }
+
+  const requirements: string[] = [];
+  const processContext = exactParameter(parameters, "process_context");
+  if (grade === "M-2377" && processContext === "Sulfate") {
+    requirements.push(processContext);
+  }
+  const documents = parameters
+    .getAll("document_needs[]")
+    .filter((label) => approvedDocumentLabels.has(label));
+  if (documents.length > 0) {
+    requirements.push([...new Set(documents)].join("; "));
+  }
+  const resourceContext = exactParameter(parameters, "resource_context");
+  if (resourceContext === "Packaging review") {
+    requirements.push(resourceContext);
+  }
+  if (requirements.length > 0) {
+    values.additional_requirements = requirements.join("\n");
+  }
+
+  const requestedSource =
+    exactParameter(parameters, "source_page_id") ??
+    exactParameter(parameters, "source_page");
+  const sourcePageId =
+    requestedSource &&
+    (approvedSourcePageIds.has(requestedSource) || requestedSource === "RES-ORIGIN")
+      ? requestedSource
+      : null;
+  const interest =
+    sourcePageId === "RES-ORIGIN" &&
+    exactParameter(parameters, "interest") === "alternative-origin-sourcing"
+      ? "alternative-origin-sourcing"
+      : null;
+
+  if (draft && typeof draft === "object" && !Array.isArray(draft)) {
+    const candidate = draft as Record<string, unknown>;
+    for (const field of draftFields) {
+      const value = candidate[field];
+      if (typeof value === "string" && lengthOf(value) <= 2000) {
+        values[field] = value;
+      }
+    }
+  }
+
+  return {
+    values: Object.freeze(values),
+    sourcePageId,
+    interest,
+  };
+}
+
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
 const routingKeyPattern =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
