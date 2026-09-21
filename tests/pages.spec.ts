@@ -2,6 +2,219 @@ import { test, expect } from "@playwright/test";
 
 const thankYouReceiptKey = "tio2-my:thank-you:receipt:v1";
 
+const rfqFieldNames = [
+  "grade_id",
+  "application_id",
+  "quantity_mt",
+  "destination_country",
+  "destination_port_city",
+  "company_name",
+  "contact_name",
+  "business_email",
+  "phone_whatsapp",
+  "website",
+  "additional_requirements",
+];
+
+test("RFQ preserves the approved field contract", async ({ page }) => {
+  await page.goto("/request-a-quote/");
+  await expect(page.locator("h1")).toHaveText(
+    "Request a Titanium Dioxide Quote",
+  );
+  const form = page.locator("form");
+  await expect(form).toHaveCount(1);
+  expect(await form.locator("[name]").evaluateAll((fields) =>
+    fields.map((field) => field.getAttribute("name")),
+  )).toEqual(rfqFieldNames);
+  await expect(form.locator('[name="grade_id"] option')).toHaveText([
+    "Select a product or grade",
+    "M-350",
+    "M-510",
+    "M-896",
+    "M-996",
+    "M-2196",
+    "M-895",
+    "M-200",
+    "M-108",
+    "M-210",
+    "M-340",
+    "M-886",
+    "M-52",
+    "M-2377",
+    "CR-901",
+    "Not sure / Need help",
+  ]);
+  await expect(form.locator('[name="application_id"] option')).toHaveText([
+    "Select an application",
+    "Coatings",
+    "Plastics",
+    "Masterbatch",
+    "Printing Inks",
+    "Paper",
+    "Specialty Materials",
+    "Other / Not sure",
+  ]);
+
+  for (const name of [
+    "grade_id",
+    "application_id",
+    "quantity_mt",
+    "destination_country",
+    "company_name",
+    "contact_name",
+    "business_email",
+  ]) {
+    await expect(form.locator(`[name="${name}"]`)).toHaveAttribute("required");
+    await expect(form.locator(`[name="${name}"]`)).toHaveAttribute(
+      "aria-required",
+      "true",
+    );
+  }
+
+  await expect(form.locator('[name="quantity_mt"]')).toHaveAttribute("min", "0");
+  await expect(form.locator('[name="quantity_mt"]')).toHaveAttribute(
+    "step",
+    "any",
+  );
+  for (const [name, maxLength] of Object.entries({
+    destination_country: "100",
+    destination_port_city: "120",
+    company_name: "160",
+    contact_name: "100",
+    business_email: "254",
+    phone_whatsapp: "40",
+    website: "2048",
+    additional_requirements: "2000",
+  })) {
+    await expect(form.locator(`[name="${name}"]`)).toHaveAttribute(
+      "maxlength",
+      maxLength,
+    );
+  }
+  await expect(form).toContainText("Add this only if it is already known.");
+  await expect(form).toContainText(
+    "Use the business email where we can respond to this request.",
+  );
+  await expect(form).toContainText(
+    "Add any non-confidential specification, packaging, schedule, document or other context that may help us review the request.",
+  );
+  await expect(form).toContainText(
+    "We use the information you provide to review and respond to your quotation request.",
+  );
+  await expect(page.getByRole("heading", { name: "Other request types" })).toBeVisible();
+});
+
+test("RFQ empty submit exposes the exact accessible error contract", async ({
+  page,
+}) => {
+  await page.goto("/request-a-quote/");
+  const form = page.locator("form");
+  test.skip((await form.count()) === 0, "requires the configured RFQ build");
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  const summary = form.locator('[role="alert"]');
+  await expect(summary).toBeFocused();
+  await expect(summary).toContainText("Please review the highlighted fields.");
+  await expect(summary).toContainText(
+    "Correct the information below and try again. Your other entries are still here.",
+  );
+  for (const [name, message] of Object.entries({
+    grade_id: "Select a product or grade, or choose “Not sure / Need help.”",
+    application_id: "Select an application.",
+    quantity_mt: "Enter a quantity greater than 0.",
+    destination_country: "Enter a destination country.",
+    company_name: "Enter your company name.",
+    contact_name: "Enter your name.",
+    business_email: "Enter your business email.",
+  })) {
+    await expect(form.locator(`#rfq-${name}-error`)).toHaveText(message);
+  }
+  await expect(form.locator('[name="grade_id"]')).toHaveAttribute(
+    "aria-invalid",
+    "true",
+  );
+});
+
+test("RFQ preserves exact email and website validation messages", async ({
+  page,
+}) => {
+  await page.goto("/request-a-quote/");
+  const form = page.locator("form");
+  test.skip((await form.count()) === 0, "requires the configured RFQ build");
+  await form.locator('[name="grade_id"]').selectOption("M-350");
+  await form.locator('[name="application_id"]').selectOption("Coatings");
+  await form.locator('[name="quantity_mt"]').fill("1");
+  await form.locator('[name="destination_country"]').fill("Malaysia");
+  await form.locator('[name="company_name"]').fill("IKHLAS");
+  await form.locator('[name="contact_name"]').fill("Buyer");
+  await form.locator('[name="business_email"]').fill("not-an-email");
+  await form.locator('[name="website"]').fill("company.example");
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+  await expect(form.locator("#rfq-business_email-error")).toHaveText(
+    "Enter a business email in the format name@company.com.",
+  );
+  await expect(form.locator("#rfq-website-error")).toHaveText(
+    "Enter a complete website address or remove this optional value.",
+  );
+});
+
+test("RFQ preserves the remaining boundary error messages", async ({ page }) => {
+  await page.goto("/request-a-quote/");
+  const form = page.locator("form");
+  test.skip((await form.count()) === 0, "requires the configured RFQ build");
+  await form.locator('[name="grade_id"]').selectOption("M-350");
+  await form.locator('[name="application_id"]').selectOption("Coatings");
+  await form.locator('[name="quantity_mt"]').fill("1");
+  await form.locator('[name="business_email"]').fill("buyer@company.com");
+
+  async function setUncheckedValue(name: string, value: string) {
+    await form.locator(`[name="${name}"]`).evaluate((node, nextValue) => {
+      const prototype =
+        node instanceof HTMLTextAreaElement
+          ? HTMLTextAreaElement.prototype
+          : HTMLInputElement.prototype;
+      const setter = Object.getOwnPropertyDescriptor(prototype, "value")?.set;
+      setter?.call(node, nextValue);
+      node.dispatchEvent(new Event("input", { bubbles: true }));
+    }, value);
+  }
+
+  await setUncheckedValue("destination_country", "国".repeat(101));
+  await setUncheckedValue("destination_port_city", "P".repeat(121));
+  await setUncheckedValue("company_name", "C".repeat(161));
+  await setUncheckedValue("contact_name", "N".repeat(101));
+  await setUncheckedValue("phone_whatsapp", "1".repeat(41));
+  await setUncheckedValue("additional_requirements", "R".repeat(2001));
+  await form.locator('[name="website"]').fill("https://user:pass@example.com");
+  await form.getByRole("button", { name: "REQUEST QUOTE" }).click();
+
+  for (const [name, message] of Object.entries({
+    destination_country: "Keep the destination country to 100 characters or fewer.",
+    destination_port_city: "Keep the destination port or city to 120 characters or fewer.",
+    company_name: "Keep your company name to 160 characters or fewer.",
+    contact_name: "Keep your name to 100 characters or fewer.",
+    phone_whatsapp: "Keep the phone or WhatsApp number to 40 characters or fewer.",
+    website: "Enter a complete website address or remove this optional value.",
+    additional_requirements: "Keep additional requirements to 2,000 characters or fewer.",
+  })) {
+    await expect(form.locator(`#rfq-${name}-error`)).toHaveText(message);
+  }
+});
+
+test("RFQ receiver unavailable fails closed", async ({ page }) => {
+  await page.goto("/request-a-quote/");
+  const form = page.locator("form");
+  test.skip((await form.count()) === 1, "requires the unconfigured RFQ build");
+  await expect(form).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", {
+      name: "The quotation request form is temporarily unavailable.",
+    }),
+  ).toBeVisible();
+  await expect(page.locator("main")).toContainText(
+    "No request has been submitted. Please return later and try again.",
+  );
+});
+
 test("thank-you does not trust the URL alone", async ({ page }) => {
   await page.goto("/thank-you/?request=quote");
   await expect(page.locator("h1")).toHaveText("How can we help?");

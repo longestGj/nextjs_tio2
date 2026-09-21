@@ -17,3 +17,9 @@ export const privacy = {
 } as MalaysiaPrivacyPageDto;
 import thankYouContent from "@/content/thank-you.json";
 export const thankYou = { ...thankYouContent, globalChrome: chrome };
+import rfqContent from "@/content/rfq.json";
+import type { MalaysiaRfqPageDto } from "./rfq-types";
+export const rfq = {
+  ...rfqContent,
+  globalChrome: chrome,
+} as MalaysiaRfqPageDto;

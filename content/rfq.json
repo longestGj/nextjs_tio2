@@ -1,0 +1,71 @@
+{
+  "pageId": "CONV-RFQ",
+  "seo": {
+    "title": "Request a Titanium Dioxide Quote | TiO2 Malaysia",
+    "description": "Request a titanium dioxide quotation from TiO2 Malaysia by providing your grade, application, quantity in metric tonnes and destination for review.",
+    "canonical": "https://tio2products.com/request-a-quote/"
+  },
+  "breadcrumb": { "home": "Home", "current": "Request a Quote" },
+  "hero": {
+    "eyebrow": "B2B QUOTATION REQUEST",
+    "heading": "Request a Titanium Dioxide Quote",
+    "body": "Tell us the product, application, quantity and destination you are evaluating. Our team will review your requirements and prepare the appropriate commercial response."
+  },
+  "form": {
+    "heading": "Quotation request details",
+    "intro": "Required fields are marked. Please use business information and avoid confidential formulations, account credentials, payment details or sensitive personal information.",
+    "groups": ["YOUR REQUIREMENT", "COMPANY DETAILS", "ADDITIONAL REQUIREMENTS"],
+    "gradeOptions": ["M-350", "M-510", "M-896", "M-996", "M-2196", "M-895", "M-200", "M-108", "M-210", "M-340", "M-886", "M-52", "M-2377", "CR-901", "Not sure / Need help"],
+    "applicationOptions": ["Coatings", "Plastics", "Masterbatch", "Printing Inks", "Paper", "Specialty Materials", "Other / Not sure"],
+    "summary": {
+      "heading": "Please review the highlighted fields.",
+      "body": "Correct the information below and try again. Your other entries are still here."
+    },
+    "errors": {
+      "grade_empty": "Select a product or grade, or choose “Not sure / Need help.”",
+      "application_empty": "Select an application.",
+      "quantity_invalid": "Enter a quantity greater than 0.",
+      "destination_empty": "Enter a destination country.",
+      "destination_too_long": "Keep the destination country to 100 characters or fewer.",
+      "port_too_long": "Keep the destination port or city to 120 characters or fewer.",
+      "company_missing": "Enter your company name.",
+      "company_too_long": "Keep your company name to 160 characters or fewer.",
+      "contact_missing": "Enter your name.",
+      "contact_too_long": "Keep your name to 100 characters or fewer.",
+      "email_empty": "Enter your business email.",
+      "email_invalid": "Enter a business email in the format name@company.com.",
+      "phone_too_long": "Keep the phone or WhatsApp number to 40 characters or fewer.",
+      "website_invalid": "Enter a complete website address or remove this optional value.",
+      "requirements_too_long": "Keep additional requirements to 2,000 characters or fewer."
+    },
+    "helpers": {
+      "port": "Add this only if it is already known.",
+      "email": "Use the business email where we can respond to this request.",
+      "requirements": "Add any non-confidential specification, packaging, schedule, document or other context that may help us review the request."
+    },
+    "privacy": {
+      "lead": "We use the information you provide to review and respond to your quotation request.",
+      "linkLead": "Learn more in our",
+      "linkLabel": "Privacy Policy"
+    },
+    "submitLabel": "REQUEST QUOTE",
+    "submittingLabel": "SUBMITTING…",
+    "failure": {
+      "heading": "Something went wrong while submitting your request.",
+      "body": "Your information is still here. Please try again.",
+      "action": "TRY AGAIN"
+    },
+    "unavailable": {
+      "heading": "The quotation request form is temporarily unavailable.",
+      "body": "No request has been submitted. Please return later and try again."
+    }
+  },
+  "otherRequests": {
+    "heading": "Other request types",
+    "body": "Use the separate request form when you need a sample review or controlled document request instead of a quotation.",
+    "links": [
+      { "label": "Request a Sample", "href": "/request-sample/" },
+      { "label": "Request Documents", "href": "/request-documents/" }
+    ]
+  }
+}

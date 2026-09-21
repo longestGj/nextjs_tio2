@@ -2,6 +2,7 @@ import type { MalaysiaProductDetailDto } from "./content/product-detail-v01-type
 import type { MalaysiaHomepageDto } from "./content/homepage-v04-types";
 import type { MalaysiaProductHubDto } from "./content/product-hub-v01-types";
 import type { MalaysiaPrivacyPageDto } from "./content/privacy-types";
+import type { MalaysiaRfqPageDto } from "./content/rfq-types";
 const origin = "https://tio2products.com";
 export function JsonLd({ value }: { value: unknown }) {
   return (
@@ -186,6 +187,37 @@ export function privacySchema(p: MalaysiaPrivacyPageDto) {
         itemListElement: [
           ["Home", "/"],
           ["Privacy Policy", "/privacy-policy/"],
+        ].map(([name, path], index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name,
+          item: origin + path,
+        })),
+      },
+    ],
+  };
+}
+
+export function rfqSchema(p: MalaysiaRfqPageDto) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": p.seo.canonical + "#webpage",
+        url: p.seo.canonical,
+        name: p.seo.title,
+        description: p.seo.description,
+        inLanguage: "en",
+        isPartOf: ref("website"),
+        breadcrumb: { "@id": p.seo.canonical + "#breadcrumb" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": p.seo.canonical + "#breadcrumb",
+        itemListElement: [
+          ["Home", "/"],
+          ["Request a Quote", "/request-a-quote/"],
         ].map(([name, path], index) => ({
           "@type": "ListItem",
           position: index + 1,
