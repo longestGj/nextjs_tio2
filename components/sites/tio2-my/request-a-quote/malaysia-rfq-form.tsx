@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useEffect,
   useRef,
   useState,
   useSyncExternalStore,
@@ -109,9 +110,20 @@ function MalaysiaRfqFormInner({
   const [submissionState, setSubmissionState] = useState<
     "ready" | "submitting" | "unconfirmed" | "unavailable"
   >(receiverAvailable ? "ready" : "unavailable");
+  const [hydrated, setHydrated] = useState(false);
   const summaryRef = useRef<HTMLDivElement>(null);
   const failureRef = useRef<HTMLDivElement>(null);
   const pendingRef = useRef(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (submissionState === "unconfirmed") {
+      failureRef.current?.focus();
+    }
+  }, [submissionState]);
 
   if (!receiverAvailable || submissionState === "unavailable") {
     return (
@@ -215,10 +227,8 @@ function MalaysiaRfqFormInner({
         return;
       }
       setSubmissionState("unconfirmed");
-      requestAnimationFrame(() => failureRef.current?.focus());
     } catch {
       setSubmissionState("unconfirmed");
-      requestAnimationFrame(() => failureRef.current?.focus());
     } finally {
       pendingRef.current = false;
     }
@@ -425,7 +435,7 @@ function MalaysiaRfqFormInner({
       <button
         className={styles.submitButton}
         type="submit"
-        disabled={submissionState === "submitting"}
+        disabled={!hydrated || submissionState === "submitting"}
       >
         {submissionState === "submitting"
           ? form.submittingLabel

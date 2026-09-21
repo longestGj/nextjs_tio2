@@ -17,6 +17,8 @@ jobs:
     name: Test production candidate
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: 00000000-0000-4000-8000-000000000001
     steps:
       - name: Check out triggering commit
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262

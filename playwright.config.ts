@@ -1,12 +1,17 @@
 import { defineConfig } from "@playwright/test";
+
+const requestedPort = process.env.PLAYWRIGHT_PORT;
+const port = requestedPort && /^\d{2,5}$/.test(requestedPort) ? requestedPort : "8333";
+const baseURL = `http://127.0.0.1:${port}`;
+
 export default defineConfig({
   testDir: "./tests",
   workers: 2,
   expect: { timeout: 10_000 },
-  use: { baseURL: "http://127.0.0.1:8333", channel: "chrome" },
+  use: { baseURL, channel: "chrome" },
   webServer: {
-    command: "npm run preview",
-    url: "http://127.0.0.1:8333",
+    command: `python -m http.server ${port} --bind 127.0.0.1 --directory out`,
+    url: baseURL,
     reuseExistingServer: false,
     stderr: "ignore",
     stdout: "ignore",
